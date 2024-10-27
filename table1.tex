@@ -1,0 +1,275 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+% Package declarations
+\usepackage{multirow}
+\usepackage{geometry}
+\geometry{margin=.7in}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+\usepackage{dsfont}
+
+% Document begins
+\begin{document}
+
+\begin{table}
+\centering
+\caption{Regression Results}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+ & Cognitive & Social \\
+\midrule
+Low-SEB share in classroom & 0.111*** & 0.119*** \\
+ & (0.000) & (0.000) \\
+ \\
+Referrer is Low-SEB & 0.049* & 0.053 \\
+ & (0.063) & (0.116) \\
+ \\
+Treatment: Quota & -0.026 & -0.042* \\
+ & (0.224) & (0.094) \\
+ \\
+Skill difference & 0.058*** & 0.001 \\
+ & (0.005) & (0.970) \\
+ \\
+Constant & 0.522*** & 0.539*** \\
+ & (0.000) & (0.000) \\
+\midrule
+Observations & 691 & 691 \\
+R-squared & 0.141 & 0.140 \\
+\midrule
+\multicolumn{3}{l}{* $p<0.1$, ** $p<0.05$, *** $p<0.01$} \\
+\multicolumn{3}{l}{Standard errors in parentheses} \\
+\multicolumn{3}{l}{Standard errors clustered at the classroom level} \\
+\end{tabular}
+\label{tab:regression-results-cognitive}
+\end{table}
+
+\begin{table}
+\centering
+\caption{Logistic Regression Results}
+\begin{tabular}{@{}lc@{}}
+\toprule
+Dep. Var. & Referral SEB (Combined) \\
+\midrule
+Low-SEB share in classroom & 0.461*** \\
+ & (0.000) \\
+ \\
+Referrer is Low-SEB & 0.549*** \\
+ & (0.000) \\
+ \\
+Treatment: Quota & -0.069 \\
+ & (0.386) \\
+ \\
+Cognitive skill Cohen's d difference & 0.268*** \\
+ & (0.005) \\
+ \\
+Social skill Cohen's d difference & -0.331*** \\
+ & (0.000) \\
+ \\
+SEB guessing accuracy & 0.217*** \\
+ & (0.000) \\
+ \\
+Constant & -0.102 \\
+ & (0.160) \\
+\midrule
+Observations & 3,915 \\
+Pseudo R-squared & 0.064 \\
+\midrule
+\multicolumn{2}{l}{* $p<0.1$, ** $p<0.05$, *** $p<0.01$} \\
+\multicolumn{2}{l}{p-values in parentheses} \\
+\multicolumn{2}{l}{Standard errors clustered at referrer level} \\
+\end{tabular}
+\label{tab:regression-results-combined}
+\end{table}
+
+\begin{table}
+\centering
+\caption{Regression Results for Cognitive and Social Skills}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+ Dep. Var. & Cognitive & Social \\
+\midrule
+Low-SEB share in classroom & 0.119*** & 0.125*** \\
+ & (0.000) & (0.000) \\
+ \\
+Referrer is Low-SEB  & 0.037 & 0.041 \\
+ & (0.154) & (0.226) \\
+ \\
+Treatment: Quota  & -0.029 & -0.044* \\
+ & (0.178) & (0.087) \\
+ \\
+Skill difference  & 0.055*** & -0.008 \\
+ & (0.005) & (0.753) \\
+ \\
+SEB guessing ability  & 0.081*** & 0.064*** \\
+ & (0.000) & (0.003) \\
+ \\
+Constant & 0.420*** & 0.461*** \\
+ & (0.000) & (0.000) \\
+\midrule
+Observations & 687 & 687 \\
+R-squared & 0.182 & 0.164 \\
+\midrule
+\multicolumn{3}{l}{* $p<0.1$, ** $p<0.05$, *** $p<0.01$} \\
+\multicolumn{3}{l}{p-values in parentheses} \\
+\multicolumn{3}{l}{Standard errors clustered at the classroom level} \\
+\end{tabular}
+\label{tab:regression-results-final}
+\end{table}
+
+
+
+\begin{table}
+\centering
+\caption{Regression Results for Social Skills}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \multicolumn{2}{c}{Robust SE} & \multicolumn{2}{c}{Clustered SE} \\
+ \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+ & (1) & (2) & (3) & (4) \\ \midrule
+Low-SEB share ($\theta_i$) & 0.099*** & 0.106*** & 0.099*** & 0.106*** \\
+ & (0.000) & (0.000) & (0.000) & (0.000) \\
+ \\
+Referrer is Low-SEB ($\mathds{1}_{s,i}$) & 0.042* & 0.031 & 0.042 & 0.031 \\
+ & (0.084) & (0.208) & (0.181) & (0.342) \\
+ \\
+Treatment: Quota ($\mathds{1}_{c,i}$) & -0.043* & -0.044* & -0.043* & -0.044* \\
+ & (0.069) & (0.058) & (0.076) & (0.073) \\
+ \\
+Skill difference ($\Delta_{i}$) & -0.099*** & -0.099*** & -0.099** & -0.099** \\
+ & (0.000) & (0.000) & (0.020) & (0.019) \\
+ \\
+SEB guessing ability ($\rho_i$) & & 0.064*** & & 0.064*** \\
+ & & (0.000) & & (0.002) \\
+ \\
+Constant & 0.524*** & 0.445*** & 0.524*** & 0.445*** \\
+ & (0.000) & (0.000) & (0.000) & (0.000) \\ \midrule
+Observations & 691 & 687 & 691 & 687 \\
+R-squared & 0.158 & 0.182 & 0.158 & 0.182 \\ \midrule
+\multicolumn{5}{l}{* $p<0.1$, ** $p<0.05$, *** $p<0.01$} \\
+\multicolumn{5}{l}{p-values in parentheses} \\
+\multicolumn{5}{l}{Clustered SE at classroom level}
+\end{tabular}
+\label{tab:regression-results-social}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{table}
+\centering
+\caption{Regression Results for Cognitive and Social Skills - Full Model}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \begin{tabular}[c]{@{}c@{}}Cognitive\\ Cohen's d\end{tabular} & \begin{tabular}[c]{@{}c@{}}Cognitive\\ Full\end{tabular} & \begin{tabular}[c]{@{}c@{}}Social\\ Cohen's d\end{tabular} & \begin{tabular}[c]{@{}c@{}}Social\\ Full\end{tabular} \\ \midrule
+Above median share & 0.117*** & 0.119*** & 0.096*** & 0.096*** \\
+(standardized) & (0.000) & (0.000) & (0.000) & (0.000) \\
+ \\
+Referrer is Low-SEB & 0.011 & 0.001 & 0.004 & -0.004 \\
+ & (0.660) & (0.960) & (0.880) & (0.870) \\
+ \\
+Cohen's \textit{d} $\Delta$ & -0.052* & -0.049* & -0.207*** & -0.211*** \\
+ & (0.050) & (0.060) & (0.000) & (0.000) \\
+ \\
+Referrer SEB guessing accuracy &  & 0.057*** &  & 0.037*** \\
+(standardized) &  & (0.000) &  & (0.000) \\
+ \\
+Constant & 0.485*** & 0.490*** & 0.471*** & 0.475*** \\
+ & (0.000) & (0.000) & (0.000) & (0.000) \\ \midrule
+Observations & 691 & 687 & 691 & 687 \\
+R-squared & 0.144 & 0.178 & 0.170 & 0.182 \\ \midrule
+\multicolumn{5}{l}{* $p<0.1$, ** $p<0.05$, *** $p<0.01$} \\
+\end{tabular}
+\label{tab:regression-results-all}
+\end{table}
+
+
+\begin{table}
+\centering
+\caption{Regression Results for Cognitive Skill $\Delta$ Models}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \begin{tabular}[c]{@{}c@{}}Baseline\\ Model\end{tabular} & \begin{tabular}[c]{@{}c@{}}Cohen's d\\ Model\end{tabular} & \begin{tabular}[c]{@{}c@{}}Median\\ Model\end{tabular} & \begin{tabular}[c]{@{}c@{}}75th Percentile\\ Model\end{tabular} \\ \midrule
+Above median share & 0.110*** & 0.117*** & 0.129*** & 0.108*** \\
+ (standardized)& (0.000) & (0.000) & (0.000) & (0.000) \\
+ \\
+Referrer is Low-SEB & 0.016 & 0.011 & 0.003 & 0.016 \\
+ & (0.521) & (0.656) & (0.917) & (0.499) \\
+ \\
+Cohen's d $\Delta$ &  & -0.052* &  &  \\
+ &  & (0.051) &  &  \\
+ \\
+Median difference $\Delta$ &  &  & -0.007*** &  \\
+ &  &  & (0.000) &  \\
+ \\
+75th percentile difference $\Delta$ &  &  &  & 0.001 \\
+ &  &  &  & (0.554) \\
+ \\
+Constant & 0.496*** & 0.485*** & 0.475*** & 0.501*** \\
+ &  &  &  &  \\ \midrule
+Observations & 691 & 691 & 691 & 691 \\
+R-squared & 0.140 & 0.144 & 0.161 & 0.140 \\ \midrule
+\multicolumn{5}{l}{* $p<0.1$, ** $p<0.05$, *** $p<0.01$} \\
+\end{tabular}
+\label{tab:regression-results2}
+\end{table}
+
+\begin{table}
+\centering
+\caption{Regression Results for Social Skill $\Delta$ Models}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \begin{tabular}[c]{@{}c@{}}Baseline\\ Model\end{tabular} & \begin{tabular}[c]{@{}c@{}}Cohen's d\\ Model\end{tabular} & \begin{tabular}[c]{@{}c@{}}Median\\ Model\end{tabular} & \begin{tabular}[c]{@{}c@{}}75th Percentile\\ Model\end{tabular} \\ \midrule
+Above median share & 0.081*** & 0.096*** & 0.110*** & 0.091*** \\
+ (standardized)& (0.000) & (0.000) & (0.000) & (0.000) \\
+ \\
+Referrer is Low-SEB & 0.040 & 0.004 & 0.013 & 0.016 \\
+ & (0.123) & (0.880) & (0.596) & (0.536) \\
+ \\
+Cohen's d $\Delta$ &  & -0.207*** &  &  \\
+ &  & (0.000) &  &  \\
+ \\
+Median difference $\Delta$ &  &  & -0.011*** &  \\
+ &  &  & (0.000) &  \\
+ \\
+75th percentile difference $\Delta$ &  &  &  & -0.011*** \\
+ &  &  &  & (0.000) \\
+ \\
+Constant & 0.501*** & 0.471*** & 0.478*** & 0.483*** \\
+ &  &  &  &  \\ \midrule
+Observations & 691 & 691 & 691 & 691 \\
+R-squared & 0.077 & 0.170 & 0.140 & 0.138 \\ \midrule
+\multicolumn{5}{l}{* $p<0.1$, ** $p<0.05$, *** $p<0.01$} \\
+\end{tabular}
+\label{tab:regression-results-eye}
+\end{table}
+
+
+
+
+
+\begin{equation}
+Y_{i,s,c} = \beta_0 + \beta_1 \theta_i + \beta_2 \Delta_{i} + \beta_3 \mathds{1}_{s,i} + \beta_4 \mathds{1}_{c,i} + \beta_5 \rho_i + \varepsilon_{i,s,c}
+\end{equation}
+\text{where:}
+\begin{itemize}
+  \item $Y_{i,s,c}$ is the referral low-SEB share for individual $i$, with SEB status $s$, in condition $c$
+  \item $\theta_i$ is the standardized share of low-SEB in the classroom for individual $i$
+  \item $\Delta_{i}$ is the standardized ratio of above median low-SEB share to the  low-SEB share at the classroom level
+  \item $\mathds{1}_{s,i}$ indicates if individual $i$ is low-SEB
+  \item $\mathds{1}_{c,i}$ indicates if individual $i$ is in the Quota condition
+  \item $\rho_i$ is the standardized ratio of accurate low-SEB guesses to the actual low-SEB share in the \\ classroom for individual $i$
+  \item $\varepsilon_{i,s,c}$ is the error term capturing all other factors influencing referral decisions
+\end{itemize}
+
+
+\end{document}
