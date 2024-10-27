@@ -155,55 +155,52 @@ Has Scholarship & 1\% & 1\% & \multicolumn{1}{c}{0.916} \\
 \subsection{Individual Performance}
 Our first goal is understanding which individuals get referred more often. Because every referrer nominates 3 classmates per skill, analyzing only the extensive margin, i.e., whether an individual gets a referral, is not very informative.\footnote{Only 86 of the 849 students (10\%) never get a referral for either skill.} We consider the fraction of referrals received by total number of referrals that could have been received instead (see Appendix Figure \ref{fig:referral_fraction} for the distribution). This approach combines the intensive and extensive margins and also makes comparisons across classrooms with different sizes easier.\footnote{The number of participating students in a classroom mechanically drives the number of total referrals that could be received by a classmate.} Our three dependent variables are fractions of: (i) cognitive skill referrals, (ii) social skill referrals, and (iii) all referrals.  
 
-Under performance pay, higher performing classmates in skill tests should collect more referrals. However, it is not clear whether skills can be observed by referrers.\footnote{We did not provide skill feedback during the experiment. Feedback during sessions could have contaminated referral choices because participants would have incentive to share skill test results.} We therefore include other common academic performance measures that may affect our dependent variables. These measures are standardized scores of GPA and centralized entry exam to the university, similar to SAT/ACT. Regressions include $\mathbf{X}_{i}$ for all the remaining individual correlates from Table \ref{tab:demographic-comparison}. We estimate three referral fractions $y_{i}$: 
+Under performance pay, higher performing classmates in skill tests should collect more referrals. However, it is not clear whether skills can be observed by referrers.\footnote{We did not provide skill feedback during the experiment. Feedback during sessions could have contaminated referral choices because participants would have incentive to share skill test results.} We therefore include other common academic performance measures that may affect our dependent variables. These measures are standardized scores of GPA and centralized entry exam to the university, similar to SAT/ACT. We control for basic demographics (age, gender, semester) from Table \ref{tab:demographic-comparison} in $\mathbf{X}_{i}$, but exclude socioeconomic characteristics which will be examined in the next section. We estimate three referral fractions $y_{i}$: 
 \begin{multline}
     y_{i} = \beta_0 + \beta_1{GPA}_{i} + \beta_2{E.Exam}_{i} + \beta_3{Cognitive}_{i} + \beta_4{Social}_{i} + \mathbf{X}_{i}\boldsymbol{\gamma} + \epsilon_{i}    
 \end{multline}
 Table \ref{tab:regression-results1} illustrates our first set of findings. Our comparison of interest is between skills and other academic performance measures. Conditional on academic performance and individual correlates specified above, there is no statistically significant difference between skill level and the fraction of referrals received for that skill (columns 1-2). This holds true also when both skills are aggregated (column 3). We emphasize aggregated fraction of referrals because most referrals overlap across skills, illustrated in Appendix Figure \ref{fig:same_}. Point estimates for skills are very close to zero. The 95\% confidence intervals rule out that a one standard deviation increase in either skill causes more than a 1 percentage point difference in the fraction of referrals received. This is an order of magnitude smaller margin when compared to the effects of a one standard deviation increase in GPA or Entry Exam. 
 
-A one standard deviation increase in GPA increases the fraction of referrals by about 3 percentage points on a base rate of 11\% across the three dependent variables. This is a modest 27-percent increase in the fraction of referrals received.\footnote{The average participant in the average classroom with about 21 students receives 2.3 referrals. A one standard deviation increase in GPA increases this number to 2.9 referrals.} A one standard deviation increase in the Entry Exam score increases the fraction of referrals by about 2.4 percentage points for cognitive skills, with a markedly lower 1.1 percentage points for social skills. Smaller point estimates on performance metrics and lower explained variance suggests our referral model performs better for cognitive skill. Social skill referrals are seemingly made with other considerations not entirely captured in the model. The results suggest participants are not referring classmates who score high on skill tests but refer instead based on their academic performance.\footnote{Our findings are robust to: (i) restricting the observations to the baseline condition (see Appendix Table \ref{tab:regression-results-1-appendix1}), and (ii) including classroom fixed effects (Appendix Table \ref{tab:regression-results-1-appendix2}).} This may be due to classmates being able to observe academic performance of peers but not their skill test results.
+A one standard deviation increase in GPA increases the fraction of referrals by about 3 percentage points on a base rate of 12\% across the three dependent variables. This is a modest 25-percent increase in the fraction of referrals received.\footnote{The average participant in the average classroom with about 21 students receives 2.3 referrals. A one standard deviation increase in GPA increases this number to 2.9 referrals.} A one standard deviation increase in the Entry Exam score increases the fraction of referrals by about 2.4 percentage points for cognitive skills, with a markedly lower 1 percentage point for social skills. Smaller point estimates on performance metrics and lower explained variance suggests our referral model performs better for cognitive skill. Social skill referrals are seemingly made with other considerations not entirely captured in the model. The results suggest participants are not referring classmates who score high on skill tests but refer instead based on their academic performance.\footnote{Our findings are robust to: (i) restricting the observations to the baseline condition (see Appendix Table \ref{tab:regression-results-1-appendix1}), and (ii) including classroom fixed effects (Appendix Table \ref{tab:regression-results-1-appendix2}).} This may be due to classmates being able to observe academic performance of peers but not their skill test results.
 
 % Sensitivity analysis incrementally adding academic performance measures is in Appendix Table \ref{tab:regression-results-1-appendix1-cognitive} and Table \ref{tab:regression-results-1-appendix1-social}.
 
 \begin{table}
   \centering
   \begin{threeparttable}
-  \caption{Fraction of referrals conditional on performance and social distance}\label{tab:regression-results1}
-  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+  \caption{Fraction of referrals conditional on performance}\label{tab:regression-results1}
+  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
   \toprule
-  & (1) & (2) & (3) & (4) \\
-  Dep. Var. & Cognitive & Social & All & All \\
+  & (1) & (2) & (3) \\
+  Dep. Var. & Cognitive & Social & All \\
   \midrule
-  GPA & 0.03253\tnote{***} & 0.02759\tnote{***} & 0.03006\tnote{***} & 0.03336\tnote{***} \\
-  & (0.00471) & (0.00494) & (0.00444) & (0.00520) \\
-  Entry Exam & 0.02455\tnote{***} & 0.01113\tnote{*} & 0.01784\tnote{***} & 0.01631\tnote{***} \\
-  & (0.00596) & (0.00583) & (0.00558) & (0.00523) \\
-  Cognitive & -0.00413 & -0.00412 & -0.00413 & -- \\
-  & (0.00535) & (0.00517) & (0.00499) &  \\
-  Social & 0.00267 & 0.00219 & 0.00243 & -- \\
-  & (0.00414) & (0.00434) & (0.00386) &  \\
-  Faculty & -- & -- & -- & 0.02794\tnote{***} \\
-  &  &  &  & (0.00568) \\
-  Constant & 0.11979\tnote{***} & 0.10607\tnote{***} & 0.11293\tnote{***} & 0.08904\tnote{**} \\
-  & (0.04292) & (0.03959) & (0.03831) & (0.03675) \\
+  GPA & 0.03211\tnote{***} & 0.02723\tnote{***} & 0.02967\tnote{***} \\
+  & (0.00469) & (0.00489) & (0.00441) \\
+  Entry Exam & 0.02430\tnote{***} & 0.01021\tnote{*} & 0.01725\tnote{***} \\
+  & (0.00589) & (0.00574) & (0.00551) \\
+  Cognitive & -0.00383 & -0.00395 & -0.00389 \\
+  & (0.00533) & (0.00516) & (0.00497) \\
+  Social & 0.00363 & 0.00306 & 0.00335 \\
+  & (0.00403) & (0.00427) & (0.00378) \\
+  Constant & 0.12379\tnote{***} & 0.11188\tnote{***} & 0.11783\tnote{***} \\
+  & (0.04306) & (0.03910) & (0.03814) \\
   \midrule
-  Individual Controls & Yes & Yes & Yes & Yes \\
-  Classroom FE & No & No & No & Yes \\
-  Observations & 631 & 631 & 631 & 631 \\
-  R-squared & 0.162 & 0.107 & 0.147 & 0.182 \\
+  Baseline controls & Yes & Yes & Yes \\
+  Observations & 633 & 633 & 633 \\
+  R-squared & 0.157 & 0.102 & 0.141 \\
   \bottomrule
   \end{tabular*}
   \begin{tablenotes}[flushleft]
   \footnotesize
-  \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Dependent variables are the fraction of referrals received relative to potential referrals for cognitive (1), social (2), and all referrals (3, 4). Controls include first generation status, SES, gender, ethnicity, rural status, age, and semester. Sample is restricted to participants with complete administrative and experimental data.
+  \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Dependent variables are the fraction of referrals received relative to potential referrals for cognitive (1), social (2), and all referrals (3). Controls include gender, age and semester. Sample is restricted to participants with complete administrative and experimental data.
   \end{tablenotes}
   \end{threeparttable}
   \end{table}
 
   \subsection{Social Class}
-  In our main empirical specification, we document whether there is social class homophily in referrals, conditional on performance and classroom composition.\footnote{See \citet{mcpherson2001birds} for a discussion on homophily in general, for evidence on social class homophily see \citet{chetty2022social,chetty2022socialb}. For experimental evidence on a different type of homophily (gender) in referrals see \citet{beaman_job_2018}.} We add two individual measures as independent variables: (i) the standardized ratio of how accurate the participant guessed the social class of their peers, and (ii) their social class (a previous control variable correlated with $Accuracy$). Our dependent variable is the same as in previous specifications. We first decompose the dependent variable by the social class of the referrer and then consider the combined (previous) specification. Remaining individual correlates are included in $\mathbf{X}_{i}$. We estimate three referral fractions $y_{i}$: 
+  In our main empirical specification, we document whether there is social class homophily in referrals, conditional on performance and classroom composition.\footnote{See \citet{mcpherson2001birds} for a discussion on homophily in general, for evidence on social class homophily see \citet{chetty2022social,chetty2022socialb}. For experimental evidence on a different type of homophily (gender) in referrals see \citet{beaman_job_2018}.} We add participant social class and the fraction of low-SES classmates as independent variables to our earlier specification. Our dependent variable is the same as before previous, but decomposed by the social class of referrers. We consider the combined specification later. Remaining individual correlates are included in $\mathbf{X}_{i}$. We estimate three referral fractions $y_{i}$: 
   \begin{equation}
-    y_{i} = \beta_0 + \beta_1{GPA}_{i} + \beta_2{E.Exam}_{i} + \beta_3{Faculty}_{i} +\beta_4{SES}_{i} +\beta_5{Accuracy}_{i} + \mathbf{X}_{i}\boldsymbol{\gamma} + \epsilon_{i}    
+    y_{i} = \beta_0 + \beta_1{GPA}_{i} + \beta_2{E.Exam}_{i} + \beta_3{SES}_{i} + \mathbf{X}_{i}\boldsymbol{\gamma} + \epsilon_{i}    
   \end{equation}
 
 \subsection{Social Distance}
