@@ -321,6 +321,11 @@ INPUT ./same_referral.png
 INPUT ./same_referral.png
 INPUT ./same_referral.png
 INPUT ./same_referral.png
+INPUT ./gpa.png
+INPUT ./gpa.png
+INPUT ./gpa.png
+INPUT ./gpa.png
+INPUT ./gpa.png
 INPUT ./Ravens Survey.jpg
 INPUT ./Ravens Survey.jpg
 INPUT ./Ravens Survey.jpg
@@ -370,6 +375,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
