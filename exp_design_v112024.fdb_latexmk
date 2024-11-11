@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex exp_design_v112024"] 1730872780.96018 "exp_design_v112024.aux" "exp_design_v112024.bbl" "exp_design_v112024" 1730874267.62511 0
+["bibtex exp_design_v112024"] 1731330537.29712 "exp_design_v112024.aux" "exp_design_v112024.bbl" "exp_design_v112024" 1731330540.82815 0
   "./referrals.bib" 1730058609.05444 19836 8ff253a638351e0b091b1718f5cbc438 ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "exp_design_v112024.aux" 1730874267.25319 11387 1d9b3bf7220aeb67b2207bf432898505 "pdflatex"
+  "exp_design_v112024.aux" 1731330540.45008 12477 ef872f6f8c0714f1337534341ff98643 "pdflatex"
   (generated)
   "exp_design_v112024.bbl"
   "exp_design_v112024.blg"
   (rewritten before read)
-["pdflatex"] 1730874264.41521 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v112024.tex" "exp_design_v112024.pdf" "exp_design_v112024" 1730874267.62534 0
-  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v112024.tex" 1730874262.80069 89424 745091576f14d93a0995e6d34fdc5c47 ""
+["pdflatex"] 1731330537.42802 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v112024.tex" "exp_design_v112024.pdf" "exp_design_v112024" 1731330540.82836 0
+  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v112024.tex" 1731330536.17258 95709 81023b2fa340fac6e7d59c6345c6761d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1136768653 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
@@ -186,16 +186,17 @@
   "3Aghast-J.jpg" 1730058608.94141 24580 92357bedc173da70fc22f93697e6ecff ""
   "Ravens Survey.jpg" 1730058608.94294 129791 78a7445379cb86a3ed032fd0ded7849c ""
   "baseline.png" 1730058608.94926 1576207 2431a10fc4766cdc96f2c0f4f893e3bc ""
-  "exp_design_v112024.aux" 1730874267.25319 11387 1d9b3bf7220aeb67b2207bf432898505 "pdflatex"
-  "exp_design_v112024.bbl" 1730872781.08964 16623 b7784bd5560f1a9d24fe2afb2e5b442b "bibtex exp_design_v112024"
-  "exp_design_v112024.out" 1730874267.26706 1992 391872bf86eabdda61db53f0e08b4042 "pdflatex"
-  "exp_design_v112024.tex" 1730874262.80069 89424 745091576f14d93a0995e6d34fdc5c47 ""
+  "exp_design_v112024.aux" 1731330540.45008 12477 ef872f6f8c0714f1337534341ff98643 "pdflatex"
+  "exp_design_v112024.bbl" 1731330537.42569 16623 b7784bd5560f1a9d24fe2afb2e5b442b "bibtex exp_design_v112024"
+  "exp_design_v112024.out" 1731330540.45679 2043 cae273a6b1b2b342099ae1a94d7eb2b7 "pdflatex"
+  "exp_design_v112024.tex" 1731330536.17258 95709 81023b2fa340fac6e7d59c6345c6761d ""
   "figure-1.jpg" 1730058609.03831 125747 3cbb04806ce3fca1fcb8b3c1641de7d6 ""
   "gpa.png" 1730190276.24664 187359 b0faa0315138bf67ec38daacf0e2dee2 ""
   "guessing.png" 1730058609.04495 1450422 c5810da791ee926cf6e9a9f73704e9d5 ""
   "quota.png" 1730058609.05163 1110355 9f2bc1c07c2540ca56f00b99f20169ed ""
-  "referral_dist.png" 1730716832.73287 117199 fc5a56acb8255af0b1ba96451a853c55 ""
+  "referral_dist.png" 1731308354.87104 116163 05792401f11d4fe53ff04e20303eab5f ""
   "same_ref.png" 1730720936.05978 112729 b549ef40ae35dfe3ad94530ea09a15d8 ""
+  "skillref_dist.png" 1731308367.75444 116687 3fb2c6ca3a1583bac857ce83f874e054 ""
   "strato.png" 1730058609.05735 90308 a493a22f402206399792adbd267f3522 ""
   (generated)
   "exp_design_v112024.aux"
