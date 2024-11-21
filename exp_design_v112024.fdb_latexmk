@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex exp_design_v112024"] 1731330537.29712 "exp_design_v112024.aux" "exp_design_v112024.bbl" "exp_design_v112024" 1731330540.82815 0
+["bibtex exp_design_v112024"] 1731998554.79042 "exp_design_v112024.aux" "exp_design_v112024.bbl" "exp_design_v112024" 1731999695.95665 0
   "./referrals.bib" 1730058609.05444 19836 8ff253a638351e0b091b1718f5cbc438 ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "exp_design_v112024.aux" 1731330540.45008 12477 ef872f6f8c0714f1337534341ff98643 "pdflatex"
+  "exp_design_v112024.aux" 1731999695.54954 12799 3e5e9152671a7da10873b98107608dbd "pdflatex"
   (generated)
   "exp_design_v112024.bbl"
   "exp_design_v112024.blg"
   (rewritten before read)
-["pdflatex"] 1731330537.42802 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v112024.tex" "exp_design_v112024.pdf" "exp_design_v112024" 1731330540.82836 0
-  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v112024.tex" 1731330536.17258 95709 81023b2fa340fac6e7d59c6345c6761d ""
+["pdflatex"] 1731999691.94939 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v112024.tex" "exp_design_v112024.pdf" "exp_design_v112024" 1731999695.95683 0
+  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v112024.tex" 1731999691.70055 107800 a089c2bf4a2f5615e92b9a5754295f0c ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1136768653 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
@@ -74,6 +74,8 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1248133631 32442 c975af247b6702f7ca0c299af3616b80 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb" 1248133631 36310 f5ddc6715cc60deb16d9db5ded6a9391 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
@@ -186,17 +188,20 @@
   "3Aghast-J.jpg" 1730058608.94141 24580 92357bedc173da70fc22f93697e6ecff ""
   "Ravens Survey.jpg" 1730058608.94294 129791 78a7445379cb86a3ed032fd0ded7849c ""
   "baseline.png" 1730058608.94926 1576207 2431a10fc4766cdc96f2c0f4f893e3bc ""
-  "exp_design_v112024.aux" 1731330540.45008 12477 ef872f6f8c0714f1337534341ff98643 "pdflatex"
-  "exp_design_v112024.bbl" 1731330537.42569 16623 b7784bd5560f1a9d24fe2afb2e5b442b "bibtex exp_design_v112024"
-  "exp_design_v112024.out" 1731330540.45679 2043 cae273a6b1b2b342099ae1a94d7eb2b7 "pdflatex"
-  "exp_design_v112024.tex" 1731330536.17258 95709 81023b2fa340fac6e7d59c6345c6761d ""
+  "exp_design_v112024.aux" 1731999695.54954 12799 3e5e9152671a7da10873b98107608dbd "pdflatex"
+  "exp_design_v112024.bbl" 1731998554.92763 16623 b7784bd5560f1a9d24fe2afb2e5b442b "bibtex exp_design_v112024"
+  "exp_design_v112024.out" 1731999695.55758 2250 f9d1f34eb70f95459364d568912de600 "pdflatex"
+  "exp_design_v112024.tex" 1731999691.70055 107800 a089c2bf4a2f5615e92b9a5754295f0c ""
   "figure-1.jpg" 1730058609.03831 125747 3cbb04806ce3fca1fcb8b3c1641de7d6 ""
   "gpa.png" 1730190276.24664 187359 b0faa0315138bf67ec38daacf0e2dee2 ""
   "guessing.png" 1730058609.04495 1450422 c5810da791ee926cf6e9a9f73704e9d5 ""
+  "overlapping.png" 1731671113.41046 113281 f64966672152763a73f583e5e436248f ""
   "quota.png" 1730058609.05163 1110355 9f2bc1c07c2540ca56f00b99f20169ed ""
-  "referral_dist.png" 1731308354.87104 116163 05792401f11d4fe53ff04e20303eab5f ""
+  "referral_dist.png" 1731393327.33013 113315 bfcc6b7a05bb2d2824b28db3829d4b79 ""
   "same_ref.png" 1730720936.05978 112729 b549ef40ae35dfe3ad94530ea09a15d8 ""
-  "skillref_dist.png" 1731308367.75444 116687 3fb2c6ca3a1583bac857ce83f874e054 ""
+  "ses_dist-sameandown.png" 1731581214.63659 116663 888209817a89b1680c424ba3b635d7f0 ""
+  "ses_dist.png" 1731997877.44907 187756 d8da1f14d7b5acf11aaaea1e241b49b4 ""
+  "skillref_dist.png" 1731393439.37374 115265 741b14f5aefc49817525b1ec93b8a4e1 ""
   "strato.png" 1730058609.05735 90308 a493a22f402206399792adbd267f3522 ""
   (generated)
   "exp_design_v112024.aux"
