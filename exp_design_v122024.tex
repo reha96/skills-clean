@@ -14,6 +14,7 @@
 \usepackage{siunitx}
 \usepackage{rotating}
 \usepackage{graphicx}
+\usepackage{bbm}
 \usepackage{subcaption}
 \usepackage{caption}
 \captionsetup{width=.8\textwidth}
@@ -155,122 +156,127 @@ Has Scholarship & 1\% & 1\% & \multicolumn{1}{c}{0.916} \\
 % After visiting all 34 classrooms, we sent private invitations to students who were absent during the scheduled sessions. These students received the survey link via their student email and had an additional week to participate.
 
 \section{Empirical Analysis}
-\subsection{How are referrals made?}
-\subsubsection*{Self-referrals}
-We begin with exploring the characteristics of referrals. We first identify self-referral instances.  33.8 percent of participants in the sample for cognitive and social skills self-referred, while explicitly instructed not to do so. In Appendix Table \ref{tab:self_ref} we compare the outcomes of the subsample who self-refer. Those who self-refer are 10 percent more likely to be low-SES, and have systematically lower cognitive skills (0.2 SD) and GPA (0.25 SD). As self-referrerals are not informative and add noise to our estimates, we drop these instances from our paired referral-referrer sample in subsequent analyses. Self-referrering participants' remaining referral choices are kept in the dataset.
-\subsubsection*{Overlapping referrals}
-Participants make 3 referrals per skill and can refer the same classmates twice, and thus referral diversity of may vary substantially between individuals. We show that 20.5 percent of referrers make unique referrals for both skills, and most make at least 2 overlapping referrals, in Appendix Figure \ref{fig:overlap}. In Appendix Table \ref{tab:overlap_ref} we compare the characteristics of referrers make unique referrals to the remainder of the sample. The results suggest minimal differences in GPA and social skill scores. Referrers who made no overlapping referrals have slightly higher cognitive skill scores and are 6.7 percent more likely to be high-SES. With most individuals making the overlapping referral choices, underlying participant beliefs would imply that classmates who have higher score in one skill should also have higher score in the other skill. Are these beliefs accurate? We find  modest ($\rho = 0.267$) correlation between the two skills, as indicated in Appendix Table \ref{tab:correlation}. To expand on whether making overlapping referrals is strategic, we turn to the incentives. Participants were incentivized to pick the top 3 performers in their classroom for both skills to earn a fixed bonus. Looking at the characteristics of these top skilled participants in Appendix Table \ref{tab:top_perf}, we show that only 5.6\% of the sample are actually in the top 3 for both skills. This share suggests only 1 in 3 participants are in the top 3 for both skills, conditional on being among the top 3 for one of the skills. These suggest making more than 1 overlapping referral decreases the chances to win the bonus.
-\subsection{Skills and Referrals}
-Our first goal is understanding which individuals get referred more often. We consider the percentage share of referrals received by total number of referrals that could have been received for a skill as our dependent variable (see Appendix Figure \ref{fig:referral_fraction_skill} for its distribution and construction). Because every referrer nominates 3 classmates per skill, analyzing only the extensive margin, i.e., whether an individual gets a referral, is not very informative.\footnote{Only 86 of the 849 students (10\%) never get a referral for either skill.} Our approach combines the intensive and extensive margins and also makes comparisons across classrooms with different sizes easier.\footnote{The number of participating students in a classroom mechanically drives the number of total referrals that could be received by a classmate. By normalizing referrals we focus on differences within instead of between classrooms.} Our three dependent variables are percentage shares of: (i) cognitive skill referrals, (ii) social skill referrals, and (iii) all referrals.
+\subsection*{Can peers identify skills?}
+Our first goal is understanding whether higher skilled individuals get more referrals. Because every referrer nominates 3 classmates per skill, analyzing only the extensive margin, i.e., whether an individual gets a referral, is not very informative.\footnote{Only 86 of the 849 students (10\%) never get a referral for either skill.} We consider the percentage share of referrals from individuals in Baseline condition as our dependent variable. This approach combines the intensive and extensive margins and also makes comparisons across classrooms with different sizes easier.\footnote{The number of participants in a classroom mechanically drives the number of total referrals that could be received by an individual. By normalizing referrals we focus on differences within classrooms.} Formally, we define the percentage share of  referrals received by individual $i$ from participants in classroom $c$ and in Baseline condition ($\forall j \in B_c$) for skill $s\in$ $\{Cognitive, Social\}$ as: 
 
-Under performance pay, higher performing classmates in skill tests should collect more referrals. However, it is not clear whether skills can be observed by referrers. We therefore include standardized GPA scores, a common academic performance indicator that may affect our dependent variables. GPA correlates weakly with skills (see Appendix Table \ref{tab:correlation}) and there are no statistically signicificant differences in GPA across SES (see Appendix Figure \ref{fig:gpa}). In $\mathbf{X}_{i}$, we control for demographics (age, gender, semester) from Table \ref{tab:demographic-comparison}, and for the fraction of classmates in the same academic program to address the selection issue into classrooms (see Appendix Table \ref{tab:program_sorting}). We exclude social class from our specification now to identify the relevant performance indicators that predict referrals first. We estimate three referral percentage shares $y_{i}$: 
-\begin{equation}\label{eq1}
-    y_{i} = \beta_0 + \beta_1{GPA}_{i} + \beta_2{Cognitive}_{i} + \beta_3{Social}_{i} + \mathbf{X}_{i}\boldsymbol{\gamma} + \epsilon_{i}    
-\end{equation}
-
-Table \ref{tab:regression-results1} illustrates our first set of findings. Our comparison of interest is between skills and GPA. Conditional on GPA and individual controls specified above, there is no statistically significant difference between skill level and the percentage share of referrals received for that skill (columns 1-2). This holds true also when referrals for both skills are aggregated (column 3). We emphasize aggregated percentage share of referrals because most referrals overlap across skills, as illustrated in Appendix Figure \ref{fig:same_}. In column 3, point estimates for skills are close to zero. The 95\% confidence intervals rule out that a one standard deviation increase in either skill causes more than a 1 percentage point difference in the percentage share of referrals received. This suggests referrals are not driven by skills. On the other hand, a one standard deviation increase in GPA increases the percentage share of referrals by about 3 percentage points on a base rate of 12\% across the three dependent variables. This is approximately a 25-percent increase in the percentage share of referrals received. Lower point estimates for social skill suggests GPA is a better predictor for cognitive skill referrals. The results suggest participants are not referring classmates who score high on skill tests but refer instead based on their academic performance as measured by GPA. This may be due to classmates being able to observe academic performance of peers but not their skill test results. Given the correlation structure (in Appendix Table \ref{tab:correlation}), referring high-GPA students to identify high-skill peers seems to not have worked. These findings taken together also explain the lack of skill differences between the sampled population of students and their referrals in our data.
+\begin{equation}
+    y_{ic}^s = \frac{\sum_{j \neq i} r_{ijc}^s}{n_c - \mathbbm{1}(i \in B_c)} \times 100
+    \end{equation}
+  
+where $n_c$ represents the number of participants in the Baseline condition in classroom $c$. The indicator $r_{ijc}^s$ takes value 1 if participant $j$ in the Baseline condition refers individual $i$ for skill $s$, and 0 otherwise, requiring both $i$ and $j$ to be in the same classroom $c$. The denominator $n_c - \mathbbm{1}(i \in B_c)$ accounts for the maximum possible referrals that individual $i$ could receive. If $i$ is in the Baseline condition ($\mathbbm{1}(i \in B_c)=1$), we subtract one from $n_c$ to account for the self-referral restriction.\footnote{We find that 33.8 percent of participants in the sample for cognitive and social skills self-referred, while explicitly instructed not to do so. In Appendix Table \ref{tab:self_ref} we compare the outcomes of the subsample who self-refer. Those who self-refer are 10 percent more likely to be low-SES, and have systematically lower cognitive skills (0.2 SD) and GPA (0.25 SD). As self-referrerals are not informative and add noise to our estimates, we drop these instances from our paired referral-referrer sample in subsequent analyses. Self-referrering participants' remaining referral choices are kept in the dataset.}
+This normalized measure represents the percentage of potential referrals actually received by each individual, adjusting for classroom size and treatment status. By construction, $y_{i}^s \in [0,100]$ for all $c$, and we can compare referrals across classrooms of different sizes. Appendix Figure \ref{fig:referral_fraction_skill} presents the distribution of our dependent variables and illustrates with an example. Under performance pay, higher performing classmates in skill tests should collect more referrals if classmates can succesfully identify skills. Our only independent variables are standardized skill test scores. We estimate referral percentage shares $y_{i}^{s}$: 
+\begin{equation}\label{skill}
+    y_{i}^{s} = \beta_{0}^{s} + \beta_{1}^{s}{Skill}_{i}^{s} + \epsilon_{i}^{s}    
+\end{equation} 
+Table \ref{tab:regression-results1} illustrates our first findings. The comparison of interest is the point estimates for different skills. In column (1), a one standard deviation increase in cognitive skill causes a 1.2 percentage point increase in the share of referrals received. On a base rate of 13\%, this is a modest increase of 9 percent. In column (2), 95\% confidence intervals rule out that a one standard deviation increase in the social skill result in more than a 1 percentage point difference in the share of referrals received. Participants have difficulties identifying skills in the Baseline condition, with modest recognition of cognitive and no recognition at all of social skills.
 
 \begin{table}[H]
   \centering
   \begin{threeparttable}
-  \caption{Percentage of referrals conditional on GPA and skills}\label{tab:regression-results1}
+  \caption{Share of referrals conditional on skill}\label{tab:regression-results1}
+  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+  \toprule
+  & (1) & (2) \\
+  & Cognitive & Social \\
+  \midrule
+  Skill & 1.197** & 0.037 \\
+  & (0.479) & (0.510) \\
+  Constant & 12.986*** & 13.049*** \\
+  & (0.653) & (0.521) \\
+  \midrule
+  Observations & 665 & 665 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} Classroom-level clusted standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Dependent variables are the percentage of referrals received relative to all referrals. ``Skill'' refers to standardized test scores for cognitive and social skills. Sample restricted 665 individuals for whom we have complete administrative and experimental data.
+  \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+In the absence of a clean skill-signal from their peers, participants may have referred classmates using proxies of skills. We define proxies as peer beliefs about strong correlates for skills. The most straightforward proxy for cognitive skills would be the ``good students'' in the classroom, as measured by GPA. However, as \citet{heckman2012hard} show, cognitive skills and grades are far from perfectly correlated and such beliefs may not be accurate. Indeed, in our sample, GPA correlates very weakly with skills (see Appendix Table \ref{tab:correlation}). We attempt to capture these beliefs by including standardized GPA scores as an independent variable in Equation (\ref{skill}) and re-estimate referral percentage shares $y_{i}^{s}$.
+
+Table \ref{tab:regression-results2} illustrates our findings. The comparison of interest is the difference between point estimates for skills and GPA. In column (1), a one standard deviation increase in cognitive skill causes a 0.9 percentage point increase in the share of referrals received when controlling for GPA. On a base rate of 12.8\%, this is a comparable increase in magnitude of about 7 percent to our previous estimate in Table \ref{tab:regression-results1}, and suggests cognitive skills have an independent direct effect for referrals. However, a one standard deviation increase in GPA causes a substantial 3.9 percentage point increase in the share of referrals received when controlling for cognitive skill. This is an increase of more than four times in terms of magnitude (30 percent) when compared to cognitive skill, and suggestive of the weight put in GPA in referrals. In column (2), 95\% confidence intervals rule out that a one standard deviation increase in the social skill result in more than a 1 percentage point difference in the share of referrals received. This finding is consistent with our previous estimate where participants cannot identify social skills. On the other hand, a one standard deviation increase in GPA causes a substantial 3.4 percentage point increase in the share of referrals received when controlling for social skill. This is a similar albeit slightly smaller increase of 26 percent in the share of referrals for social skill. For both skills, we find strong evidence for the GPA proxy for referral decisions. In the subsequent section we expand more on how referral decisions are made.
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Share of referrals conditional on skill and academic performance}\label{tab:regression-results2}
+  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+  \toprule
+  & (1) & (2) \\
+  & Cognitive & Social \\
+  \midrule
+  Skill & 0.873* & -0.278 \\
+  & (0.467) & (0.460) \\
+  GPA & 3.949*** & 3.429*** \\
+  & (0.664) & (0.581) \\
+  Constant & 12.806*** & 12.891*** \\
+  & (0.662) & (0.636) \\
+  \midrule
+  Observations & 665 & 665 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} Classroom-level clusted standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Dependent variables are the percentage of referrals received relative to all referrals.``Skill'' refers to standardized test scores for cognitive and social skills. GPA is standardized to mean zero and unit variance.
+  \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+
+
+\subsubsection*{Overlapping referrals}
+Diversity in referral choices vary substantially between participants as they nominate 3 individuals per skill and can make overlapping referrals across skills. In Appendix Figures \ref{fig:same_a} and \ref{fig:same_b}, we show that only 20.5 percent of participants pick all unique classmates for their 6 choices. In fact, depending on our measures, between 50 to 70 percent of participants make 2 or 3 overlapping referrals and the diversity in referral choices is much lower than what we anticipated.\footnote{In Appendix Table \ref{tab:overlap_ref} we compare the characteristics of referrers make unique referrals to the remainder of the sample. The results suggest minimal differences in GPA and skills.}
+
+With such a large share overlapping referral choices, participants could hold beliefs that classmates who with higher scores in one skill could also have higher scores in the other skill. Would such beliefs be accurate? There is only modest ($\rho = 0.267$) correlation between the two skills (see Appendix Table \ref{tab:correlation}). To understand whether making overlapping referrals is strategic, we turn to the incentives. Participants were incentivized to pick the top 3 performers in their classroom for each skill to earn a fixed bonus. Looking at the characteristics of top skilled participants in Appendix Table \ref{tab:top_perf}, we find that conditional on being among the top 3 for one of the skills, only 1 in 3 participants were in the top 3 for both skills. This suggests making more than 1 overlapping referral choice would decrease the chances to win the bonus. 
+
+Coupled with the notable difficulties in identifying skills documented in the previous section, a competing explanation for the amount of overlapping referral choices would be that individuals who refer classmates twice for both skills are worse at observing skills. This would imply underlying heterogeneity in skill identification resulting in different referral strategies. We can test these competing hypotheses in our data: If ``twice'' referrers -defined as those who refer an individual for both skills- are better at identifying at least one of the skills, this would give more credence to beliefs about correlated skills. On the other hand, if ``twice'' referrers are worse in skill identification compared to single-referrers or use GPA proxy for referrals, it would imply that they have no information about skills. We compare peers who recieve referrals twice from their classmates to those who recieve referrals only once per skill. Formally, let indicator $r_{ijc}^{twice}$ take value 1 if individual $j$ referred individual $i$ for both skills. The percentage share of referrals received by individual $i$ from participants in classroom $c$ and in Baseline condition ($\forall j \in B_c$) is: 
+
+\begin{equation}
+  y_{ic}^{twice} = \frac{\sum_{j \neq i} r_{ijc}^{twice}}{n_c - \mathbbm{1}(i \in B_c)} \times 100
+  \end{equation}
+
+where $n_c$ represents the number of participants in the Baseline condition in classroom $c$. The indicator $r_{ijc}^{twice}$ takes value 0 if participant $j$ in the Baseline condition does not refer individual $i$ for both skills. The denominator $n_c - \mathbbm{1}(i \in B_c)$ accounts for the maximum possible ``twice'' referrals that individual $i$ could receive. If $i$ is in the Baseline condition ($\mathbbm{1}(i \in B_c)=1$), we subtract one from $n_c$ to account for the self-referral restriction as before. Similarly, let $r_{ijc}^{s,single}$ take value 1 if individual $j$ referred individual $i$ only for skill $s$. The percentage share of ``single'' referrals received by individual $i$ from participants in classroom $c$ and in Baseline condition ($\forall j \in B_c$) for skill $s$ is: 
+
+\begin{equation}
+  y_{ic}^{s,single} = \frac{\sum_{j \neq i} r_{ijc}^{s,single}}{n_c - \mathbbm{1}(i \in B_c)} \times 100
+  \end{equation}
+and it follows trivially that for any $s$, percentage share of ``single'' and ``twice'' referrals received by individual $i$ from participants in classroom $c$ and in Baseline condition ($\forall j \in B_c$) must add up to the total share of referrals received:
+\begin{equation}
+  y_{ic}^{s} = y_{ic}^{s,single} + y_{ic}^{twice}
+  \end{equation}
+we regress Equation \ref{skill} supplanted with GPA for our three new dependent variables and report our findings in \ref{tab:regression-results3}. 
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{``Twice'' versus ``single'' referral share conditional on skills and academic performance}\label{tab:regression-results3}
   \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
   \toprule
   & (1) & (2) & (3) \\
-  Dep. Var. & Cognitive & Social & All \\
+  & Twice & Cognitive Only & Social Only \\
   \midrule
-  GPA & 3.326\tnote{***} & 2.780\tnote{***} & 3.053\tnote{***} \\
-  & (0.460) & (0.450) & (0.416) \\
-  Cognitive skill & 0.540 & -0.012 & 0.264 \\
-  & (0.470) & (0.443) & (0.427) \\
-  Social skill & 0.671 & 0.238 & 0.454 \\
-  & (0.403) & (0.416) & (0.372) \\
-  Constant & 12.771\tnote{***} & 11.917\tnote{***} & 12.344\tnote{***} \\
-  & (0.572) & (0.525) & (0.508) \\
+  GPA & 3.172*** & 0.801** & 0.260 \\
+  & (0.464) & (0.391) & (0.334) \\
+  Cognitive Skill & -0.042 & 1.006*** & \\
+  & (0.416) & (0.270) & \\
+  Social Skill & -0.353 & & 0.086 \\
+  & (0.304) & & (0.381) \\
+  Constant & 7.407*** & 5.400*** & 5.485*** \\
+  & (0.524) & (0.386) & (0.376) \\
   \midrule
-  Individual controls & Yes & Yes & Yes \\
   Observations & 665 & 665 & 665 \\
-  R-squared & 0.113 & 0.101 & 0.119 \\
   \bottomrule
   \end{tabular*}
   \begin{tablenotes}[flushleft]
   \footnotesize
-  \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Dependent variables are the percentage of referrals received relative to all referrals for cognitive (1), social (2), and all referrals (3). Controls include gender, age and semester. Sample is restricted to participants with complete administrative and experimental data.
+  \item[] \textit{Note:} Classroom-level clusted standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variable in column (1) is the percentage of ``double'' referrals received from the same referrer, in column (2) for cognitive skill only, and in column (3) for social skill only. Cognitive and social skills are the respective standardized test scores. GPA is standardized to mean zero and unit variance.
   \end{tablenotes}
   \end{threeparttable}
 \end{table}
 
-\subsubsection*{Cognitive Skill}
-In this section we focus on various other specifications of our model in Equation \ref{eq1}. In Table \ref{tab:rav-rob1}, we consider cognitive skill and incrementally add independent variables. A one standard deviation increase in cognitive skill test score increases the fraction of cognitive skill referrals by about 1.1 percentage points on a base rate of 13\% (column 1). This effect disappears when GPA is added in the model (column 2) and the 95\% confidence intervals rule out that a one standard deviation increase in cognitive skill causes more than a 1 percentage point difference in the fraction of referrals received. Our GPA estimate without controls causes a 3.2 percentage points increase on a base rate of 12.5\%, consistent with the specification in Table \ref{tab:regression-results1}. With the addition of individual controls and social skill in column 3, we obtain the estimates in \ref{tab:regression-results1} for cognitive skill. Note that adding individual controls does not change our performance estimates in a meaningful way. In column 4, we add classroom fixed effects to account for any unobserved classroom-level heterogeneity. The GPA coefficient remains robust and even slightly increases to 3.5 percentage points, while the cognitive and social skill estimates remain statistically insignificant. The substantial increase in the variance explained by the model from 11.3\% to 24.2\% suggests considerable variation in referral patterns across classrooms, though our main conclusions about the importance of GPA remain unchanged.
-
-\begin{table}[H]
-  \centering
-  \begin{threeparttable}
-  \caption{Cognitive skill referrals pooled over treatments}\label{tab:rav-rob1}
-  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
-  \toprule
-  & (1) & (2) & (3) & (4) \\
-  Dep. Var. & Cognitive & Cognitive & Cognitive & Cognitive \\
-  \midrule
-  GPA &  & 3.187\tnote{***} & 3.326\tnote{***} & 3.533\tnote{***} \\
-  &  & (0.443) & (0.460) & (0.486) \\
-  Cognitive skill & 1.111\tnote{**} & 0.677 & 0.540 & 0.634 \\
-  & (0.427) & (0.433) & (0.470) & (0.461) \\
-  Social skill &  &  & 0.671 & 0.428 \\
-  &  &  & (0.403) & (0.408) \\
-  Constant & 12.671\tnote{***} & 12.483\tnote{***} & 12.771\tnote{***} & 13.163\tnote{***} \\
-  & (0.404) & (0.399) & (0.572) & (0.591) \\
-  \midrule
-  Individual controls & No & No & Yes & Yes \\
-  Classroom FE & No & No & No & Yes \\
-  Observations & 713 & 668 & 665 & 665 \\
-  R-squared & 0.010 & 0.091 & 0.113 & 0.242 \\
-  \bottomrule
-  \end{tabular*}
-  \begin{tablenotes}[flushleft]
-  \footnotesize
-  \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Dependent variable is the percentage of cognitive referrals received relative to potential referrals. Controls include gender, age, semester and the fraction of students from the same academic program. Sample is restricted to participants with complete administrative and experimental data. All continuous variables are standardized.
-  \end{tablenotes}
-  \end{threeparttable}
-\end{table}
-
-\subsubsection*{Social Skill}
-We proceed with the same exercise for social skill and incrementally add independent variables in Table \ref{tab:eye-rob1}. A one standard deviation increase in social skill test score does not increase the fraction of social skill referrals (column 1). This null-effect persists when GPA is added in the model (column 2) and the 95\% confidence intervals rule out that a one standard deviation increase in social skill causes more than a 1 percentage point difference in the fraction of referrals received. Our GPA estimate without controls causes a 2.8 percentage points increase on a base rate of 12.6\%, consistent with the specification in Table \ref{tab:regression-results1}. With the addition of individual controls and cognitive skill in column 3, we obtain the estimates in Table \ref{tab:regression-results1} for social skill. Adding individual controls does not change our performance estimates in a meaningful way, but increases the variance explained by the model when compared to cognitive skill. This is due to female participants receiving significantly more referrals in this part. In column 4, we add classroom fixed effects to account for any unobserved classroom-level heterogeneity. The GPA coefficient remains robust and slightly increases to 2.9 percentage points, while both skill measures remain insignificant. The substantial increase in the variance explained by the model from 10.1\% to 21.9\% suggests considerable variation in referral patterns across classrooms, though our main conclusions about the importance of GPA remain unchanged.   
-
-\begin{table}[H]
-  \centering
-  \begin{threeparttable}
-  \caption{Social skill referrals pooled over treatments}\label{tab:eye-rob1}
-  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
-  \toprule
-  & (1) & (2) & (3) & (4) \\
-  Dep. Var. & Social & Social & Social & Social \\
-  \midrule
-  GPA &  & 2.773\tnote{***} & 2.780\tnote{***} & 2.910\tnote{***} \\
-  &  & (0.428) & (0.450) & (0.478) \\
-  Cognitive skill &  &  & -0.012 & -0.008 \\
-  &  &  & (0.443) & (0.427) \\
-  Social skill & 0.554 & 0.284 & 0.238 & 0.036 \\
-  & (0.389) & (0.408) & (0.416) & (0.416) \\
-  Constant & 12.785\tnote{***} & 12.587\tnote{***} & 11.917\tnote{***} & 12.164\tnote{***} \\
-  & (0.403) & (0.396) & (0.525) & (0.548) \\
-  \midrule
-  Individual controls & No & No & Yes & Yes \\
-  Classroom FE & No & No & No & Yes \\
-  Observations & 713 & 668 & 665 & 665 \\
-  R-squared & 0.003 & 0.068 & 0.101 & 0.219 \\
-  \bottomrule
-  \end{tabular*}
-  \begin{tablenotes}[flushleft]
-  \footnotesize
-  \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Dependent variable is the percentage of social referrals received relative to potential referrals. Controls include gender, age, semester and the fraction of students from the same academic program. Sample is restricted to participants with complete administrative and experimental data. All continuous variables are standardized.
-  \end{tablenotes}
-  \end{threeparttable}
-\end{table}
-
-% Sensitivity analysis incrementally adding academic performance measures is in Appendix Table \ref{tab:regression-results-1-appendix1-cognitive} and Table \ref{tab:regression-results-1-appendix1-social}.
-
-  \subsection{Treatment Effect}
+ \subsection*{Social Class and Quota}
   In the following empirical specification, we document whether Quota treatment causes referral shares to increase compared to the Baseline. We consider the percentage share of referrals received by total number of referrals that could have been received for both skills, disaggregated by referrer's treatment as our dependent variable (see Appendix Figure \ref{fig:referral_fraction} for its distribution and construction). The reason for grouping over skills is because skill referrals are very similar. Decomposing by treatment allows comparing the effect of treatments, controlling for classroom SES composition. By design, we randomize participants in each classroom into treatments balancing for gender and SES. 
   
   In the Quota treatment, the incentive to refer low-SES should increase referrals to low-SES classmates. We therefore include referral SES as an independent variable, in addition to GPA and individual controls in $\mathbf{X}_{i}$.\footnote{The relationship between social class and referrals may operate through other channels than socioeconomic status, for example being a first-generation college student, having rural background, etc., which correlate strongly  with low-SES. We focus on the effect of social class through-SES only.} We estimate referral percentage $y_{i}$: 
@@ -285,31 +291,105 @@ We proceed with the same exercise for social skill and incrementally add indepen
   \begin{table}[H]
     \centering
     \begin{threeparttable}
-    \caption{Percentage share of referrals across treatment conditions}\label{tab:results2}
-    \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+    \caption{Treatment effect on SES controlling for performance}\label{tab:treatment-effects}
+    \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c@{}}
     \toprule
-    & (1) & (2) & (3) & (4) \\
-    Dep. Var. & Baseline & Baseline & Quota & Quota \\
+    & (1) & (2) \\
+    & Cognitive & Social \\
     \midrule
-    GPA & 3.812\tnote{***} & 4.015\tnote{***} & 2.497\tnote{***} & 2.572\tnote{***} \\
-    & (0.503) & (0.539) & (0.503) & (0.524) \\
-    Low-SES & -0.622 & -0.267 & -1.191 & -0.894 \\
-    & (0.898) & (0.912) & (0.999) & (0.999) \\
-    Constant & 12.713\tnote{***} & 12.909\tnote{***} & 13.562\tnote{***} & 13.645\tnote{***} \\
-    & (0.786) & (0.799) & (0.920) & (0.932) \\
+    Quota & -0.073 & 0.299 \\
+    & (0.755) & (0.716) \\
+    Low SES & -1.230 & 0.364 \\
+    & (1.079) & (1.282) \\
+    Quota × Low-SES & -0.167 & -0.835 \\
+    & (1.117) & (1.181) \\
+    Skill & 0.594 & 0.201 \\
+    & (0.448) & (0.426) \\
+    GPA & 3.184*** & 2.819*** \\
+    & (0.517) & (0.493) \\
+    Constant & 13.551*** & 12.706*** \\
+    & (0.986) & (0.952) \\
     \midrule
-    Individual controls & Yes & Yes & Yes & Yes \\
-    Classroom FE & No & Yes & No & Yes \\
-    Observations & 665 & 665 & 665 & 665 \\
-    R-squared & 0.119 & 0.226 & 0.054 & 0.166 \\
+    Observations & 1,330 & 1,330 \\
     \bottomrule
     \end{tabular*}
     \begin{tablenotes}[flushleft]
     \footnotesize
-    \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variable is the percentage of referrals received relative to potential referrals. Columns (1) and (2) show results for baseline treatment without and with classroom fixed effects, while columns (3) and (4) show results for quota treatment. Individual controls include gender, age, semester, and share of same study program. Sample is restricted to participants with complete administrative and experimental data.
+    \item[] \textit{Note:} Classroom-level clusted standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variables are the percentage of referrals received for cognitive and social skills. Quota is a dummy for referrals received from classmates in the quota condition. Low-SES is a dummy for participant's socioeconomic status. Skill refers to standardized Raven's test score for cognitive referrals (column 1) and Reading the Mind in the Eyes test score for social referrals (column 2). GPA is standardized to mean zero and unit variance.
     \end{tablenotes}
     \end{threeparttable}
-\end{table}
+  \end{table}
+
+  \begin{table}[H]
+    \centering
+    \begin{threeparttable}
+    \caption{Treatment effects on referrals with skill and academic performance interactions}\label{tab:treatment-interactions}
+    \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+    \toprule
+    & (1) & (2) \\
+    & Cognitive & Social \\
+    \midrule
+    Quota & -0.091 & -0.131 \\
+    & (0.302) & (0.225) \\
+    \addlinespace[0.5em]
+    Skill & 0.873* & -0.278 \\
+    & (0.467) & (0.460) \\
+    Quota × Skill & -0.380 & 0.966* \\
+    & (0.697) & (0.561) \\
+    \addlinespace[0.5em]
+    GPA & 3.949*** & 3.429*** \\
+    & (0.664) & (0.581) \\
+    Quota × GPA & -1.524** & -1.221* \\
+    & (0.697) & (0.678) \\
+    \addlinespace[0.5em]
+    Constant & 12.806*** & 12.891*** \\
+    & (0.662) & (0.636) \\
+    \midrule
+    Observations & 1,330 & 1,330 \\
+    \bottomrule
+    \end{tabular*}
+    \begin{tablenotes}[flushleft]
+    \footnotesize
+    \item[] \textit{Note:} Classroom-level clusted standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variables are the percentage of referrals received for cognitive and social skills. Treatment is an indicator for the quota condition. "Skill" refers to standardized Raven's test score in column (1) and Reading the Mind in the Eyes test score in column (2). All continuous variables (skills and GPA) are standardized (mean zero, unit variance). The treatment interactions capture differential effects of the quota condition by skill level and academic performance.
+    \end{tablenotes}
+    \end{threeparttable}
+  \end{table}
+
+  \begin{table}[H]
+    \centering
+    \begin{threeparttable}
+    \caption{Treatment effects on referrals by referrer socioeconomic status}\label{tab:ses-treatment-interactions}
+    \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+    \toprule
+    & \multicolumn{2}{c}{High-SES Referrers} & \multicolumn{2}{c}{Low-SES Referrers} \\
+    \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+    & Cognitive & Social & Cognitive & Social \\
+    \midrule
+    Quota & 0.509 & 0.387 & -0.274 & -0.300 \\
+    & (0.548) & (0.502) & (0.449) & (0.414) \\
+    \addlinespace[0.5em]
+    Skill & 0.761 & -0.342 & 1.294* & -0.110 \\
+    & (0.693) & (0.711) & (0.690) & (0.512) \\
+    Quota × Skill & -0.512 & 0.414 & -0.108 & 1.578** \\
+    & (1.119) & (0.833) & (0.829) & (0.637) \\
+    \addlinespace[0.5em]
+    GPA & 3.512*** & 3.293*** & 4.135*** & 3.437*** \\
+    & (0.927) & (0.622) & (0.851) & (0.807) \\
+    Quota × GPA & -1.630 & -2.131** & -1.392 & -0.527 \\
+    & (1.029) & (0.967) & (1.054) & (0.887) \\
+    \addlinespace[0.5em]
+    Constant & 12.266*** & 12.197*** & 12.999*** & 13.164*** \\
+    & (0.620) & (0.591) & (0.728) & (0.709) \\
+    \midrule
+    Observations & 1,319 & 1,319 & 1,328 & 1,328 \\
+    \bottomrule
+    \end{tabular*}
+    \begin{tablenotes}[flushleft]
+    \footnotesize
+    \item[] \textit{Note:} Standard errors clustered at classroom level in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variables are the percentage of referrals received for cognitive and social skills. Treatment is an indicator for the quota condition. "Skill" refers to standardized Raven's test score for cognitive referrals and Reading the Mind in the Eyes test score for social referrals. All continuous variables (skills and GPA) are standardized (mean zero, unit variance). High-SES and Low-SES indicate the socioeconomic status of the referrer.
+    \end{tablenotes}
+    \end{threeparttable}
+  \end{table}
  
   % \subsubsection*{Baseline}
   % In this section we focus on various other specifications of our model in Equation \ref{eq2}. In Table \ref{tab:baseline-rob1}, we consider referrals in Baseline treatment and incrementally add independent variables. Low-SES does not change the fraction of referrals received in the Baseline treatment (column 1). This finding holds when GPA is added in the model (column 2) and the 95\% confidence intervals rule out that low-SES causes more than a 1.5 percentage point difference in the fraction of referrals received. In column 3, adding the percentage of low-SES peers in the classroom does not change estimates. A one percentage point increase of low-SES classmate share does not change the fraction of referrals received nor contribute to the variance explained by the model. Finally, with the addition of individual controls (age, gender, semester) in column 4, we obtain the estimates in \ref{tab:results2} for the Baseline condition. Adding individual controls does not change our estimates in a meaningful way.
@@ -657,47 +737,27 @@ Table \ref{tab:lses-treatment} presents our analysis of referrals from low-SES c
 
 \begin{figure}[H]
   \centering
-  \caption{Referrals by skills}\label{fig:referral_fraction_skill}
-  \includegraphics[width=0.85\linewidth]{skillref_dist.png}
-  \caption*{\footnotesize\textit{Note:} The figure shows the percentage share of referrals received across cognitive and social skills. It is calculated as the number of actual referrals received divided by the maximum possible referrals a student could have received. To illustrate: Consider a classroom with 25 students where 20 participated in the experiment, with 10 participant in each treatment group. A student could receive a maximum of 20 referrals per skill. This number is 19 if the student participated to exclude 1 referral made by themself. We normalize the total referrals received by this maximum number to obtain the fraction shown in the figure. The distribution of referrals is right-skewed with extreme outliers. The distribution of referrals shows  consistency across cognitive and social skills, with means of 11.3\% and 11.4\% respectively. Both distributions exhibit similar dispersion patterns (SD = 10.6\%). The median student in both skills receives 9.5\% of possible referrals, while 25\% of students receive 4.2\% or fewer referrals. Three-quarters of all students receive less than 15.8\% of possible referrals in both skills, though some students receive substantially more, with maximum values reaching 70\% for cognitive and 60\% for social skill. Similarity in distributions suggest that referral patterns are consistent across different skills.}
+  \caption{Referrals in Baseline}\label{fig:referral_fraction_skill}
+  \includegraphics[width=0.85\linewidth]{ref_skill_baseline.png}
+  \caption*{\footnotesize\textit{Note:} The figure shows the percentage share of referrals received across cognitive and social skills from participants in Baseline condition. It is calculated as the number of actual referrals received divided by the maximum possible referrals a student could have received. To illustrate: Consider a classroom with 25 students with 20 participants, and assume 10 participants in each condition. In this classroom, an individual could receive maximum 10 referrals for a skill from classmates in Baseline condition. This number is 9 if the individual is also in Baseline (exclude 1 self-referral possibility). We normalize the referrals received by the maximum to obtain the percentage share shown in the figure. The distribution of referrals is right-skewed with extreme outliers, with consistency across cognitive and social skills.}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[H] \label{fig:same_combined}
   \centering
-  \caption{Low-SES guessing ability by SES}
-  \label{fig:referral_ses_dist}
-  \includegraphics[width=0.85\linewidth]{ses_dist.png}
-  \caption*{\footnotesize\textit{Note:} This figure displays the ability to identify low-SES peers across socioeconomic groups. A ratio of 1 implies participant is as good as chance at identifying Low-SES in their classroom. High-SES students demonstrate significantly lower accuracy in identifying low-SES peers (M = 1.04, SD = 0.67) compared to low-SES students (M = 1.16, SD = 0.58), $t(526.51) = -2.29$, $p = 0.023$. Both distributions have substantial overlap and there is considerable heterogeneity in identification ability within each SES group.}
-  \end{figure}
-
-  \begin{figure}[H]
-    \centering
-    \caption{Distribution of overlapping referrals}\label{fig:overlap}
-    \includegraphics[width=0.6\linewidth]{overlapping.png}
-    \begin{tablenotes}
-      \footnotesize
-      \item[] {\textit{Note:} The figure shows the distribution of overlapping referrals across conditions, excluding self-referrals. The first bar (value of 0) indicates the percentage of individuals with 6 unique referrals for both skills. The last bar (value of 3) indicates the percentage of individuals with 3 identical referral choices. Most participants have 2 or more overlapping referral choices.}
-    \end{tablenotes}
-  \end{figure}
-
-  \begin{figure}[H]
-  \centering
-  \caption{Distribution of overlapping referrals}\label{fig:same_}
-  \includegraphics[width=0.6\linewidth]{same_ref.png}
-  \begin{tablenotes}
-    \footnotesize
-    \item[] {\textit{Note:} The figure shows the distribution of overlapping referrals across conditions, excluding self-referrals. The first bar (value of 0) indicates the percentage of individuals with 6 unique referrals for both skills. The last bar (value of 3) indicates the percentage of individuals with 3 identical referral choices. Most participants have 2 or more overlapping referral choices.}
-  \end{tablenotes}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \caption{Distribution of overlapping referrals}\label{fig:same_2}
-  \includegraphics[width=0.6\linewidth]{ses_dist-sameandown.png}
-  \begin{tablenotes}
-    \footnotesize
-    \item[] {\textit{Note:}}
-  \end{tablenotes}
+  \begin{subfigure}[b]{0.48\linewidth}
+      \centering
+      \caption{Overlapping referrals by treatment}
+      \includegraphics[width=\linewidth]{ses_dist.png}
+      \label{fig:same_a}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.48\linewidth}
+      \centering
+      \caption{Overlapping referrals by self-referral}
+      \includegraphics[width=\linewidth]{ses_dist3.png}
+      \label{fig:same_b}
+  \end{subfigure}
+  \caption*{\footnotesize\textit{Note:} Figure (a) shows the distribution of overlapping referrals across treatments, and excludes self-referrals. Figure (b) shows the distribution of overlapping referrals with and without self-referrals. The first bar (value of 0) always indicates the share of participants with 6 unique referrals. The last bar (value of 3) always indicates the share of participants with 3 identical referral choices. We find that treatments do not change referral dispersion, but exluding self-referrals significantly underestimates the share of participants who have 3 identical referral choices. In their original referral choices, about 70 percent of our sample had at least 2 common referrals.}
 \end{figure}
 
 \begin{figure}[H]
@@ -870,9 +930,9 @@ Has Scholarship & 0.8\% & 0.7\% & \multicolumn{1}{c}{0.899} \\
   \midrule
   GPA & 0.057 & 0.045 & 0.012 \\
   & (0.983) & (1.009) & \\
-  Cognitive Skills & 0.110 & 0.024 & 0.086 \\
+  Cognitive Skill & 0.110 & 0.024 & 0.086 \\
   & (1.005) & (0.979) & \\
-  Social Skills & -0.014 & 0.033 & -0.047 \\
+  Social Skill & -0.014 & 0.033 & -0.047 \\
   & (0.938) & (0.981) & \\
   Low-SES & 0.530 & 0.597 & -0.067 \\
   & (0.501) & (0.491) & \\

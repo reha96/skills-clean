@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: exp_design_v122024.aux
+The style file: apacite.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: referrals.bib
+apacite.bst [2013/07/21 v6.03 APA bibliography style]
+You've used 24 entries,
+            6951 wiz_defined-function locations,
+            1438 strings with 16012 characters,
+and the built_in function-call counts, 47109 in all, are:
+= -- 5727
+> -- 400
+< -- 2339
++ -- 2392
+- -- 59
+* -- 3131
+:= -- 8764
+add.period$ -- 97
+call.type$ -- 24
+change.case$ -- 426
+chr.to.int$ -- 0
+cite$ -- 48
+duplicate$ -- 1264
+empty$ -- 1843
+format.name$ -- 689
+if$ -- 8823
+int.to.chr$ -- 0
+int.to.str$ -- 76
+missing$ -- 0
+newline$ -- 617
+num.names$ -- 193
+pop$ -- 715
+preamble$ -- 1
+purify$ -- 98
+quote$ -- 0
+skip$ -- 3011
+stack$ -- 0
+substring$ -- 2569
+swap$ -- 767
+text.length$ -- 55
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 1984
+warning$ -- 0
+while$ -- 232
+width$ -- 0
+write$ -- 764
