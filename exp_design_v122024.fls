@@ -290,11 +290,11 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-INPUT ./figure-1.jpg
-INPUT ./figure-1.jpg
-INPUT ./figure-1.jpg
-INPUT ./figure-1.jpg
-INPUT ./figure-1.jpg
+INPUT ./figures/figure-1.jpg
+INPUT ./figures/figure-1.jpg
+INPUT ./figures/figure-1.jpg
+INPUT ./figures/figure-1.jpg
+INPUT ./figures/figure-1.jpg
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti9.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
@@ -318,69 +318,79 @@ INPUT ./exp_design_v122024.bbl
 INPUT ./exp_design_v122024.bbl
 INPUT exp_design_v122024.bbl
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
-INPUT ./strato.png
-INPUT ./strato.png
-INPUT ./strato.png
-INPUT ./strato.png
-INPUT ./strato.png
-INPUT ./referral_dist.png
-INPUT ./referral_dist.png
-INPUT ./referral_dist.png
-INPUT ./referral_dist.png
-INPUT ./referral_dist.png
-INPUT ./ref_skill_baseline.png
-INPUT ./ref_skill_baseline.png
-INPUT ./ref_skill_baseline.png
-INPUT ./ref_skill_baseline.png
-INPUT ./ref_skill_baseline.png
-INPUT ./ses_dist.png
-INPUT ./ses_dist.png
-INPUT ./ses_dist.png
-INPUT ./ses_dist.png
-INPUT ./ses_dist.png
-INPUT ./ses_dist3.png
-INPUT ./ses_dist3.png
-INPUT ./ses_dist3.png
-INPUT ./ses_dist3.png
-INPUT ./ses_dist3.png
-INPUT ./gpa.png
-INPUT ./gpa.png
-INPUT ./gpa.png
-INPUT ./gpa.png
-INPUT ./gpa.png
-INPUT ./Ravens Survey.jpg
-INPUT ./Ravens Survey.jpg
-INPUT ./Ravens Survey.jpg
-INPUT ./Ravens Survey.jpg
-INPUT ./Ravens Survey.jpg
-INPUT ./3Aghast-J.jpg
-INPUT ./3Aghast-J.jpg
-INPUT ./3Aghast-J.jpg
-INPUT ./3Aghast-J.jpg
-INPUT ./3Aghast-J.jpg
-INPUT ./baseline.png
-INPUT ./baseline.png
-INPUT ./baseline.png
-INPUT ./baseline.png
-INPUT ./baseline.png
-INPUT ./quota.png
-INPUT ./quota.png
-INPUT ./quota.png
-INPUT ./quota.png
-INPUT ./quota.png
-INPUT ./Ravens Survey.jpg
-INPUT ./Ravens Survey.jpg
-INPUT ./Ravens Survey.jpg
-INPUT ./Ravens Survey.jpg
-INPUT ./3Aghast-J.jpg
-INPUT ./3Aghast-J.jpg
-INPUT ./3Aghast-J.jpg
-INPUT ./3Aghast-J.jpg
-INPUT ./guessing.png
-INPUT ./guessing.png
-INPUT ./guessing.png
-INPUT ./guessing.png
-INPUT ./guessing.png
+INPUT ./figures/strato.png
+INPUT ./figures/strato.png
+INPUT ./figures/strato.png
+INPUT ./figures/strato.png
+INPUT ./figures/strato.png
+INPUT ./figures/ref_skill_baseline.png
+INPUT ./figures/ref_skill_baseline.png
+INPUT ./figures/ref_skill_baseline.png
+INPUT ./figures/ref_skill_baseline.png
+INPUT ./figures/ref_skill_baseline.png
+INPUT ./figures/ses_dist.png
+INPUT ./figures/ses_dist.png
+INPUT ./figures/ses_dist.png
+INPUT ./figures/ses_dist.png
+INPUT ./figures/ses_dist.png
+INPUT ./figures/ses_dist3.png
+INPUT ./figures/ses_dist3.png
+INPUT ./figures/ses_dist3.png
+INPUT ./figures/ses_dist3.png
+INPUT ./figures/ses_dist3.png
+INPUT ./figures/gpa_ses.png
+INPUT ./figures/gpa_ses.png
+INPUT ./figures/gpa_ses.png
+INPUT ./figures/gpa_ses.png
+INPUT ./figures/gpa_ses.png
+INPUT ./figures/rav_ses.png
+INPUT ./figures/rav_ses.png
+INPUT ./figures/rav_ses.png
+INPUT ./figures/rav_ses.png
+INPUT ./figures/rav_ses.png
+INPUT ./figures/eye_ses.png
+INPUT ./figures/eye_ses.png
+INPUT ./figures/eye_ses.png
+INPUT ./figures/eye_ses.png
+INPUT ./figures/eye_ses.png
+INPUT ./figures/guess_ratio.png
+INPUT ./figures/guess_ratio.png
+INPUT ./figures/guess_ratio.png
+INPUT ./figures/guess_ratio.png
+INPUT ./figures/guess_ratio.png
+INPUT ./figures/Ravens Survey.jpg
+INPUT ./figures/Ravens Survey.jpg
+INPUT ./figures/Ravens Survey.jpg
+INPUT ./figures/Ravens Survey.jpg
+INPUT ./figures/Ravens Survey.jpg
+INPUT ./figures/3Aghast-J.jpg
+INPUT ./figures/3Aghast-J.jpg
+INPUT ./figures/3Aghast-J.jpg
+INPUT ./figures/3Aghast-J.jpg
+INPUT ./figures/3Aghast-J.jpg
+INPUT ./figures/baseline.png
+INPUT ./figures/baseline.png
+INPUT ./figures/baseline.png
+INPUT ./figures/baseline.png
+INPUT ./figures/baseline.png
+INPUT ./figures/quota.png
+INPUT ./figures/quota.png
+INPUT ./figures/quota.png
+INPUT ./figures/quota.png
+INPUT ./figures/quota.png
+INPUT ./figures/Ravens Survey.jpg
+INPUT ./figures/Ravens Survey.jpg
+INPUT ./figures/Ravens Survey.jpg
+INPUT ./figures/Ravens Survey.jpg
+INPUT ./figures/3Aghast-J.jpg
+INPUT ./figures/3Aghast-J.jpg
+INPUT ./figures/3Aghast-J.jpg
+INPUT ./figures/3Aghast-J.jpg
+INPUT ./figures/guessing.png
+INPUT ./figures/guessing.png
+INPUT ./figures/guessing.png
+INPUT ./figures/guessing.png
+INPUT ./figures/guessing.png
 INPUT exp_design_v122024.aux
 INPUT ./exp_design_v122024.out
 INPUT ./exp_design_v122024.out
@@ -389,10 +399,11 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.p
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
@@ -400,7 +411,9 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
