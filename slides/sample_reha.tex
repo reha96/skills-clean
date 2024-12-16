@@ -3,8 +3,10 @@
 %----------------------------------------------------------------------------------------
 \documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
 \usetheme{SimplePlus}
-
+\usepackage{threeparttable}
 \usepackage{hyperref}
+\usepackage{subfig}
+\usepackage{bbm}
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 
@@ -12,17 +14,12 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[short title]{The End of the Crypto-Diversification Myth} % The short title appears at the bottom of every slide, the full title is only on the title page
-\subtitle{Advanced Financial Theory - MsQEF}
+\title[short title]{Peer skill identification and social class} % The short title appears at the bottom of every slide, the full title is only on the title page
+\subtitle{Evidence from a field experiment}
 
-\author[Pin-Yen] {Antiga Ibadova, Reha Tuncer}
+\author[Pin-Yen] {Jhon Díaz - UNAB \newline Manu Munoz - LISER \newline Ernesto Reuben - NYU Abu Dhabi \newline Reha Tuncer - University of Luxembourg}
 
-\institute[Uni Lu] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
-{
-    Faculty of Law, Economics and Finance (FDEF) \\
-    University of Luxembourg % Your institution for the title page
-}
-\date{12 December 2024} % Date, can be changed to a custom date
+\date{16 December 2024} % Date, can be changed to a custom date
 
 
 %----------------------------------------------------------------------------------------
@@ -36,225 +33,367 @@
     \titlepage
 \end{frame}
 
-\begin{frame}{The Crypto-Diversification Puzzle}
-    \begin{figure}
-    \centering
-    \includegraphics[width=0.7\linewidth]{fig1.png}
-    \end{figure}
+\begin{frame}{Inequality and social class}
      \begin{itemize}
-    \item Bitcoin-S\&P500 correlation jumps from 0 to 0.6 in March 2020 and remains positive
-    \item Challenging the stock market diversification with Bitcoin narrative
-    \item Institutional investors out of the picture (at the time) with uncorrelated fundamentals  
+    \item Persistent differences in labor market outcomes based on social class that go beyond race and gender
+    \item Social capital stands out as a key factor controlling for productivity and demographics (Stansbury and Rodriguez, 2024)
+    \item Better connected individuals have better employment opportunities (Montgomery, 1991; Calvó-Armengol \& Jackson, 2004; Chetty et al., 2022a)
+    \item Biases like homophily may prevent social classes from interacting with one another (McPherson, Smith-Lovin, and Cook; 2001)  
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Research Question}
+\begin{frame}{This paper}
     \begin{itemize}
-    \item  What drives the Bitcoin and stock cross-asset price correlation since March 2020?
-\item \textbf{Mechanism:} Retail investors' trading habits
-\item Theory driven model of retail investors with testable hypotheses
-\item Empirical evidence from unique dataset: A Swiss bank's crypto trading clients
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Theoretical Framework}
-   \begin{itemize}
-\item Extension of the Kyle (1985) model to two assets, crypto and stock
-    \begin{enumerate}
-\item Informed ``insider'' and uninformed ``noise'' traders with market makers who cannot distinguish between these two
-\item Price correlation between markets come from spillovers between the two markets
-\end{enumerate}
-
-\item \textbf{Assumptions}
-    \begin{enumerate}
-\item Uncorrelated fundamentals: No mechanism links Bitcoin and stock market fluctuations
-\item Segmented market-making: Sum of trades in one market cannot be observed by the other (reasonable for 2020)
-\item Correlated uninformed investor trading: Sentiment ($+$) or wealth effects ($-$) 
-\end{enumerate}
-\item \textbf{Prediction \textcolor{red}{work here}} 
-$Cov(p_1,p_2) > 0 \iff \rho > 0$ (retail correlation drives price correlation)
+    \item Field experiment in a highly segregated society with very high income equality 
+    \item Study the existence of social class bias in a university setting where we abstract away from spatial segregation between social classes (Chetty et al., 2022b)
+   \item Inspiration from job referral experiments where participants identify and nominate skilled individuals under perfomance incentives (Beaman \& Magruder, 2012; Beaman, Keleher, Magruder; 2018)
+   \item Show how well peers identify different skills of their classmates, and whether there is a bias against lower social classes
+   \item Introduce quota-like incentives as a treatment to mitigate social class bias
 \end{itemize}
+
 \end{frame}
 
-\begin{frame}{Data}
+\begin{frame}{Setting in Colombia}\label{setting}
     \begin{itemize}
-\item Opening with the correlation graph (the one provided)
-\item Key question: Why did Bitcoin-S\&P500 correlation jump from 0 to 0.6 in March 2020?
-\item Challenge to the "crypto as diversification" narrative
-\item Motivation: Policy implications of crypto-equity market linkages
+        \item Among the most unequal countries in the world, where the top decile earn 50 times more than the poorest (World Bank, 2024) 
+        \item Nationwide classification system which categorizes the population into 6 strata, aligning with existing social class divisions (Guevara \& Shields, 2019; Uribe-Mallarino, 2008)
+        \item Sample from end-of-first-year students in a mid-sized university with access to academic transcripts and demographics
+        \item Mixed student body with 57\% Low-SES in sample \hyperlink{dist-strata}{\beamerbutton{distribution}}
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Identification Strategy}
+\begin{frame}{Design}
+    \begin{figure}
+        \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/figure-1.jpg} 
+        \caption{Timeline} 
+        \label{fig:1}
+      \end{figure}   
+      \begin{itemize}
+        \item Three sequential parts with sessions organized at the classroom level
+        \item Experimental variation in Part 2 with incentives to mitigate social class bias
+    \end{itemize} 
+\end{frame}
+
+\begin{frame}{Part 1: Skill Assessment}
+    \setcounter{subfigure}{0} 
+    \begin{figure}
+        \centering
+        \subfloat[Cognitive Skill \label{fig:c}]{\includegraphics[width=0.25\linewidth]{/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg}}\qquad
+        \subfloat[Social Skill \label{fig:d}]{\includegraphics[width=0.35\linewidth]{/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/social-skill-example.png}}
+      \label{fig:2}
+      \end{figure}
     \begin{itemize}
-\item Opening with the correlation graph (the one provided)
-\item Key question: Why did Bitcoin-S\&P500 correlation jump from 0 to 0.6 in March 2020?
-\item Challenge to the "crypto as diversification" narrative
-\item Motivation: Policy implications of crypto-equity market linkages
+\item Participants perform two incentivized skill tests inside the classroom
+\item No performance feedback, only a brief explanation of the skill 
+\item Uncorrelated and job market relevant (Kuhn \& Weinberger, 2005; Heckman, 2006; Heckman \& Kautz, 2012; Weinberger, 2014; Deming, 2017) 
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Data}
+\begin{frame}{Part 2: Skill Referrals}
+    \setcounter{subfigure}{0} 
+    \begin{figure}
+        \centering
+        \subfloat[Baseline \label{fig:c2}]{\includegraphics[width=0.35\linewidth]{/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png}}\qquad
+        \subfloat[Treatment \label{fig:d2}]{\includegraphics[width=0.35\linewidth]{/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/quota.png}}
+      \label{fig:3}
+      \end{figure}
     \begin{itemize}
-\item Opening with the correlation graph (the one provided)
-\item Key question: Why did Bitcoin-S\&P500 correlation jump from 0 to 0.6 in March 2020?
-\item Challenge to the "crypto as diversification" narrative
-\item Motivation: Policy implications of crypto-equity market linkages
+\item Participants privately nominate three peers from their classroom for each skill
+\item Nominations among the top 3 highest performing classmates to earn a bonus
+\item \textbf{Treatment} changes the top 3 composition for half of the classroom
+\item Testable assumption: Can peers identify different skills?
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Results 1}
+\begin{frame}{Part 3: SES Guessing Ability}\label{guessingabi}
+    \begin{figure}
+        \includegraphics[width=0.35\linewidth]{/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guessing.png} 
+        \caption{SES Guessing} 
+        \label{fig:4}
+      \end{figure}  
     \begin{itemize}
-\item Opening with the correlation graph (the one provided)
-\item Key question: Why did Bitcoin-S\&P500 correlation jump from 0 to 0.6 in March 2020?
-\item Challenge to the "crypto as diversification" narrative
-\item Motivation: Policy implications of crypto-equity market linkages
+\item Participants privately nominate three low-SES peers from their classroom
+\item Nominations among low-SES to earn a bonus
+\item Testable assumption: Can peers observe social class? \hyperlink{dist-guess}{\beamerbutton{distribution}}
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Results 2}
+\begin{frame}{Procedure}
+    \begin{figure}
+        \includegraphics[width=0.45\linewidth]{/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Picture1.png} 
+        \caption{Participants in a classroom} 
+        \label{fig:5}
+      \end{figure}  
     \begin{itemize}
-\item Opening with the correlation graph (the one provided)
-\item Key question: Why did Bitcoin-S\&P500 correlation jump from 0 to 0.6 in March 2020?
-\item Challenge to the "crypto as diversification" narrative
-\item Motivation: Policy implications of crypto-equity market linkages
+\item 863 students across 35 classrooms invited, 713 completed (83\%)
+\item \underline{\textbf{\href{https://doi.org/10.17605/OSF.IO/V9T3W}{Link}}} to pre-registered design and hypotheses 
+\item Median length 20 minutes
+\item \$26 for 117 lottery winners
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Results 3}
-    \begin{itemize}
-\item Opening with the correlation graph (the one provided)
-\item Key question: Why did Bitcoin-S\&P500 correlation jump from 0 to 0.6 in March 2020?
-\item Challenge to the "crypto as diversification" narrative
-\item Motivation: Policy implications of crypto-equity market linkages
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Contribution}
-    % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
-    \tableofcontents
-\end{frame}
-
-\begin{frame}{Implications and Current Relevance}
-    % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
-    \tableofcontents
-\end{frame}
-
-%------------------------------------------------
-\section{First Section}
-%------------------------------------------------
-
-\begin{frame}{Bullet Points}
-    \begin{itemize}
-        \item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        \item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-        \item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-        \item Nam cursus est eget velit posuere pellentesque
-        \item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
-    \end{itemize}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}{Blocks of Highlighted Text}
-    In this slide, some important text will be \alert{highlighted} because it's important. Please, don't abuse it.
-
-    \begin{block}{Block}
-        Sample text
-    \end{block}
-
-    \begin{alertblock}{Alertblock}
-        Sample text in red box
-    \end{alertblock}
-
-    \begin{examples}
-        Sample text in green box. The title of the block is ``Examples".
-    \end{examples}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}{Multiple Columns}
-    \begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-
-        \column{.45\textwidth} % Left column and width
-        \textbf{Heading}
-        \begin{enumerate}
-            \item Statement
-            \item Explanation
-            \item Example
-        \end{enumerate}
-
-        \column{.5\textwidth} % Right column and width
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-
-    \end{columns}
-\end{frame}
-
-%------------------------------------------------
-\section{Second Section}
-%------------------------------------------------
-
-\begin{frame}{Table}
-    \begin{table}
-        \begin{tabular}{l l l}
-            \toprule
-            \textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2} \\
-            \midrule
-            Treatment 1         & 0.0003262           & 0.562               \\
-            Treatment 2         & 0.0015681           & 0.910               \\
-            Treatment 3         & 0.0009271           & 0.296               \\
-            \bottomrule
-        \end{tabular}
-        \caption{Table caption}
+\begin{frame}{Descriptive Statistics}
+    \begin{table}[htbp]
+        \centering
+        \begin{threeparttable}
+            \caption{Treatment Balance}
+            \begin{tabular}{lccc}
+                \toprule
+                Variable & Baseline & Treatment & \textit{p}-value \\
+                \midrule
+                Low-SES (\%) & 59.0 & 55.0 & 0.297 \\
+                Cognitive skill\tnote{a} & 10.04 & 10.27 & 0.322 \\
+                Social skill\tnote{b} & 18.45 & 18.50 & 0.886 \\
+                GPA & 3.95 & 3.95 & 0.828 \\
+                \# semesters at UNAB & 3.17 & 3.18 & 0.916 \\
+                \bottomrule
+            \end{tabular}
+            \begin{tablenotes}
+                \small
+                \item[a] Max. score: 18 points
+                \item[b] Max. score: 36 points
+                \item[] \textit{Note:} p-values from two-sided t-tests comparing group means.
+            \end{tablenotes}
+            \label{tab:descriptive_stats}
+        \end{threeparttable}
     \end{table}
 \end{frame}
 
-%------------------------------------------------
-
-\begin{frame}{Theorem}
-    \begin{theorem}[Mass--energy equivalence]
-        $E = mc^2$
-    \end{theorem}
+\begin{frame}{Dependent Variable}
+    \begin{align*}
+        y_{ic}^s = \frac{\sum_{j \neq i} r_{ijc}^s}{n_c - \mathbbm{1}(i \in B_c)} \times 100
+    \end{align*}
+    \begin{itemize}
+        \item Percentage share of nominations individual $i$ gets for skill $s$
+        \item From classmates in class $c$ and in Baseline ($B_c$)
+        \item Sum of nominations ($\sum_{j \neq i} r_{ijc}^s$) divided by the max. possible nominations ($n_c$)
+        \item Accounting for no-self-referral rule
+        \item Allows comparing characteristics of individuals who get nominated more often across classrooms of different sizes
+\end{itemize}        
 \end{frame}
 
-%------------------------------------------------
-
-\begin{frame}{Figure}
-    Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-    %\begin{figure}
-    %\includegraphics[width=0.8\linewidth]{test}
-    %\end{figure}
+\begin{frame}{Dependent Variable}
+    \begin{figure}
+        \includegraphics[width=0.5\linewidth]{/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/ref_skill_baseline.png} 
+        \caption{Distribution of nominations in Baseline} 
+        \label{fig:6}
+      \end{figure}        
 \end{frame}
 
-%------------------------------------------------
-
-\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-    \frametitle{Citation}
-    An example of the \verb|\cite| command to cite within the presentation:\\~
-
-    This statement requires citation \cite{p1}.
+\begin{frame}{Result 1: Can peers identify skills at baseline?}
+    \begin{table}[H]
+        \centering
+        \begin{threeparttable}
+        \begin{tabular*}{0.5\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+        \toprule
+        & (1) & (2) \\
+        & Cognitive & Social \\
+        \midrule
+        Skill & 1.197** & 0.037 \\
+        & (0.479) & (0.510) \\
+        Constant & 12.986*** & 13.049*** \\
+        & (0.653) & (0.521) \\
+        \midrule
+        Observations & 665 & 665 \\
+        \bottomrule
+        \end{tabular*}
+        \end{threeparttable}
+        \caption{Share of nominations conditional on skill}\label{tab:regression-results1}
+      \end{table}
+    \begin{itemize}
+        \item Cognitive skill can be identifed by peers, but not social skill
+        \item Magnitude of the effect very modest
+\end{itemize}        
 \end{frame}
 
-%------------------------------------------------
+\begin{frame}{Result 1: Can peers identify skills at baseline?}
+    \begin{table}[H]
+        \centering
+        \begin{threeparttable}
+        \begin{tabular*}{0.5\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+        \toprule
+        & (1) & (2) \\
+        & Cognitive & Social \\
+        \midrule
+        Skill & 0.873* & -0.278 \\
+        & (0.467) & (0.460) \\
+        GPA & 3.949*** & 3.429*** \\
+        & (0.664) & (0.581) \\
+        Constant & 12.806*** & 12.891*** \\
+        & (0.662) & (0.636) \\
+        \midrule
+        Observations & 665 & 665 \\
+        \bottomrule
+        \end{tabular*}
+        \caption{Share of nominations conditional on skill and GPA}\label{tab:regression-results2}
+        \end{threeparttable}
+      \end{table}
 
-\begin{frame}{References}
-    % Beamer does not support BibTeX so references must be inserted manually as below
-    \footnotesize{
-        \begin{thebibliography}{99}
-            \bibitem[Smith, 2012]{p1} John Smith (2012)
-            \newblock Title of the publication
-            \newblock \emph{Journal Name} 12(3), 45 -- 678.
-        \end{thebibliography}
-    }
+    \begin{itemize}
+\item Participants use academic performance as a proxy for both skills
+    \end{itemize}
 \end{frame}
 
-%------------------------------------------------
-
-\begin{frame}
-    \Huge{\centerline{\textbf{The End}}}
+\begin{frame}{Result 2: Nomination strategies}
+    \begin{figure}
+        \includegraphics[width=0.45\linewidth]{/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/ses_dist3.png} 
+        \caption{Distribution of identical nominations} 
+        \label{fig:7}
+      \end{figure}  
+    \begin{itemize}
+\item Up to 6 unique nominations can be made but the observed diversity is much less
+\item More than half of the sample nominate the same classmates 2 or 3 times
+    \end{itemize}
 \end{frame}
 
-%----------------------------------------------------------------------------------------
+\begin{frame}{Result 2: Nomination strategies}
+    \begin{align*}
+        y_{ic}^{s} = y_{ic}^{s,single} + y_{ic}^{twice}
+    \end{align*}
+    \begin{itemize}
+\item Percentage share of nominations received can be decomposed into nominations for skill $s$ only versus for both
+\item Help us identify whether nominations for one skill are different than for both
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Result 2: Nomination strategies}
+    \begin{table}[H]
+        \centering
+        \begin{threeparttable}
+        \begin{tabular*}{0.75\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+        \toprule
+        & (1) & (2) & (3) \\
+        & Twice & Cognitive Only & Social Only \\
+        \midrule
+        GPA & 3.172*** & 0.801** & 0.260 \\
+        & (0.464) & (0.391) & (0.334) \\
+        Cognitive Skill & -0.042 & 1.006*** & \\
+        & (0.416) & (0.270) & \\
+        Social Skill & -0.353 & & 0.086 \\
+        & (0.304) & & (0.381) \\
+        Constant & 7.407*** & 5.400*** & 5.485*** \\
+        & (0.524) & (0.386) & (0.376) \\
+        \midrule
+        Observations & 665 & 665 & 665 \\
+        \bottomrule
+        \end{tabular*}
+        \end{threeparttable}
+      \end{table}
+    \begin{itemize}
+\item 3 types: GPA, GPA and cognitive skill, neither social skill or GPA
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Result 3: Treatment and social class}
+    \begin{table}[H]
+        \centering
+        \begin{threeparttable}
+        \begin{tabular*}{0.5\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+        \toprule
+        & (1) & (2) \\
+        & Cognitive & Social \\
+        \midrule
+        Treat & -0.073 & 0.299 \\
+        & (0.755) & (0.716) \\
+        Low-SES & -1.230 & 0.364 \\
+        & (1.079) & (1.282) \\
+        Treat × Low-SES & -0.167 & -0.835 \\
+        & (1.117) & (1.181) \\
+        Constant & 13.551*** & 12.706*** \\
+        & (0.986) & (0.952) \\
+        \midrule
+        Performance controls & YES & YES \\
+        Observations & 1,330 & 1,330 \\
+        \bottomrule
+        \end{tabular*}
+        \end{threeparttable}
+      \end{table}
+    \begin{itemize}
+\item No low-SES bias when controlling for skills and GPA, no treatment effect 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Result 3: Treatment and social class}
+    \begin{table}[H]
+        \centering
+        \begin{threeparttable}
+        \begin{tabular*}{0.75\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+        \toprule
+        & (1) & (2) & (3) \\
+        & Twice & Cognitive Only & Social Only \\
+        \midrule
+        Treat & 0.436 & -0.509 & -0.136 \\
+        & (0.817) & (0.598) & (0.523) \\
+        Low-SES & 0.857 & -2.074*** & -0.510 \\
+        & (0.920) & (0.722) & (0.613) \\
+        Treat × Low-SES & -1.584 & 1.417** & 0.750 \\
+        & (1.159) & (0.656) & (0.717) \\
+        Constant & 6.952*** & 6.591*** & 5.765*** \\
+        & (0.727) & (0.654) & (0.562) \\
+        \midrule
+        Performance controls & YES & YES & YES \\
+        Observations & 1,330 & 1,330 & 1,330 \\
+        \bottomrule
+        \end{tabular*}
+        \label{tab:twice_treat}
+        \end{threeparttable}
+      \end{table}
+    \begin{itemize}
+\item Low-SES bias only for cognitive skill nominations, treatment mitigates
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Result 3: Treatment and social class}
+    \begin{table}[H]
+        \centering
+        \begin{threeparttable}
+        \begin{tabular*}{0.5\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+        \toprule
+        & (1) & (2) \\
+        & Low-SES & High-SES \\
+        \midrule
+        Treat & 0.541 & -0.872 \\
+        & (0.754) & (0.946) \\
+        Low-SES & -0.724 & -1.681 \\
+        & (0.717) & (0.993) \\
+        Treat × Low-SES & -0.552 & 2.711** \\
+        & (0.927) & (1.289) \\
+        Constant & 4.359*** & 4.766*** \\
+        & (0.472) & (0.663) \\
+        \midrule
+        Performance controls & YES & YES \\
+        Observations & 1,328 & 1,310 \\
+        \bottomrule
+        \end{tabular*}
+        \end{threeparttable}
+      \end{table}
+    \begin{itemize}
+\item High-SES drive the results when adjusting for low-SES share across classrooms 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusion}
+    \begin{itemize}
+        \item Limited peer capacity in identifying cognitive and social skills: First-year students may not know each other's skills very well, or the choice/design of the skill assessment was not optimal
+        \item For half of the sample, nomination decisions are characterized by grades instead 
+        \item No general social class bias in nominations and no treatment effect when controlling for performance
+        \item Less than 25\% of nominations affected by low-SES bias, driven by high-SES peers
+        \item For this subsample treatment is effective as well
+            \end{itemize}
+\end{frame}
+
+\begin{frame}{Distribution of SES guessing ability}\label{dist-guess}
+    \begin{figure}
+    \includegraphics[width=0.5\linewidth]{/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guess_ratio.png}
+    \caption{SES guessing ability \hyperlink{guessingabi}{\beamerbutton{back}}}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Distribution of strata}\label{dist-strata}
+    \begin{figure}
+    \includegraphics[width=0.5\linewidth]{/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/strato.png}
+    \caption{Sample strata distribution at UNAB \hyperlink{setting}{\beamerbutton{back}}}
+    \end{figure}
+\end{frame}
 
 \end{document}

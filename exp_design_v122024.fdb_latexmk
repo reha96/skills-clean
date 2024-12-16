@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex exp_design_v122024"] 1734083374.16695 "exp_design_v122024.aux" "exp_design_v122024.bbl" "exp_design_v122024" 1734093024.10127 0
+["bibtex exp_design_v122024"] 1734083374.16695 "exp_design_v122024.aux" "exp_design_v122024.bbl" "exp_design_v122024" 1734334123.90822 0
   "./referrals.bib" 1733476518.53758 20170 cd99e4852d2e10b1272ffd69255cac0e ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "exp_design_v122024.aux" 1734093023.60276 12693 86bcc522b68c510e9b98d490b6dbf5d1 "pdflatex"
+  "exp_design_v122024.aux" 1734334123.33136 12693 86bcc522b68c510e9b98d490b6dbf5d1 "pdflatex"
   (generated)
   "exp_design_v122024.bbl"
   "exp_design_v122024.blg"
   (rewritten before read)
-["pdflatex"] 1734093018.68243 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v122024.tex" "exp_design_v122024.pdf" "exp_design_v122024" 1734093024.10147 0
-  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v122024.tex" 1734093017.83433 127661 9ded578cc76e670b2a4795e4570db661 ""
+["pdflatex"] 1734334119.28453 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v122024.tex" "exp_design_v122024.pdf" "exp_design_v122024" 1734334123.90839 0
+  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v122024.tex" 1734334119.16581 127661 16a9c2f0e4c673cf9ab0b2a2ad1e7645 ""
   "/Users/reha.tuncer/Library/texlive/2024/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk" 1733319228.17819 7808 3d1a4b76be04600619568b2b623d04a0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -197,10 +197,10 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1729863227.02717 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1729863127 8221430 5836b5d7628c44f5214ea245e1a11c59 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "exp_design_v122024.aux" 1734093023.60276 12693 86bcc522b68c510e9b98d490b6dbf5d1 "pdflatex"
+  "exp_design_v122024.aux" 1734334123.33136 12693 86bcc522b68c510e9b98d490b6dbf5d1 "pdflatex"
   "exp_design_v122024.bbl" 1734083374.2776 16919 71cf5b653cbacfa2dbfc5b0abc11413b "bibtex exp_design_v122024"
-  "exp_design_v122024.out" 1734093023.61302 1589 6561e5ebab1ee7e9c52b84c107daf048 "pdflatex"
-  "exp_design_v122024.tex" 1734093017.83433 127661 9ded578cc76e670b2a4795e4570db661 ""
+  "exp_design_v122024.out" 1734334123.34121 1589 6561e5ebab1ee7e9c52b84c107daf048 "pdflatex"
+  "exp_design_v122024.tex" 1734334119.16581 127661 16a9c2f0e4c673cf9ab0b2a2ad1e7645 ""
   "figures/3Aghast-J.jpg" 1730058608.94141 24580 92357bedc173da70fc22f93697e6ecff ""
   "figures/Ravens Survey.jpg" 1730058608.94294 129791 78a7445379cb86a3ed032fd0ded7849c ""
   "figures/baseline.png" 1730058608.94926 1576207 2431a10fc4766cdc96f2c0f4f893e3bc ""
