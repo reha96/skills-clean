@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1734345024.37045 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/slides/sample_reha.tex" "sample_reha.pdf" "sample_reha" 1734345029.09643 0
+["pdflatex"] 1734507388.40259 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/slides/sample_reha.tex" "sample_reha.pdf" "sample_reha" 1734507393.05998 0
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Picture1.png" 1734293349.64676 277211 5b9f0558df5f4444f79c2257bcdd6c90 ""
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg" 1730058608.94294 129791 78a7445379cb86a3ed032fd0ded7849c ""
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png" 1730058608.94926 1576207 2431a10fc4766cdc96f2c0f4f893e3bc ""
@@ -11,7 +11,7 @@
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/ses_dist3.png" 1733904431.32537 119175 ad3042a025f2934d582b1f9417c386cb ""
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/social-skill-example.png" 1730058609.0566 879488 c41b1b4ff7416dc9bcc818aa72697e35 ""
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/strato.png" 1733904257.9511 125810 1ad2619e933968708e0298f1f17fe4fb ""
-  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/slides/sample_reha.tex" 1734345024.12332 16560 f7243288c389270bf199ad040baaed2c ""
+  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/slides/sample_reha.tex" 1734507385.19559 16560 f7243288c389270bf199ad040baaed2c ""
   "/Users/reha.tuncer/Library/texlive/2024/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk" 1733319228.17819 7808 3d1a4b76be04600619568b2b623d04a0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -238,10 +238,10 @@
   "beamerfontthemeSimplePlus.sty" 1733750090 1020 513b8304d1567fbc6e3ba3835cc12b4c ""
   "beamerinnerthemeSimplePlus.sty" 1733750090 1847 11d3c1b4b8fac543a949317419e6aa11 ""
   "beamerthemeSimplePlus.sty" 1733750090 166 3d075d65299c757f0cfb8f7b6caa897e ""
-  "sample_reha.aux" 1734345028.93355 5801 728ea58c612ab2bee7c1dedef9eac153 "pdflatex"
-  "sample_reha.nav" 1734345028.93687 2318 6bf076db6e1a8e33e3ccecc7cb97fcb8 "pdflatex"
-  "sample_reha.out" 1734345026.08071 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "sample_reha.tex" 1734345024.12332 16560 f7243288c389270bf199ad040baaed2c ""
+  "sample_reha.aux" 1734507392.92614 5801 728ea58c612ab2bee7c1dedef9eac153 "pdflatex"
+  "sample_reha.nav" 1734507392.92814 2318 6bf076db6e1a8e33e3ccecc7cb97fcb8 "pdflatex"
+  "sample_reha.out" 1734507390.08622 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "sample_reha.tex" 1734507385.19559 16560 f7243288c389270bf199ad040baaed2c ""
   (generated)
   "sample_reha.aux"
   "sample_reha.log"
