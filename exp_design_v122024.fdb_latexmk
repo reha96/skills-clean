@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex exp_design_v122024"] 1734976358.6 "exp_design_v122024.aux" "exp_design_v122024.bbl" "exp_design_v122024" 1734976362.48767 0
-  "./referrals.bib" 1734686225.78265 27529 8a282b8d9ad389e034333ee4878d279a ""
+["bibtex exp_design_v122024"] 1735046944.16915 "exp_design_v122024.aux" "exp_design_v122024.bbl" "exp_design_v122024" 1735046948.21121 0
+  "./referrals.bib" 1735039687.51212 27820 cfeaab40e32fcd0c0861755d65d4dfe6 ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "exp_design_v122024.aux" 1734976362.1424 17845 636af394defe43474829fb3a79dca1fc "pdflatex"
+  "exp_design_v122024.aux" 1735046947.82616 17425 00dc36424527c15697313376c994c84f "pdflatex"
   (generated)
   "exp_design_v122024.bbl"
   "exp_design_v122024.blg"
   (rewritten before read)
-["pdflatex"] 1734976358.74336 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v122024.tex" "exp_design_v122024.pdf" "exp_design_v122024" 1734976362.48785 0
-  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v122024.tex" 1734976344.92593 139786 54043598dab8056fcada5a7b599cc925 ""
+["pdflatex"] 1735046944.30694 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v122024.tex" "exp_design_v122024.pdf" "exp_design_v122024" 1735046948.21138 0
+  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/exp_design_v122024.tex" 1735046853.6347 145256 ad0e7174a79ae6e27049d4e5b68e122b ""
   "/Users/reha.tuncer/Library/texlive/2024/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk" 1733319228.17819 7808 3d1a4b76be04600619568b2b623d04a0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -72,7 +72,6 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb" 1248133631 36554 b67dc2cfa451409e100b3fcf5f506509 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
-  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1248133631 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb" 1248133631 36094 798f80770b3b148ceedd006d487db67c ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -82,14 +81,12 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
-  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1248133631 32442 c975af247b6702f7ca0c299af3616b80 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb" 1248133631 36310 f5ddc6715cc60deb16d9db5ded6a9391 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb" 1248133631 29078 718ea4567ceff944262b0f5b0800e1d9 ""
-  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb" 1248133631 30212 b6aafa449db0097a6b9b890f66741063 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb" 1215737283 162624 9dcc92cd3b1dfe2ecc80e6da7f2eb6bd ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb" 1215737283 164227 3df942b4ff2124425d8fb1b6d3e01c7a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb" 1215737283 145929 f25e56369a345c4ff583b067cd87ce8e ""
@@ -197,10 +194,10 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1729863227.02717 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1729863127 8221430 5836b5d7628c44f5214ea245e1a11c59 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "exp_design_v122024.aux" 1734976362.1424 17845 636af394defe43474829fb3a79dca1fc "pdflatex"
-  "exp_design_v122024.bbl" 1734976358.7288 36400 c0e688ebcf1dd60ca5727838ed70ed7d "bibtex exp_design_v122024"
-  "exp_design_v122024.out" 1734976362.15286 1693 c2e8ffd2e065236ee338f7de5c194d18 "pdflatex"
-  "exp_design_v122024.tex" 1734976344.92593 139786 54043598dab8056fcada5a7b599cc925 ""
+  "exp_design_v122024.aux" 1735046947.82616 17425 00dc36424527c15697313376c994c84f "pdflatex"
+  "exp_design_v122024.bbl" 1735046944.29032 37007 b8495b8f1dee5b9f3a6ac25fd7b8a9c9 "bibtex exp_design_v122024"
+  "exp_design_v122024.out" 1735046947.83469 1787 47edfdaf099f4063d6f441b481051489 "pdflatex"
+  "exp_design_v122024.tex" 1735046853.6347 145256 ad0e7174a79ae6e27049d4e5b68e122b ""
   "figures/3Aghast-J.jpg" 1730058608.94141 24580 92357bedc173da70fc22f93697e6ecff ""
   "figures/Ravens Survey.jpg" 1730058608.94294 129791 78a7445379cb86a3ed032fd0ded7849c ""
   "figures/baseline.png" 1730058608.94926 1576207 2431a10fc4766cdc96f2c0f4f893e3bc ""

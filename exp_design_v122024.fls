@@ -333,6 +333,11 @@ INPUT ./figures/strato.png
 INPUT ./figures/strato.png
 INPUT ./figures/strato.png
 INPUT ./figures/strato.png
+INPUT ./figures/gpa_ses.png
+INPUT ./figures/gpa_ses.png
+INPUT ./figures/gpa_ses.png
+INPUT ./figures/gpa_ses.png
+INPUT ./figures/gpa_ses.png
 INPUT ./figures/rav_ses.png
 INPUT ./figures/rav_ses.png
 INPUT ./figures/rav_ses.png
@@ -343,11 +348,6 @@ INPUT ./figures/eye_ses.png
 INPUT ./figures/eye_ses.png
 INPUT ./figures/eye_ses.png
 INPUT ./figures/eye_ses.png
-INPUT ./figures/gpa_ses.png
-INPUT ./figures/gpa_ses.png
-INPUT ./figures/gpa_ses.png
-INPUT ./figures/gpa_ses.png
-INPUT ./figures/gpa_ses.png
 INPUT ./figures/guess_ratio.png
 INPUT ./figures/guess_ratio.png
 INPUT ./figures/guess_ratio.png
@@ -394,9 +394,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.p
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
@@ -406,7 +404,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb

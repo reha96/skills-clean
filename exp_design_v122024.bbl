@@ -248,6 +248,34 @@ Bolte, L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Bordalo%
+, Coffman%
+, Gennaioli%
+\BCBL {}\ \BBA {} Shleifer%
+}{%
+Bordalo%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+bordalo2016stereotypes}
+\APACinsertmetastar {%
+bordalo2016stereotypes}%
+\begin{APACrefauthors}%
+Bordalo, P.%
+, Coffman, K.%
+, Gennaioli, N.%
+\BCBL {}\ \BBA {} Shleifer, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Stereotypes} {Stereotypes}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Quarterly Journal of Economics}{131}{4}{1753--1794}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Brown%
 , Setren%
 \BCBL {}\ \BBA {} Topa%
