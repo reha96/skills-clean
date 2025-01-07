@@ -1,0 +1,1621 @@
+\documentclass[11pt,a4paper,oneside]{article}
+\linespread{1.5}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,adjustbox,bm}
+\usepackage{geometry}
+\usepackage{threeparttable}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{mathtools}
+\usepackage{refstyle}
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{eurosym}
+\usepackage{enumerate}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{subcaption}
+\usepackage{caption}
+\captionsetup{width=.8\textwidth}
+\usepackage[section]{placeins}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{changepage}
+\usepackage{float}
+\usepackage[natbibapa]{apacite}
+\usepackage{threeparttable}
+\newcommand{\footremember}[2]{%
+   \footnote{#2}
+    \newcounter{#1}
+    \setcounter{#1}{\value{footnote}}%
+}
+\newcommand{\footrecall}[1]{%
+    \footnotemark[\value{#1}]%
+} 
+
+
+\usepackage[colorlinks=true, citecolor=blue, linkcolor=blue, urlcolor=blue,breaklinks]{hyperref}
+
+
+\title{Skills, Inequality, and Referrals\footnote{We obtained Institutional Review Board approvals from NYU Abu Dhabi (HRPP 2024-50) and the University of Luxembourg (ERP 24–028). The study design was preregistered in the OSF Registries prior to data collection (see \url{https://doi.org/10.17605/OSF.IO/V9T3W}).} }
+% \\ \large Experimental Design \\
+% \title{Skills, Inequality, and Referrals}
+\author{Jhon Díaz\footnote{Universidad Autónoma de Bucaramanga}, Manuel Munoz\footremember{liser}{Luxembourg Institute of Socio-Economic Research}, Ernesto Reuben\footnote{Division of Social Science, New York University Abu Dhabi} \footrecall{liser}, Reha Tuncer\footnote{University of Luxembourg}}  
+% \footnote{Center for Behavioral Institutional Design at New York University Abu Dhabi} 
+\begin{document}
+
+\maketitle
+
+
+
+% \section*{Abstract}
+
+% Ties to wealthier and educated individuals lead to better outcomes (i.e., upward mobility) through the sharing of opportunities. Referrals propagate inequality because they are alike in many dimensions, making them problematic for diversity.  For ties to form, though, simple exposure is not enough: Individuals across social classes should befriend each other to benefit. Universities are potentially one such environment where exposure and friendship among different social classes are plenty. Can quotas change referral choices? And if so, do different skill requirements lead to particular referrals? We conduct an incentivized field experiment in a Colombian university to measure the effects of (i) a low social class quota and (ii) two different skill requirements on referral composition and quality. \medskip \\
+% \textbf{JEL Classification:} \\
+% \textbf{Keywords:} behavioral economics, referrals, field experiment, skills, inequality, upward mobility
+\section{Introduction}
+Referrals are an important channel for connecting workers with firms, transmitting valuable skill information to form good matches. Approximately half of all jobs are filled through referrals \citep{topa2011labor}, and referred workers tend to earn higher wages, have longer tenure, and are more likely to be hired than non-referred candidates.\footnote{See \citet{topa2019social} for a review of the literature. Examples include \citet{brown2016informal, bayer2008place, hellerstein2014labor, hellerstein2019labor, schmutte2015job, dustmann2016referral,friebel2023employee}.} Referral hiring can also propagate inequality due to its inherent reliance on networks \citep{bolte_role_2021,jackson2021inequality}, with lower social classes especially at the risk of being left out \citep{stansbury2024class,chetty2022social_a}.
+
+Yet the precise mechanisms driving how and when referrals provide positive information about worker quality are still not well understood. Skilled workers may know other skilled workers, and refer them as a consequence of their network composition \citep{montgomery_social_1991}. Alternatively, given the network composition, certain workers may be better at screening productivity, with screening ability depending on the skill in question. Existing empirical work focuses on naturalistic settings with endogenous network formation, making it difficult to disentangle screening ability from network composition effects (e.g., \citet{beaman_who_2012,pallais_why_2016}). In this paper, we focus on the latter and ask two questions: Can individuals identify productive peers across different skills when network compositions are held constant? Second, because referrals are prone to biases \citep{beaman_job_2018}, do disadvantaged individuals from lower social classes still face referral barriers when network and performance differences are accounted for?
+
+We conducted a lab-in-the-field experiment in a private Colombian university to answer these questions. Participating bachelor students were asked to refer classmates they interacted with throughout the semester in small classrooms (average 26 students per class). This particular setting allowed us to to fix network compositions and made referral choice sets fully observable to researchers. We first collected incentivized cognitive and social skill measures, and then asked for private nominations of the referral candidates. Referred students did not take any action, and with incentives contingent on referral performance we ruled out concerns of potential social transfers (i.e., nepotism or favoritism) or reputational costs. Once we asbtracted away from these elements, the referral exercise resembled to one of measuring productivity beliefs through nominated candidates where biases against lower social classes could still be at play. We introduced quota-like incentives as a treatment arm to increase referrals and mitigate these potential biases.  
+
+We find that referrers can screen for cognitive but not for social skill. Our empirical strategy consists of normalizing the number of referrers across classrooms and comparing the shares of referrals a participant receives in each skill. Students with higher scores on the cognitive skill measure get more referrals, but we find no evidence that social skill can be screened effectively in the same way. Referral hiring may help identifying some skills but not others depending on the context. Crucially, we find that a large majority of referrers screen for academic performance instead: Students with better grades get a substantially higher share of referrals when controlling for either skill. Participants have differential referral strategies that either focus on screening for GPA only, screening for GPA and cognitive skill, or neither of the two. The ability to screen for grades in our sample is better than the ability to screen for skills. Our findings highlight that referrals do convey positive information, but the type of information being conveyed is nuanced and may not necessarily match what the firm requires.
+% Grades may be an accesible proxy for skills in educational settings if screening for skills are difficult.
+
+The support for a bias affecting lower social classes is limited. Only the group of referrers screening for cognitive skill and GPA  refer a lower share of their low-SES classmates when productivity and network compositions are accounted for. The remaning majority of referrals are not biased, despite our experimental setting in a highly unequal society with significant class inequalities and limited class mobility \citep{angulo2012movilidad,garcia2015loteria}. The treatment partially mitigates the bias for this subset of referrers, while not changing the referral rates of lower social classes in the rest. Heterogeneous ability to identify social class may play a role in the efficiency of the treatment. Our findings show referrals are robust to salient differences between social classes, and provide evidence that existing biases can be remedied with changes in the referral incentive structure.   
+
+% Higher scores in skill measures and lower (more modest) beliefs about one's own performance lead to better screening as well. 
+
+We contribute to the broader literature on referral experiments, notably about the productivity information transmitted by referrals. Past work provides causal evidence that referrals have higher prodictivity compared to non-referred workers \citep{pallais_why_2016}, especially under incentives contingent on referral performance that reduce social transfers between the referrer and referrals \citep{beaman_who_2012,witte2021workers}. In our setting, performance contingent incentives with fixed networks highlight the screening ability of referrers, which depends on the skill  
+
+demonstrating that alone contains positive information about worker 
+
+Contribution 1: First study fixing networks and eliminating social transfers
+Contribution 2: Novel evidence on screening of different skill types
+Contribution 3: New insights on SES-based referral patterns in 
+overlapping networks
+
+
+POLICY RELEVANCE (optional)
+
+
+Implications for understanding skill screening in hiring
+Insights for addressing socioeconomic disparities in referral networks
+
+
+ROADMAP
+
+
+Brief outline of remaining sections
+
+
+
+% To answer the second question, we introduce quota-like incentives as an experimental treatment, inspired by successful gender quotas in affirmative action. This allows us to examine whether explicit incentives can overcome any residual biases in referral decisions, particularly for candidates from low socioeconomic backgrounds.
+
+% \citet{montgomery_social_1991} framework conceptualizes referral hires as highly productive candidates brought in by highly productive workers. This relies on the assumption of network homophily, where productive individuals are more likely to refer productive candidates.\footnote{Homophily is a well-documented empirical consistency in sociology where individuals form ties more often with others who are similar to themselves across observable characteristics \citep{mcpherson2001birds,mcpherson2006social}.} 
+
+
+% To answer this question, we 
+% explore a new setup that isolates the productivity channel.
+
+% conduct a lab-in-the-field experiment that 
+% Supporting experimental evidence find productivity of referrals being higher than those of non-referred workers . This result strengthens when referrals are made under performance contingent incentives as opposed to fixed bonuses which reduces the risk of social transfers (i.e., nepotism or favoritism) between referrer and referee \citep{beaman_who_2012,beaman_job_2018}. Past experiments looked at the referral-referrer productivity relationship keeping the network formation endogenous, with potential social transfer channels between the referrer and referrals \citep{beaman_who_2012,beaman_job_2018,pallais_why_2016,witte2021workers}. These make it difficult to isolate the characteristics of the information channel in referrals.
+
+
+
+
+
+
+
+
+
+
+It remains an open empirical question whether some workers are connected more often with other productive workers, or given the same network, some referrers are better able to assess the productivity of their network members. We explore a new setup where the networks are fixed for all referrers, and social transfers are not of concern. What constitutes a referral in terms of the intensity of communication and reputational costs as a consequence of social transfers can be thought on a spectrum \citep{topa2019social}.\footnote{On one extreme, letting someone know about a job opening requires no communication between the referrer and the employer with no reputational cost for the referrer. On the other extreme, recommending someone to an employer involves communication between the referrer and the employer, and comes at a large reputational cost for the referrer if the match does not work out.} We consider a very simplified setup where a referral only consists of a private nomination of a network member whose is believed to be highly productive in a given task. There are no referrer-employer interactions and no possibility of social transfers. Once we abstract away from these elements, the referral exercise arguably resembles to one of measuring productivity beliefs through nominated candidates. Understanding how referral decisions are made when the referral choice set is restricted and fully observable to researchers, without reputational costs and social transfers, is our main contribution.
+
+While referral hiring may help increase job-candidate quality through homophily, it also propagates inequality: Employment and wages among friends correlate \citep{calvo2004effects,calvo2007networks} and disadvantage qualified yet underrepresented worker groups \citep{bolte2020role,jackson2021inequality,beaman_job_2018}. Individuals are tied more frequently with those of comparable socioeconomic status \citep{chetty2022social_a}, and differences in network composition lead to persistent differences in labor market outcomes, even when controlling for various productivity measures \citep{stansbury2024class}. Our experiment takes place in a highly unequal society with significant class inequalities and limited class mobility \citep{angulo2012movilidad,garcia2015loteria}, making salient the differences between social classes. Limited interaction across social classes due to spatial segregation is shown to drive at least some of the differences in outcomes \citep{chetty2022social_b}, but we consider a setting where networks across social classes overlap. Anticipating differences in referral outcomes for low-SES even when spatial constraints are removed and productivity is accounted for, we introduce quota-like incentives as a treatment arm to increase referrals of low-SES. We design the treatment incentives in inspiration from the success of gender quotas in the affirmative action literature \citep{bertrand2019breaking, balafoutas2012affirmative, niederle2013costly}.
+
+A growing body of work emphasizes positive labor market returns for ``noncognitive'' or ``soft'' skills like patience, self-control, conscientiousness, teamwork, and critical thinking \citep{heckman2006effects,lindqvist2011labor,heckman2012hard,weinberger2014increasing}. \citet{deming2017growing,deming2023multidimensional} separates these into interpersonal and intrapersonal skills, finding increasing returns to interpersonal (social) skills which are conceptually distinct but complementary to cognitive skill. Based on advances in this literature, we examine how well individuals can identify job-market relevant skills in referrals. Past work show referrers can identify cognitive skill, but not a noncognitive skill like perseverance in a sample of low-educated day-workers in India \citep{beaman_who_2012}. Evidence on social skill identification is limited. Yet, hiring firms report difficulties in observing job applicants' social skills among their most important concerns, and applicants are willing to pay substantial sums to convey social skill feedback to employers \citep{bassi2022screening}. We contribute to this literature by extending productivity screening to a highly educated sample for cognitive and social skills.
+
+We separately measure cognitive and social skills from a diverse student body of peers who interact during semester-long university classes. We find that under performance-contingent incentives, referrers can screen cognitive skill but not social skill, providing another explanation for the large demand for communicating social skill to firms \citep{bassi2022screening}. By fixing network formation and closing social transfer channels, we show that referrals reveal information about worker productivity as suggested by \citet{beaman_who_2012,beaman_job_2018,pallais_why_2016}, but only for skills than can be screened by referrers. We document a novel pattern in referral strategies when clean productivity signals are absent: Referrals often rely on a proxy linked to academic performance rather than the skill, highlighting limitations in precise skill screening. We find that low-SES individuals underperform in both skill measures, consistent with \citet{falk2021socioeconomic}. However, controlling for productivity and network composition, we find limited bias against low-SES. Quota-like incentives improve outcomes for low-SES in the small proportion of cases where the bias exists.
+
+Section 2 begins with the background and setting in Colombia. In Section 3 we present the design of the field experiment, including the skill assessment, referral and guessing tasks. In Section 4 we describe the data and procedures. Section 5 discusses the results of the experiment. Section 6 concludes. The Appendix presents and additional tables and figures as well as the experiment instructions.
+
+% \textcolor{red}{Result in terms of efficiency}
+
+\section{Background and Setting}
+
+
+\textit{Inequality and Social Class.} Colombia has consistently ranked as one of the most unequal countries in Latin America \citep{barretoherrera2024regional}, with the richest decile earning 50 times more than the poorest decile \citep{comisioneconomicaparaamericalatinayel2023}. This economic disparity is reflected by a highly stratified society, where social classes remain separated by education, family background, lifestyle, occupation, power, and geographic residence. \medskip \\
+\textit{Stratum system.} In 1994, Colombia introduced a nationwide classification system dividing the population into 6 strata based on housing characteristics and neighborhood amenities. This system, initially designed for utility subsidies from higher strata (5 and 6) to support lower strata (1 to 3), now extends to university fees and social program eligibility. While imperfect -because it disregards the income of residents, this system largely aligns with and potentially reinforces existing social class divisions \citep{uribe2008estratificacion, guevara2019spatializing}. We use this exogenous cutoff as the measure of social class in our experiment: Students in strata 1 to 3 are categorized as low-SES, and those in strata 4 to 6 as high-SES.  \medskip \\
+% It also provides a shortcut to evaluate not only neighborhoods but their inhabitants. Local mannerisms like ``going out of one's stratum" and ``noticing one's stratum", or receiving a question about where one lives during a job interview are examples of how the system has become more than a classification of housing blocks.\footnote{See \href{https://www.theguardian.com/cities/2017/nov/09/bogota-colombia-social-stratification-system}{here}, \href{https://www.reddit.com/r/asklatinamerica/comments/13khpq6/colombia_and_estratos/}{here}, and \href{https://bogotastic.com/awkward-observations-colombian-class-system-foreigner-part-1/}{here} for more examples from popular press, social media and blog posts.} About 90 percent of Colombians live in strata 1 to 3 and are eligible for subsidies \citep[p. 103]{hudson_colombia_2010}. About 90 percent of Colombians live in strata 1 to 3 and are eligible for subsidies  (see Figure \ref{fig:strata-classification}).
+\textit{Universidad Autónoma de Bucaramanga.}  Our study takes place at UNAB, a medium-sized private university in Bucaramanga, Colombia, with approximately 10,000 enrolled students. UNAB's student body is notably diverse, with slightly more than half of the students classified as low-SES (see Appendix Figure \ref{strato} for a detailed stratum distribution). This diversity reflects the broader trend in Colombian society, where lower middle-class families (stratum 2 and 3) prioritize university education for their children despite the financial burden \citep[p. 103]{hudson_colombia_2010}. The university environment provides a unique opportunity for collaborative inter-class contact on equal status, whose positive effects on reducing discrimination are casually documented \citep{rao2019familiarity, mousa2020building,lowe2021types}. We draw our sample from a cohort of students enrolled in two semester-long courses. Each course meets weekly for three-hour sessions. Attendance is mandatory, but enforcement varies across instructors. Both courses are university-wide graduation requirements which result in large variations in academic programs and socioeconomic backgrounds across the classrooms.
+
+% (see Appendix \ref{fig:study} for the distribution of academic programs across classrooms)
+
+% \begin{figure}[htbp]
+%   \centering
+%   \caption{Official strata classification in Bucaramanga, where UNAB is situated, and Bogotá.}
+%   \label{fig:strata-classification}
+%   \begin{subfigure}{.5\textwidth}
+%     \centering
+%     \includegraphics[width=\linewidth,height=\linewidth,keepaspectratio]{bucaramanga.png}
+%     \caption{Bucaramanga}
+%     \label{fig:bucaramanga}
+%   \end{subfigure}%
+%   \hfill
+%   \begin{subfigure}{.5\textwidth}
+%     \centering
+%     \includegraphics[width=\linewidth,height=\linewidth,keepaspectratio]{bogota.png}
+%     \caption{Bogotá}
+%     \label{fig:bogota}
+%   \end{subfigure}
+% \end{figure}
+
+\section{Design}
+We designed a referral experiment between students from different social classes, and experimentally varied the incentives to refer a low-SES peer. The study design consists of a single experiment with three sequential parts with sessions organized at the classroom level (see Figure \ref{timeline}). The instructions are provided in Appendix \ref{instructions}. 
+
+\begin{figure}[htbp]
+  \centering
+  \caption{Experiment Timeline}\label{timeline}
+  \includegraphics[width=\linewidth]{figures/figure-1.jpg}  
+  \begin{tablenotes}
+\footnotesize
+\item[] \textit{Note:} Participants first complete incentivized skill tests, then refer classmates for skills. In the final part, they guess the social class of their peers. This order is implemented in all sessions.
+\end{tablenotes}
+\end{figure}
+
+
+\subsection{Skill Assessment}\label{skill_assessment}
+To understand the basis for referral decisions, we collect objective measures of cognitive and social skills. These two distinct skills are crucial for the labor market and suitable in a context with university students.\footnote{For the relationship between wages and social skills conditional on cognitive skills, see \citet{kuhn2005leadership, weinberger2014increasing, deming2017growing, edin2022rising}.} This approach ensures that we observe the distribution of skills in our sample, ask for referrals on these skills, and compare how well the same individuals refer peers for a specific skill. Participants perform two incentivized skill tests. They have 5 minutes to complete each test. We provide test-specific instructions and an example item before participants begin. Correctly solved items increase chances to earn a fixed bonus.\footnote{The tests are presented in a randomized order. No performance feedback is provided. Participants see one item at a time and cannot return to previous screens once they start a test. They are not required to answer items and can skip them if they choose to do so. We elicit beliefs about performance after each test.}  \medskip\\
+\textit{Cognitive Skills.} We use Raven's Progressive Matrices to measure cognitive skills \citep{raven_performances_1936, raven_standard_1976}. Raven’s test is a well-established measure of fluid intelligence, i.e., an individual’s capacity to reason and solve problems in novel situations independent of past knowledge \citep{schilbach_psychological_2016}. In this test, participants see series of images where there is a pattern with a piece that has been intentionally removed. They are tasked with choosing the piece that completes the pattern among available options. For each image, there is only one correct answer. We implement an 18-item version featuring increasingly difficult questions, with 6 response options for the first 9 items and 8 thereafter.  \medskip\\
+\textit{Social Skills.} We measure social skills with the Multiracial Reading the Mind in the Eyes Test (MRMET) from \citet{kim_multiracial_2022}.\footnote{We choose MRMET because it is a race- and gender-inclusive test suitable for application in non-WEIRD (Western, Educated, Industrial, Rich, Democratic) populations like the one we sample from. The test is based on the original RMET \citep{baron-cohen_reading_2001}.} The test is an established measure for the ability to recognize emotions in others, and it has been previously used in economic experiments \citep{van_leeuwen_predictably_2018, weidmann_team_2021}. MRMET consists of photos of human faces portraying different emotions, cropped so that only the eye region is visible. Participants must choose the emotion that best describes the photo from the available answers. For each photo, there is only one correct answer and 4 response options. We administer the first 36 items in MRMET. 
+% \begin{figure}[htbp]
+%   \centering
+%   % \captionsetup{width=0.8\linewidth}
+%   \caption{Example item from the MRMET}\label{emotions-example}
+%   \includegraphics[scale=0.3]{social-skill-example.png}
+% \end{figure}
+% \begin{tablenotes}[]
+% \centering
+% \footnotesize
+% \item[] \textit{Note:}   The correct answer for this item (translated from Spanish ``Amigable") is Friendly.
+% \end{tablenotes}
+% Using this list instead of a free text field could help alleviate biases related to recall in referral choice \textcolor{red}{cite who?}.
+\subsection{Referral Task} \label{referral_task}
+We create a referral task to measure bias against low-SES peers.  For each skill, participants make incentivized referrals by nominating classmates. We first explain the measured skill accompanied by an example test item. On the following page, we provide an alphabetically ordered list of all  classmates. Participants make three referral choices per skill. They are instructed to exclude themselves from referrals. A classmate may be nominated once per triad. The order in which participants refer for a skill test is randomized. We incentivize referrals with classroom-level performance rankings. The three highest-scoring classmates are designated as the top 3 for a skill. Referrers are eligible for a fixed bonus for referrals among the top 3.\footnote{We solve ties among the top 3 randomly. We describe only the top 3 selection mechanism and provide no feedback about the top 3 composition to participants.}   \medskip\\
+\textit{Treatment.} We have one between subject treatment, and it varies the top 3 selection. In the \textbf{Baseline} treatment, the top 3 selection is based solely on performance ranking, regardless of other participant characteristics. The \textbf{Quota} treatment modifies the top 3 selection to prioritize low-SES individuals. We reserve the first spot in the top 3 for the highest-scoring low-SES classmate, and assign the remaining two places based on performance. This guarantees at least one low-SES participant in the top 3 per skill. Participants are informed about the top 3 selection mechanism before making referral choices (Appendix Figure \ref{fig:combined_illust} provides illustrations explaining the treatments). Assignment to the treatment is at the individual level within each classroom. This allows comparing the effect of the treatment while keeping the referral choice set constant.
+
+\subsection{SES Guessing Task}\label{guessing_task}
+Participants make guesses about the anticipated SES of their classmates. We inform participants that a computer algorithm randomly selects three students belonging to strata 1, 2, or 3. They are tasked with nominating the people they believe the computer could choose at random (Appendix Figure \ref{fig:guessing} provides the illustration explaining the task). Participants select three classmates from an alphabetically ordered list containing all their classmates. This task measures the ability to distinguish-SES independent of test performance, as SES identification is relevant to our study. 
+% The choice set for this task includes the participant themselves due to the specific instructions for this part. There are no time limits, but the decision time is recorded. 
+\section{Sample, Incentives, and Procedure}
+\textit{Sample.} We invited 849 UNAB undergraduate students to participate in the experiment. Our final sample consists of 713 individuals who completed the study, resulting in an 83\% participation rate. Table \ref{tab:demographic-comparison} presents key demographic characteristics and academic performance indicators across treatments (Appendix Table \ref{tab:missing} compares the sample and missing students). The sample is well-balanced between the Baseline and Quota conditions. We observe no statistically significant differences in any of the reported variables (all \textit{p} values $> 0.1$), indicating balanced randomization. The sample is characterized by a majority of low-SES students. About one-third of the sample are first-generation college students. The gender distribution is balanced. The mean GPA of 3.95 is consistent across both treatments. \medskip\\ 
+\textit{Incentives.} 
+Participants could earn bonuses worth 100,000 Pesos (about 26 US Dollars) in each part of the experiment. In the first part, we incentivized performance in the skill tests. 20\% of participants were eligible for the bonus. We randomly picked one skill test for each eligible participant and drew a number between 1 and 100. The participant received the bonus if the percentage of correct answers in the selected test exceeded the drawn number. Chances of earning the bonus increased with each correctly solved question by 5.5\% (=1/18) for the Cognitive Skill test and by 2.78\% (=1/36) for the Social Skill test. In the second part, we incentivized referrals among the top 3 performers. 40\% of participants were eligible for the bonus. We randomly selected one skill test and one referral for each eligible participant. The participant received the bonus if their referral was among the top 3. In the third part, we incentivized the correct identification of low-SES classmates. 20\% of participants in each classroom were eligible for the bonus. We randomly selected one guess for each eligible participant. The participant received the bonus if their guess correctly identified a low-SES classmate.\medskip\\
+% To mitigate potential selection bias related SEB, all invited students were enrolled in courses that combine multiple academic programs.\footnote{Previous studies at this university have shown that students from higher socioeconomic backgrounds tend to select finance and business administration programs, while those from lower socioeconomic backgrounds often choose STEM.} 
+\begin{table}[!htbp]
+\centering
+\begin{threeparttable}
+\caption{Comparison of demographic characteristics and academic outcomes across treatment conditions}
+\begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}lcc c@{}}
+\toprule
+ & \multicolumn{1}{c}{\textbf{Baseline}} & \multicolumn{1}{c}{\textbf{Quota}} & \multicolumn{1}{c}{\textit{\textbf{p}}} \\ \midrule
+Low-SES & 59\% & 55\% & \multicolumn{1}{c}{0.297} \\
+Cognitive skill (out of 18) & 10.04 & 10.27 & \multicolumn{1}{c}{0.322} \\
+Social skill (out of 36) & 18.45 & 18.50 & \multicolumn{1}{c}{0.886} \\
+GPA & 3.95 & 3.95 & \multicolumn{1}{c}{0.828} \\
+Entry Exam & 61.85 & 62.17 & \multicolumn{1}{c}{0.638} \\
+Age & 19.33 & 19.02 & \multicolumn{1}{c}{0.228} \\
+Female & 52\% & 47\% & \multicolumn{1}{c}{0.195} \\
+First Generation & 34\% & 37\% & \multicolumn{1}{c}{0.386} \\
+Ethnic Minority & 1\% & 3\% & \multicolumn{1}{c}{0.133} \\
+Rural Community & 30\% & 27\% & \multicolumn{1}{c}{0.308} \\
+Has Scholarship & 1\% & 1\% & \multicolumn{1}{c}{0.916} \\
+\# Semesters at UNAB & 3.18 & 3.17 & \multicolumn{1}{c}{0.916} \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item[] \textit{Note:} Low-SES, female, first generation, ethnic minority, rural, and has scholarship represent binary outcomes and \textit{p}-values for these variables are from two-sample tests of proportions. For continuous variables (age, GPA, cognitive skill, social skill, entry exam, and semester), \textit{p}-values are from two-sample t-tests with equal variances. All reported \textit{p}-values are two-tailed. Sample sizes vary slightly across measures due to missing data.
+\end{tablenotes}
+\label{tab:demographic-comparison}
+\end{threeparttable}
+\end{table}
+\noindent \textit{Procedure.} Data collection occurred during the last weeks of April 2024. Our local partner, the Social Bee Lab, coordinated scheduled classroom visits and recruited research assistants to administer the experiment. Students present in class on the scheduled visit dates participated. Each classroom visit constituted a separate session. There were in total 35 sessions. Participants accessed the Qualtrics-based experiment using their smartphones during these visits. The median time to complete the survey was 20 minutes, with a compensation of \$26 for 117 lottery winners.
+% After visiting all 34 classrooms, we sent private invitations to students who were absent during the scheduled sessions. These students received the survey link via their student email and had an additional week to participate.
+
+\section{Empirical Analysis}
+\subsection*{Can peers screen cognitive and social skills?}
+Our first goal is understanding whether higher skilled individuals get more referrals. Because every referrer nominates 3 classmates per skill, analyzing only the extensive margin, i.e., whether an individual gets a referral, is not very informative.\footnote{Only 86 of the 849 students (10\%) never get a referral for either skill.} We consider the percentage share of referrals from individuals in Baseline condition as our dependent variable. This approach combines the intensive and extensive margins and also makes comparisons across classrooms with different sizes easier.\footnote{The number of participants in a classroom mechanically drives the number of total referrals that could be received by an individual. By normalizing referrals we focus on differences within classrooms.} Formally, we define the percentage share of  referrals received by individual $i$ from participants $j$ in classroom $c$ and in Baseline condition ($\forall j \in B_c$) for skill $s\in$ $\{Cognitive, Social\}$ as: 
+
+\begin{equation}\label{ys_def}
+    y_{ic}^s = \frac{\sum_{j \neq i} r_{ijc}^s}{n_{c} - \mathbbm{1}(i \in B_c)} \times 100
+    \end{equation}
+  
+where $n_c$ represents the number of participants in the Baseline condition in classroom $c$. The indicator $r_{ijc}^s$ takes value 1 if participant $j$ in the Baseline condition refers individual $i$ for skill $s$, and 0 otherwise, and require both $i$ and $j$ to be in the same classroom $c$. The denominator $n_{c} - \mathbbm{1}(i \in B_c)$ accounts for the maximum possible referrals that individual $i$ could receive. If $i$ is in the Baseline condition ($\mathbbm{1}(i \in B_c)=1$), we subtract one from $n_c$ to account for the self-referral restriction.\footnote{33.8 percent of participants in the sample for cognitive and social skills self-referred, while explicitly instructed not to do so. In Appendix Table \ref{tab:self_ref} compares the outcomes of those who self-refer. Self-referrers are more likely to be low-SES, and have significantly lower cognitive skill (0.2 SD) and GPA (0.25 SD). We rule out the hypothesis that self-referrers nominate themselves strategically. As self-referrerals are not informative and add noise to our estimates, we drop these instances from our paired referral-referrer sample in subsequent analyses. Self-referrering participants' remaining referral choices are kept in the dataset.}
+This normalized measure represents the percentage of potential referrals actually received by each individual, adjusting for classroom size and treatment status. By construction, $y_{i}^s \in [0,100]$ for all $c$, and we can compare referrals across classrooms of different sizes. Figure \ref{fig:referral_fraction_skill} presents the distribution of our dependent variable. 
+
+\begin{figure}[H]
+  \centering
+  \caption{Referrals received at Baseline}\label{fig:referral_fraction_skill}
+  \includegraphics[width=0.85\linewidth]{figures/ref_skill_baseline.png}
+  \caption*{\footnotesize\textit{Note:} The figure shows the percentage share of referrals received across cognitive and social skills from participants in Baseline condition. It is calculated as the number of actual referrals received divided by the maximum possible referrals a student could have received.}
+  %  To illustrate: Consider a classroom with 25 students with 20 participants, and assume 10 participants in each condition. In this classroom, an individual could receive maximum 10 referrals for a skill from classmates in Baseline condition. This number is 9 if the individual is also in Baseline (exclude 1 self-referral possibility). We normalize the referrals received by the maximum to obtain the percentage share shown in the figure. The distribution of referrals is right-skewed with extreme outliers, with consistency across cognitive and social skills.
+\end{figure}
+
+Under performance pay in the Baseline condition, higher performing classmates in skill tests should collect more referrals if classmates can succesfully screen skills. Our independent variables are the standardized skill test scores. We estimate referral percentage shares $y_{i}^{s}$: 
+\begin{equation}\label{skill}
+    y_{i}^{s} = \beta_{0}^{s} + \beta_{1}^{s}{Skill}_{i}^{s} + \epsilon_{i}^{s}    
+\end{equation} 
+Table \ref{tab:regression-results1} illustrates our first findings. The comparison of interest is the point estimates for different skills. In column (1), a one standard deviation increase in cognitive skill causes a 1.2 percentage point increase in the share of referrals received. On a base rate of 13\%, this is a modest increase of 9 percent. In column (2), 95\% confidence intervals rule out that a one standard deviation increase in the social skill result in more than a 1 percentage point difference in the share of referrals received. Participants have difficulties screening skills in the Baseline condition, with modest recognition of cognitive and no recognition at all of social skills.
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Share of referrals received conditional on skill}\label{tab:regression-results1}
+  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+  \toprule
+  & (1) & (2) \\
+  & Cognitive & Social \\
+  \midrule
+  Skill & 1.197** & 0.037 \\
+  & (0.479) & (0.510) \\
+  Constant & 12.986*** & 13.049*** \\
+  & (0.653) & (0.521) \\
+  \midrule
+  Observations & 665 & 665 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} Classroom-level clusted standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Dependent variables are the percentage of referrals received relative to all referrals. ``Skill'' refers to standardized test scores for cognitive and social skills. Sample restricted 665 individuals for whom we have complete administrative and experimental data.
+  \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+In the absence of a clean skill-signal from their peers, participants may have referred classmates using proxies of skills. We define proxies as peer beliefs about strong correlates for skills. A potential proxy for cognitive skill (i.e., ``smart students'') would be the ``students with good grades'' in the classroom, as measured by GPA. The idea that grades signal cognitive skill is a common belief among researchers and practitioners alike. Yet, cognitive skill and grades are far from perfectly correlated \citep{heckman2006effects,heckman2012hard}, and screening with such beliefs may not lead to  good referrals. Indeed, GPA correlates very weakly with skills in our sample (see Appendix Table \ref{tab:correlation}). We capture the screening behavior using proxies by including the standardized GPA scores of referrals as an independent variable. We reestimate referral percentage shares for the Baseline condition: 
+
+\begin{equation}\label{skill_gpa}
+  y_{i}^{s} = \beta_{0}^{s} + \beta_{1}^{s}{Skill}_{i}^{s} + \beta_{2}^{s}{GPA}_{i}^{s} + \epsilon_{i}^{s}    
+\end{equation} 
+
+Table \ref{tab:regression-results2} illustrates our findings. The comparison of interest is the difference between point estimates for skills and GPA. In column (1), a one standard deviation increase in cognitive skill causes a 0.9 percentage point increase in the share of referrals received when controlling for GPA. On a base rate of 12.8\%, this is a comparable increase in magnitude of about 7 percent to our previous estimate in Table \ref{tab:regression-results1}, and suggests cognitive skills have an independent effect on referrals. However, a one standard deviation increase in GPA causes a substantial 3.9 percentage point increase in the share of referrals received when controlling for cognitive skill. This is an increase of more than four times in terms of magnitude (30 percent) when compared to cognitive skill, and suggestive of the extent to which academic performance is easier to screen among peers. In column (2), 95\% confidence intervals rule out that a one standard deviation increase in the social skill result in more than a 1 percentage point difference in the share of referrals received. This is consistent with our previous estimate confirming participants cannot screen social skills. On the other hand, a one standard deviation increase in GPA causes a substantial 3.4 percentage point increase in the share of referrals received when controlling for social skill. This is a slightly smaller increase of 26 percent in the share of referrals for social skill. For both skills, we find strong evidence that grades act as a proxy for referral decisions. In the next section we expand on the diversity in referral choices to differentiate between referrers using GPA proxy and others.
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Share of referrals received conditional on skill and academic performance}\label{tab:regression-results2}
+  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+  \toprule
+  & (1) & (2) \\
+  & Cognitive & Social \\
+  \midrule
+  Skill & 0.873* & -0.278 \\
+  & (0.467) & (0.460) \\
+  GPA & 3.949*** & 3.429*** \\
+  & (0.664) & (0.581) \\
+  Constant & 12.806*** & 12.891*** \\
+  & (0.662) & (0.636) \\
+  \midrule
+  Observations & 665 & 665 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} Classroom-level clusted standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Dependent variables are the percentage of referrals received relative to all referrals.``Skill'' refers to standardized test scores for cognitive and social skills. GPA is standardized to mean zero and unit variance.
+  \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+\subsubsection*{Referral strategies}
+Diversity in referral choices can vary substantially as participants refer 3 individuals per skill, and can nominate the same individual twice. In Figure \ref{fig:same}, we show the share of referrers disaggregated by the number of times a they nominated the same classmate for both skills. Referral choices are highly concentrated around the same individuals: Only 20 percent of participants pick all unique classmates for their 6 referral choices, and most participants make two common referrals. Exluding self-referrals underestimates the share of participants who have 3 identical referral choices, and the diversity in referral choices gets even lower with self-referrals \footnote{In Appendix Table \ref{tab:overlap_ref} we compare the characteristics of referrers make unique referrals to those who made at least one common referral. Results suggest minimal differences in GPA, skills, and social class.} 
+
+\begin{figure}[H]
+  \centering
+  \caption{Share of common referrals}\label{fig:same}
+  \includegraphics[width=0.7\linewidth]{figures/ses_dist3.png}
+  \caption*{\footnotesize\textit{Note:} The figure shows the distribution of overlapping referrals with and without self-referrals. The first bar (value of 0) indicates the share of participants with 6 unique referrals. The last bar (value of 3) indicates the share of participants with 3 identical referral choices.} 
+\end{figure}
+
+With such a large share overlapping referral choices, it is possible that participants believed classmates with a higher score in one skill would also have a higher score in the other. Would such beliefs be accurate? There is only modest ($\rho = 0.267$) correlation between the two skills (see Appendix Table \ref{tab:correlation}). To understand whether making overlapping referrals is strategic, we turn to the incentives. Participants were incentivized to pick the top 3 performers in their classroom for each skill to earn a fixed bonus. Looking at the characteristics of top skilled participants in Appendix Table \ref{tab:top_perf}, we find that conditional on being among the top 3 for one of the skills, only 1 in 3 participants were in the top 3 for both skills. This suggests making more than 1 common referral across skills would decrease the chances to win the bonus. 
+
+A competing explanation for the amount of overlapping referral choices coupled with the notable difficulties in screening skills would be that individuals who refer classmates twice for both skills are worse at observing peer skills. This imples the underlying heterogeneity in skill identification results in differential referral strategies where participants with a good signal for a skill choose to refer classmates only once for that skill, and those without a good signal use the grade proxy and refer classmates for both skills. We can test both hypotheses in our data: If ``twice'' referrers -defined as those who refer an individual for both skills- are better at screening at least one of the skills, this gives more credence to beliefs about correlated skills. On the other hand, if ``twice'' referrers are worse in skill identification compared to single-referrers and use GPA proxy for referrals, we can infer that they have no additional information about skills. 
+
+We compare the outcomes of participants who recieve referrals twice from their classmates to those who recieve referrals only once per skill. Formally, let indicator $r_{ijc}^{twice}$ take value 1 if individual $j$ referred individual $i$ for both skills. The percentage share of referrals received by individual $i$ from participants in classroom $c$ and in Baseline condition ($\forall j \in B_c$) is: 
+
+\begin{equation}
+  y_{ic}^{twice} = \frac{\sum_{j \neq i} r_{ijc}^{twice}}{n_c - \mathbbm{1}(i \in B_c)} \times 100
+  \end{equation}
+
+where $n_c$ represents the number of participants in the Baseline condition in classroom $c$. The indicator $r_{ijc}^{twice}$ takes value 0 if participant $j$ in the Baseline condition does not refer individual $i$ for both skills. The denominator $n_c - \mathbbm{1}(i \in B_c)$ accounts for the maximum possible ``twice'' referrals that individual $i$ could receive as before. Similarly, let $r_{ijc}^{s,single}$ take value 1 if individual $j$ referred individual $i$ only for skill $s$. The percentage share of ``single'' referrals received by individual $i$ from participants in classroom $c$ and in Baseline condition ($\forall j \in B_c$) for skill $s$ is: 
+
+\begin{equation}\label{single_def}
+  y_{ic}^{s,single} = \frac{\sum_{j \neq i} r_{ijc}^{s,single}}{n_c - \mathbbm{1}(i \in B_c)} \times 100
+  \end{equation}
+and it follows that for any $s$, percentage share of ``single'' and ``twice'' referrals received by individual $i$ from participants in classroom $c$ and in Baseline condition ($\forall j \in B_c$) must add up to the total share of referrals received:
+\begin{equation}\label{single_twice}
+  y_{ic}^{s} = y_{ic}^{s,single} + y_{ic}^{twice}
+  \end{equation}
+we regress Equation \ref{skill_gpa} for our three new dependent variables and report our findings in Table \ref{tab:regression-results3}. The comparison of interest is the skill and GPA estimates across columns. In column (1), we find that a one standard deviation increase in GPA causes a 3.2 percentage point increase in the share of ``twice'' referrals received when controlling for skills. This is a staggering 43 percent increase on a base rate of 7.4\%. 95\% confidence intervals rule out that a one standard deviation increase in either skill result in more than a 1 percentage point difference in the share of ``twice'' referrals received. Participants who nominate the same individuals for both skills make referrals based on academic performance and cannot observe classmates with higher cognitive or social skills. For participants who receive only cognitive skill referrals, in column (2), we find that a one standard deviation increase in GPA causes a 0.8 percentage point increase in the share of referrals when controlling for cognitive skill. A one standard deviation increase in cognitive skill causes a comparable 1 percentage point increase in referrals when controlling for GPA. These are respectively 15 and 19 percent increases in the share of referrals received, and suggest participants are able to screen higher skilled peers when referring only for cognitive skill. The lower base rate of 5.4\% compared to 7.4\% in column (1) suggest less than half of referrals came from ``single'' referrals. GPA estimate is three times smaller in magnitude compared to column (1), and suggests a smaller weight put in the grades proxy. Nevertheless, the comparable magnitudes of GPA and cognitive skill point estimates still suggest participants refer peers with higher grades much more often than the correlation between the two supported by the data ($\rho = 0.085$). There is heterogeneity in skill identification even for those who refer a peer once for cognitive skill. For participants who receive social skill referrals only, in column (3), 95\% confidence intervals rule out that a one standard deviation increase in social skill or GPA result in more than a 1 percentage point difference in the share referrals received. These further support our previous finding that peers cannot screen social skills in our sample, and attempts to screen social skills by ceasing the use of the GPA proxy seems to fail. Taken together, there are three distinct referral strategies we find in our sample. A majority of individuals cannot screen skills, refer instead using the GPA proxy, and nominate the same individuals for both skills. Those who refer an individual only for cognitive skill can identify this skill, and drive the entierity of the results in terms of peer skill recognition. Still, they confound the cognitive skill signal with academic performance, and put similar weights on the two. Finally, those who refer an individual only for social skill can neither screen social skill or use the GPA proxy. In the subsequent section, we analyze referrals from the perspective of social class while accounting for the referral strategies described in this part.
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Share of ``twice'' versus ``single'' referrals received conditional on skills and academic performance}\label{tab:regression-results3}
+  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+  \toprule
+  & (1) & (2) & (3) \\
+  & Twice & Cognitive Only & Social Only \\
+  \midrule
+  GPA & 3.172*** & 0.801** & 0.260 \\
+  & (0.464) & (0.391) & (0.334) \\
+  Cognitive Skill & -0.042 & 1.006*** & \\
+  & (0.416) & (0.270) & \\
+  Social Skill & -0.353 & & 0.086 \\
+  & (0.304) & & (0.381) \\
+  Constant & 7.407*** & 5.400*** & 5.485*** \\
+  & (0.524) & (0.386) & (0.376) \\
+  \midrule
+  Observations & 665 & 665 & 665 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} Classroom-level clusted standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variable in column (1) is the percentage share of ``twice'' referrals received from the same referrer, in column (2) ``single'' referral share for cognitive skill, and in column (3) for social skill. Independent variables are the respective standardized test scores for skills and GPA.
+  \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+\subsection*{Social class bias across referral strategies}
+Based on the referral strategies found in the previous section, we document the existence of a social class bias in referrals when controlling for skills and academic performance at Baseline. Our dependent variables are the percentage shares of referrals received at Baseline as defined in Equation \ref{single_twice}, and we include a social class dummy for the participant receiving the referrals. We estimate for our three dependent variables:
+  \begin{equation}\label{treat-ses}
+y_{i}^{s} = \beta_{0}^{s} + \beta_1^{s}{GPA}_{i} + \beta_{2}^{s}{Skill}_{i}^{s} + \beta_3^{s}{SES}_{i} + \epsilon_{i}^{s}
+\end{equation}
+  
+Table \ref{tab:regression-results4} summarizes our findings. The comparison of interest is the SES estimates for the three referral strategies. In column (1), controlling for skills and GPA, the point estimate for low-SES is not statistically significant. Skill and GPA estimates are robust to the inclusion of this variable and remain close to those in Table \ref{tab:regression-results3}. For participants who receive cognitive skill referrals only in column (2), we find that being low-SES causes a 2 percentage points decrease in the share of referrals when controlling for cognitive skill and GPA. This is a substantial 31 percent difference in the share of referrals received, confirming participants are biased against low-SES peers when referring only for cognitive skill. Skill and GPA estimates are robust to the inclusion of this variable, but the decrease in the cognitive skill point estimate from 1.006 in Table \ref{tab:regression-results3} to 0.869 with the inclusion of SES dummy suggest the two are confounders. This is supported by the data, where low-SES underperform in cognitive skill (see Appendix Figure \ref{fig:cognitive}). GPA and low-SES are not confounders and there are no differences across social classes in terms of GPA (see Appendix Figure \ref{fig:gpa}). For participants who receive social skill referrals only, in column (3), the point estimate for low-SES is not statistically significant. GPA estimate remains as before. The decrease in the social skill point estimate with the inclusion of SES dummy suggests the two are confounders, and this is also supported by the data: Low-SES underperform also in social skill (see Appendix Figure \ref{fig:social}). Taken together, we document a low-SES bias for cognitive skill referrals only. In the next section we explore whether the social class bias survives when we consider referrals together, and the effects of the Quota treatment on low-SES referrals.   
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Share of ``twice'' versus ``single'' referrals received conditional on skills, academic performance, and social class}\label{tab:regression-results4}
+  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+  \toprule
+  & (1) & (2) & (3) \\
+  & Twice & Cognitive Only & Social Only \\
+  \midrule
+  GPA & 3.170\tnote{***} & 0.797\tnote{**} & 0.260 \\
+  & (0.462) & (0.386) & (0.334) \\
+  Cognitive Skill & 0.000 & 0.869\tnote{***} & \\
+  & (0.411) & (0.261) & \\
+  Social Skill & -0.306 & & 0.047 \\
+  & (0.315) & & (0.372) \\
+  Low-SES & 0.799 & -2.017\tnote{***} & -0.549 \\
+  & (0.939) & (0.711) & (0.610) \\
+  Constant & 6.948\tnote{***} & 6.558\tnote{***} & 5.800\tnote{***} \\
+  & (0.742) & (0.656) & (0.558) \\
+  \midrule
+  Observations & 665 & 665 & 665 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} Classroom-level clustered standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variable in column (1) is the percentage share of ``twice'' referrals received from the same referrer, in column (2) ``single'' referral share for cognitive skill, and in column (3) for social skill. Independent variables are the respective standardized test scores for skills and GPA.
+  \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+
+ \subsection*{Social class bias and the Quota treatment}
+  In the following empirical specification, we document whether there is a social class bias when referrals are grouped, and whether the Quota treatment causes referral shares of low-SES participants to change when controlling for skills and academic performance. We hypothesize that the Quota treatment should increase referrals to low-SES classmates because of the additional incentive to refer low-SES. The dependent variable is the percentage share of referrals received as defined for the Baseline treatment in Equation \ref{ys_def}, now extended to the referrals from the Quota treatment. It is trivial to see $y_{ic}^{s}$ can also be calculated for the Quota treatment as participants in every classroom are randomized into either treatment. Now, every participant is observed twice in the data, and we add a treatment dummy to indicate whether the referrals came from participants in the Baseline or the Quota treatment. We also add a social class dummy for the participant receiving the referrals to our specification. We estimate:
+  \begin{equation}\label{treat-ses-int}
+y_{i}^{s} = \beta_{0}^{s} + \beta_1^{s}{Quota}_{i} + \beta_2^{s}{SES}_{i} + \beta_3^{s}({Quota}_{i} \times {SES}_{i}) + \beta_{4}^{s}{Skill}_{i}^{s} + \beta_5^{s}{GPA}_{i} + \epsilon_{i}^{s}
+\end{equation}
+  
+   Table \ref{tab:treatment-effects} illustrates our findings. Our comparison of interest is the effect of the Quota treatment on low-SES peers. In column (1) for cognitive skill, we find that being low-SES decreases the share of referrals recieved by about 1.2 percentage points when controlling for the skill and academic performance in the Baseline condition. This goes down to about 1.5 percentage points in the Quota condition. These differences are not statistically significant, but their sign suggests a relatively large bias against low-SES classmates: A one standard deviation increase in cognitive skill has less than half this magnitude. This finding is coherent with the bias against low-SES classmates found in the previous section, but suggests it is not large enough to not carry over to all cognitive skill referrals considered together. In column (2) for social skill, we find that being low-SES has no statistically significant effect on the share of referrals recieved when controlling for the skill and academic performance. The sign for the point estimate suggest low-SES get slightly more referrals in the Baseline condition, and the Quota reduces this share. The lack of statistical significance in the SES main effect and interaction term suggests considerable noise in both estimates.
+  \begin{table}[H]
+    \centering
+    \begin{threeparttable}
+    \caption{Share of referrals received by referrer treatment, controlling for skill, academic performance, and social class}\label{tab:treatment-effects}
+    \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+    \toprule
+    & (1) & (2) \\
+    & Cognitive & Social \\
+    \midrule
+    Quota & -0.073 & 0.299 \\
+    & (0.755) & (0.716) \\
+    Low-SES & -1.230 & 0.364 \\
+    & (1.079) & (1.282) \\
+    Quota × Low-SES & -0.167 & -0.835 \\
+    & (1.117) & (1.181) \\
+    Skill & 0.594 & 0.201 \\
+    & (0.448) & (0.426) \\
+    GPA & 3.184*** & 2.819*** \\
+    & (0.517) & (0.493) \\
+    Constant & 13.551*** & 12.706*** \\
+    & (0.986) & (0.952) \\
+    \midrule
+    Observations & 1,330 & 1,330 \\
+    \bottomrule
+    \end{tabular*}
+    \begin{tablenotes}[flushleft]
+    \footnotesize
+    \item[] \textit{Note:} Classroom-level clusted standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variables are the percentage share of referrals received for cognitive and social skills. Quota is a dummy for the referrals received from classmates in the Quota treatment. Low-SES is a dummy for participant's socioeconomic status.  Remaining independent variables are the respective standardized test scores for skills and GPA.
+    \end{tablenotes}
+    \end{threeparttable}
+  \end{table}
+
+  \subsection*{Effects of the Quota treatment across referral strategies}
+  Effects of the social class bias gets diluted across different referral strategies. A large proportion of participants -``twice'' referrers- who struggle with skill identification and screen for skills using the academic performance proxy. But there are no SES differences for GPA in our sample, and past evidence suggests low-SES may even outperform high-SES at the university level in some samples \textcolor{red}{CITE MANU WORK}. When referrals are made with academic performance in mind, it seems reasonable not to observe a negative bias against low-SES. Then what about skills, knowing that high-SES score higher in both measures? We observe a bias in undersampling from equally well performing low-SES only for ``single'' cognitive skill referrals, where referrers have a cleaner signal about the skill compared to ``single'' social skill referrals. We expect the Quota treatment be effective in increasing referrals for low-SES only in a scenario where the skill can be screened, and turn toward our classification of different referral strategies to test this hypothesis. To get clearer estimates for the effects of the Quota treatment on low-SES referrals, we re-estimate the shares of ``twice'' and ``single'' referrals. Following the same logic in the section before, we observe every participant twice in each specification, and add a treatment dummy to indicate whether the referrals came from referrers in the Baseline or the Quota treatment. We keep the social class dummy and regress Equation \ref{treat-ses-int} for the three dependent variables.
+
+  Table \ref{tab:twice_treat} illustrates our findings. The comparison of interest is the SES of the participant receiving the referrals and the effect of the Quota treatment across ``twice'' and ``single'' referral types. In column (1), for participants who refer the same peers twice using the academic performance proxy, we find no statistically significant effect of participant SES or the Quota on the referrals share when controlling for skills and academic performance. The signs on the point estimates suggest that directionally low-SES get more referrals in the Baseline treatment and that the Quota reduces this share. For participants who make only cognitive skill referrals, in column (2), we find that being low-SES in the Baseline treatment reduces the percentage share of referrals received by 2.1 percentage points when controlling for the skill and academic performance. This is a very large effect size which translates to a decrease in referral share by 32 percent on a base rate of 6.6\%, and is identical to the one found in Table \ref{tab:regression-results4}. In turn, the Quota treatment increases referrals to low-SES by 1.42 percentage points when controlling for the skill and academic performance. This is also a large effect size that results in an increase in low-SES referral share by 22 percent. For participants who make only social skill referrals, in column (2), we find no statistically significant effect of participant SES or the Quota on the referrals share when controlling for the skill and academic performance. These are in accordance with our previous findings that social skills cannot be identified and provide no reason to warrant social class bias. Taken together, we find support for our hypothesis that there is a bias against low-SES peers for the skill that is well-identified by peers, and in which low-SES underperform. We find no evidence of a bias when referrals are made based on academic performance where both social classes perform equally well. Reassuringly, we find the bias in cognitive skill referrals is at least partially alleviated by the Quota treatment. Because there is remarkable heterogeneity in the ability to detect SES for both social classes (see Appendix Figure \ref{fig:guess}), we find this increase in low-SES referrals satisfying for our sample.
+  \begin{table}[H]
+    \centering
+    \begin{threeparttable}
+    \caption{Share of ``twice'' and ``single'' referrals received by referrer treatment, controlling for skill, academic performance, and social class}
+    \label{tab:twice_treat}
+    \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+    \toprule
+    & (1) & (2) & (3) \\
+    & Twice & Cognitive Only & Social Only \\
+    \midrule
+    Quota & 0.436 & -0.509 & -0.136 \\
+    & (0.817) & (0.598) & (0.523) \\
+    Low-SES & 0.857 & -2.074*** & -0.510 \\
+    & (0.920) & (0.722) & (0.613) \\
+    Quota × Low-SES & -1.584 & 1.417** & 0.750 \\
+    & (1.159) & (0.656) & (0.717) \\
+    Cognitive Skill & -0.079 & 0.658*** & \\
+    & (0.374) & (0.201) & \\
+    Social Skill & 0.062 & & 0.158 \\
+    & (0.283) & & (0.312) \\
+    GPA & 2.322*** & 0.858*** & 0.502* \\
+    & (0.330) & (0.312) & (0.278) \\
+    Constant & 6.952*** & 6.591*** & 5.765*** \\
+    & (0.727) & (0.654) & (0.562) \\
+    \midrule
+    Observations & 1,330 & 1,330 & 1,330 \\
+    \bottomrule
+    \end{tabular*}
+    \begin{tablenotes}[flushleft]
+    \footnotesize
+    \item[] \textit{Note:} Standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. 
+    The dependent variable in column (1) is the percentage share of ``twice'' referrals 
+    received from the same referrer, in column (2) ``single'' referral share for cognitive 
+    skill, and in column (3) for social skill. Quota is a dummy for the referrals received from classmates in the Quota treatment. Low-SES is a dummy for participant's socioeconomic status.  Remaining independent variables are the respective standardized test scores for skills and GPA.
+    \end{tablenotes}
+    \end{threeparttable}
+    \end{table}
+  \section{Conclusion}
+  We find the effects of referrals on skill screening in a diverse university setting with peer interaction. When referral choice sets are fixed and social transfer channels are closed, students in our sample successfully refer higher cognitive skilled peers. Building on past experiments where referrals contain information about productivity \citep{beaman_who_2012,beaman_job_2018,pallais_why_2016}, our results present a nuanced picture in the efficiency of referrals for screening ability. We find that the skill signal is often confounded with the signal of a proxy, and the magnitude of this misidentification is very large. Because the academic performance proxy proved not accurate, referrals using the proxy resulted in poor referral skill performance overall. The nature of the productivity information conveyed via referrals is very much dependent on the underlying beliefs about the correlation between the proxy and the skill.
+
+  Most individuals referred directly using the proxy instead of focusing on the skills. For referrals to be efficient in screening for the skill, referrers may first need to believe they have a clean skill signal. Forcing referrals when skill signal is not clear may have resulted in the proxy strategy taking over the majority of referrals. Making a referral optional as in \citet{beaman_who_2012,beaman_job_2018} in one treatment arm could have helped testing this claim, and we leave this for future research. The fact that we observe the proxy strategy proves performance contingent incentives are the right way to elicit referrals in experimental settings.
+  
+  The evidence for a social class bias is intertwined with the different referral strategies. Low-SES students get a smaller share of referrals only for ``single'' referrals for cognitive skill, and not for other types of referrals when controlling for productivity. The interpretation we offer is grounded in data and specific to our context. Referrals made with the academic proxy successfully identify high GPA peers. In our university setting, peers know who in their classroom are good students, and social classes are equally good in terms of GPA. This creates little room for bias against low-SES students. In contrast, low-SES students have significantly lower scores in both skill measures. The fact that we observe a bias only in cognitive skill suggests underperforming low-SES students may be overrepresented, in line with stereotype conceptualization by \citet{bordalo2016stereotypes}, but only in the skill which can be effectively screened for.
+  
+  Our findings contribute to understanding referral mechanisms by showing that even in settings where networks are fixed and social transfers eliminated, referrals remain an imperfect tool for screening worker skills. The effectiveness of referrals depends critically on referrers' ability to observe and accurately assess specific skills, suggesting important implications for how firms structure their referral programs and highlighting the need for complementary screening mechanisms.
+
+  % We find that referrals effectively screen cognitive skills in a diverse university setting with peer interaction when choice sets are fixed and social transfer channels are closed. However, our results reveal a nuanced picture in referral efficiency by showing that skill signals are often confounded with academic performance proxies. Because GPA proves to be an imperfect signal of cognitive skill, referrals based on this proxy result in suboptimal outcomes. The effectiveness of referrals in conveying productivity information thus depends critically on referrers' beliefs about the correlation between proxies and underlying skills.
+  % Most individuals rely on academic performance rather than directly assessing skills, suggesting that referral efficiency requires clear skill signals. This prevalent use of proxy measures may arise from our design requiring all participants to make referrals. Including an optional referral treatment, as in Beaman and Magruder (2012) and Beaman et al. (2018), could help test this interpretation in future work. Nevertheless, the dominance of proxy-based strategies validates our use of performance-contingent incentives in experimental referral studies.
+  % Social class bias manifests selectively in our setting. Low-SES students receive fewer referrals only in single cognitive skill nominations, with no bias evident in other referral types after controlling for productivity. Our data suggest a contextual interpretation: When using academic proxies, referrers successfully identify high-GPA peers, and since social classes perform similarly on GPA at this university, little room exists for bias. However, low-SES students score significantly lower on both skill measures. The emergence of bias specifically in cognitive skill referrals—where screening ability is higher—aligns with stereotype formation as conceptualized by Bordalo et al. (2016), appearing only in domains where referrers can effectively assess ability.
+
+    %  we find no statistically significant evidence of a bias against low-SES in the Baseline treatment when referrals are aggregated by social class. The point estimates have a negative sign in both main and classroom fixed effects specifications and suggest a marginal but insignificant tendency to refer high-SES classmates. The 95\% confidence intervals rule out that being low-SES causes more than a 1.5 percentage point difference in the percentage share of referrals received. In columns (3) and (4), we consider the percentage share of referrals made by referrers in the Quota treatment. We find larger point estimates in absolute terms for the low-SES dummy in comparison to the Baseline treatment. They suggest a stronger but still insignificant tendency to refer high-SES classmates. The 95\% confidence intervals rule out that being low-SES causes more than a 2 percentage point difference in the percentage share of referrals received. Contrary to our hypothesis, we can rule out that the Quota treatment causes a meaningful increase in the referrals received by low-SES classmates when controlling for GPA and classroom SES composition. In the next section we expand on this finding by decomposing referrals further by SES of the referrer. This will help us screen whether the negative sign on the low-SES dummy is driven by a particular social class.  
+  
+  % We obtain the largest point estimates for GPA in column (1) and (2), documenting the pure effect of performance-pay incentives in the Baseline treatment without considerations of social class. A one standard deviation increase in GPA increases the percentage share referrals received from participants in the Baseline condition by 3.8 percentage points on a base rate of 12.7\%, a 30 percent increase. In column (2), we add classroom fixed effects, and GPA point estimates become 4 percentage points. The overral effect on referral share of the GPA estimates are almost equal in column (2). A one standard deviation increase in GPA increases the percentage share of referrals by 31 percent. We now compare the sizes of the GPA point estimates to those for the Quota treatment found in columns (3) and (4). In column (3), a one standard deviation increase in GPA increases the percentage share referrals received from participants by 2.5 percentage points on a base rate of 13.6\%, a modest 18 percent increase. When adding classroom fixed effects in column (4), a one standard deviation increase in GPA increases the percentage share referrals received from participants by 2.6 percentage points on a base rate of 13.6\%, a comparable 19 percent increase. We find consistently that GPA point estimates become smaller with the introduction of low-SES referral incentives, suggesting performance considerations get confounded in the Quota treatment.
+  % \begin{table}[H]
+  %   \centering
+  %   \begin{threeparttable}
+  %   \caption{Treatment effects on referrals with skill and academic performance interactions}\label{tab:treatment-interactions}
+  %   \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+  %   \toprule
+  %   & (1) & (2) \\
+  %   & Cognitive & Social \\
+  %   \midrule
+  %   Quota & -0.091 & -0.131 \\
+  %   & (0.302) & (0.225) \\
+  %   \addlinespace[0.5em]
+  %   Skill & 0.873* & -0.278 \\
+  %   & (0.467) & (0.460) \\
+  %   Quota × Skill & -0.380 & 0.966* \\
+  %   & (0.697) & (0.561) \\
+  %   \addlinespace[0.5em]
+  %   GPA & 3.949*** & 3.429*** \\
+  %   & (0.664) & (0.581) \\
+  %   Quota × GPA & -1.524** & -1.221* \\
+  %   & (0.697) & (0.678) \\
+  %   \addlinespace[0.5em]
+  %   Constant & 12.806*** & 12.891*** \\
+  %   & (0.662) & (0.636) \\
+  %   \midrule
+  %   Observations & 1,330 & 1,330 \\
+  %   \bottomrule
+  %   \end{tabular*}
+  %   \begin{tablenotes}[flushleft]
+  %   \footnotesize
+  %   \item[] \textit{Note:} Classroom-level clusted standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variables are the percentage of referrals received for cognitive and social skills. Treatment is an indicator for the quota condition. "Skill" refers to standardized Raven's test score in column (1) and Reading the Mind in the Eyes test score in column (2). All continuous variables (skills and GPA) are standardized (mean zero, unit variance). The treatment interactions capture differential effects of the quota condition by skill level and academic performance.
+  %   \end{tablenotes}
+  %   \end{threeparttable}
+  % \end{table}
+
+  % \begin{table}[H]
+  %   \centering
+  %   \begin{threeparttable}
+  %   \caption{Treatment effects on referrals by referrer socioeconomic status}\label{tab:ses-treatment-interactions}
+  %   \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+  %   \toprule
+  %   & \multicolumn{2}{c}{High-SES Referrers} & \multicolumn{2}{c}{Low-SES Referrers} \\
+  %   \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+  %   & Cognitive & Social & Cognitive & Social \\
+  %   \midrule
+  %   Quota & 0.509 & 0.387 & -0.274 & -0.300 \\
+  %   & (0.548) & (0.502) & (0.449) & (0.414) \\
+  %   \addlinespace[0.5em]
+  %   Skill & 0.761 & -0.342 & 1.294* & -0.110 \\
+  %   & (0.693) & (0.711) & (0.690) & (0.512) \\
+  %   Quota × Skill & -0.512 & 0.414 & -0.108 & 1.578** \\
+  %   & (1.119) & (0.833) & (0.829) & (0.637) \\
+  %   \addlinespace[0.5em]
+  %   GPA & 3.512*** & 3.293*** & 4.135*** & 3.437*** \\
+  %   & (0.927) & (0.622) & (0.851) & (0.807) \\
+  %   Quota × GPA & -1.630 & -2.131** & -1.392 & -0.527 \\
+  %   & (1.029) & (0.967) & (1.054) & (0.887) \\
+  %   \addlinespace[0.5em]
+  %   Constant & 12.266*** & 12.197*** & 12.999*** & 13.164*** \\
+  %   & (0.620) & (0.591) & (0.728) & (0.709) \\
+  %   \midrule
+  %   Observations & 1,319 & 1,319 & 1,328 & 1,328 \\
+  %   \bottomrule
+  %   \end{tabular*}
+  %   \begin{tablenotes}[flushleft]
+  %   \footnotesize
+  %   \item[] \textit{Note:} Standard errors clustered at classroom level in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variables are the percentage of referrals received for cognitive and social skills. Treatment is an indicator for the quota condition. "Skill" refers to standardized Raven's test score for cognitive referrals and Reading the Mind in the Eyes test score for social referrals. All continuous variables (skills and GPA) are standardized (mean zero, unit variance). High-SES and Low-SES indicate the socioeconomic status of the referrer.
+  %   \end{tablenotes}
+  %   \end{threeparttable}
+  % \end{table}
+ 
+  % \subsubsection*{Baseline}
+  % In this section we focus on various other specifications of our model in Equation \ref{eq2}. In Table \ref{tab:baseline-rob1}, we consider referrals in Baseline treatment and incrementally add independent variables. Low-SES does not change the fraction of referrals received in the Baseline treatment (column 1). This finding holds when GPA is added in the model (column 2) and the 95\% confidence intervals rule out that low-SES causes more than a 1.5 percentage point difference in the fraction of referrals received. In column 3, adding the percentage of low-SES peers in the classroom does not change estimates. A one percentage point increase of low-SES classmate share does not change the fraction of referrals received nor contribute to the variance explained by the model. Finally, with the addition of individual controls (age, gender, semester) in column 4, we obtain the estimates in \ref{tab:results2} for the Baseline condition. Adding individual controls does not change our estimates in a meaningful way.
+
+  % \begin{table}[H]
+  %   \centering
+  %   \begin{threeparttable}
+  %   \caption{Percentage of baseline referrals with progressive controls}\label{tab:baseline-rob1}
+  %   \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+  %   \toprule
+  %   & (1) & (2) & (3) & (4) \\
+  %   Dep. Var. & Baseline & Baseline & Baseline & Baseline \\
+  %   \midrule
+  %   Low-SES & -0.586 & -0.492 & -0.492 & -0.489 \\
+  %   & (0.909) & (0.906) & (0.917) & (0.907) \\
+  %   GPA &  & 3.718\tnote{***} & 3.718\tnote{***} & 3.769\tnote{***} \\
+  %   &  & (0.492) & (0.496) & (0.510) \\
+  %   \% Low-SES &  &  & 0.000 & -0.037 \\
+  %   &  &  & (0.038) & (0.040) \\
+  %   Constant & 13.394\tnote{***} & 13.135\tnote{***} & 13.122\tnote{***} & 18.003\tnote{***} \\
+  %   & (0.687) & (0.689) & (2.272) & (3.802) \\
+  %   \midrule
+  %   Individual controls & No & No & No & Yes \\
+  %   Observations & 713 & 668 & 668 & 665 \\
+  %   R-squared & 0.001 & 0.094 & 0.094 & 0.119 \\
+  %   \bottomrule
+  %   \end{tabular*}
+  %   \begin{tablenotes}[flushleft]
+  %   \footnotesize
+  %   \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variable is the percentage of referrals received relative to potential referrals in the baseline condition. Individual controls include gender, age and semester. Sample is restricted to participants with complete administrative and experimental data.
+  %   \end{tablenotes}
+  %   \end{threeparttable}
+  % \end{table}
+
+  % \subsubsection*{Quota}
+  % In Table \ref{tab:quota-rob1}, we consider referrals in the Quota treatment and incrementally add independent variables. Low-SES has a negative but insignificant effect on the fraction of referrals received in the Quota treatment (column 1). This finding persists when GPA is added to the model (column 2), though the magnitude of the SES coefficient decreases slightly. The 95\% confidence intervals rule out that low-SES causes more than a 1 percentage point difference in the fraction of referrals received. In column 3, adding the percentage of low-SES peers in the classroom does not substantially change estimates. A one percentage point increase in low-SES classmate share has a negligible effect on the fraction of referrals received and does not contribute to the variance explained by the model. Finally, with the addition of individual controls (age, gender, semester) in column 4, our estimates remain stable. Adding individual controls only marginally increases thd variance explained.
+
+  % \begin{table}[H]
+  %   \centering
+  %   \begin{threeparttable}
+  %   \caption{Percentage of quota referrals with progressive controls}\label{tab:quota-rob1}
+  %   \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+  %   \toprule
+  %   & (1) & (2) & (3) & (4) \\
+  %   Dep. Var. & Quota & Quota & Quota & Quota \\
+  %   \midrule
+  %   Low-SES & -1.231 & -0.983 & -1.022 & -1.079 \\
+  %   & (0.970) & (1.000) & (1.005) & (1.010) \\
+  %   GPA &  & 2.378\tnote{***} & 2.391\tnote{***} & 2.464\tnote{***} \\
+  %   &  & (0.483) & (0.490) & (0.511) \\
+  %   \% Low-SES &  &  & 0.014 & -0.007 \\
+  %   &  &  & (0.039) & (0.041) \\
+  %   Constant & 13.552\tnote{***} & 13.289\tnote{***} & 12.486\tnote{***} & 15.191\tnote{***} \\
+  %   & (0.780) & (0.815) & (2.353) & (3.679) \\
+  %   \midrule
+  %   Individual controls & No & No & No & Yes \\
+  %   Observations & 713 & 668 & 668 & 665 \\
+  %   R-squared & 0.002 & 0.037 & 0.037 & 0.044 \\
+  %   \bottomrule
+  %   \end{tabular*}
+  %   \begin{tablenotes}[flushleft]
+  %   \footnotesize
+  %   \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variable is the percentage of referrals received relative to potential referrals in the quota condition. Individual controls include gender, age and semester. Sample is restricted to participants with complete administrative and experimental data.
+  %   \end{tablenotes}
+  %   \end{threeparttable}
+  % \end{table}
+
+  % \subsection*{Homophily in Social Class}
+  % In this section, we explore drivers of the social class bias found in cognitive skill referrals which affect a quarter of all referrals in our sample. Our preregistered hypothesis is that social class bias should be driven by homophily between same-SES classmates, i.e., by the tendency of individuals to form ties with similar others.\footnote{See \citet{mcpherson2001birds} for a discussion on homophily in general, for evidence on social class homophily see \citet{chetty2022social_a,chetty2022social_b}. For experimental evidence on a different type of homophily (gender) in referrals see \citet{beaman_job_2018}.} We can test whether the social class bias in cognitive skill referrals is driven by homophily if we  disaggregate referrals according to referrers' social class. To do so, we decompose $y_{ic}^{s,single}$ by referrer SES, the same way as in Equation \ref{single_def}.\footnote{We separate $\sum_{j \neq i} r_{ijc}^{s,single}$ for referrer treatment and SES. We then divide the sum of referrals by the number of low-SES or high-SES classmates in the treatment applying the same self-referral correction as before.} This gives the percentage share of referrals participants get from the two social classes, controlling for the differences in SES distribution across the classrooms. We re-estimate Equation \ref{treat-ses-int} for ``single'' referrals for cognitive skill  across both SES.
+  
+  % Table \ref{tab:cog_treat_ses} illustrates our findings. The comparison of interest is the point estimates for participant SES and the effect of the Quota across different low and high SES referrers. In column (1), for ``single'' cognitive skill referrals coming from low-SES, we find no signicant effect of the participant SES or the Quota treatment. Point estimates suggest a slightly lower share of referrals for low-SES in the Baseline, and the Quota treatment seems to decrease this share a bit further. It looks like for low-SES referrers the Quota has no effect at best, or it slightly backfires. Interestingly, we find that low-SES participants rely on the cognitive skill signal when referring instead of the GPA proxy: A one standard devation increase in cognitive skill score causes significant 0.8 percentage point increase in the share of referrals received, translating to an increase of 18 percent. In column (2), for ``single'' cognitive skill referrals coming from high-SES, we find a marginally significant effect of the participant SES ($p = 0.1$) with a point estimate that is about two times larger in magnitude compared to the one for low-SES referrers. In the Baseline, being low-SES decreases the percentage share of referrals coming from high-SES referrers by 35 percent when controlling for cognitive skill and GPA. The Quota treatment has a significant and an even larger effect on high-SES referral choices, and we find that the entire effect of the Quota is driven by this referrer group. The Quota causes low-SES classmates to get 2.7 percentage points more referrals, a staggering increase of 57 percent. High-SES referrers rely entirely on the GPA proxy when making referrals, and a one standard deviation increase in GPA causes significant 0.8 percentage point increase in the share of referrals received. This is seemingly in contradiction with our earlier hypothesis that the bias should only exist when referring based on the skill where there are differences in performance between social classes. We next explore the possibility that high-SES referrers change the way they refer across treatments, switching from the cognitive skill signal in the Baseline, to the GPA proxy in the Quota treatment. 
+
+  % Our dependent variable is the percentage share of referrals received by total number of referrals as specified before, but now further decomposed by the social class of referrers (see Appendix Figure \ref{fig:referral_ses_dist} for the distribution of referrals across SES). This approach allows us to maintain control for classroom SES composition, performance, and treatment status. We begin our analysis with the share of referrals coming from high-SES, then present the equivalent analysis for low-SES referrers. We estimate percentage share of referrals, $y_{i}$, the same way in Equation \ref{eq2}.
+
+  % \begin{table}[H]
+  %   \centering
+  %   \begin{threeparttable}
+  %   \caption{Effects of Quota on Cognitive Skill Referrals by Referrer's SES}
+  %   \label{tab:cog_treat_ses}
+  %   \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+  %   \toprule
+  %   & (1) & (2) \\
+  %   & Low-SES & High-SES \\
+  %   \midrule
+  %   Quota & 0.541 & -0.872 \\
+  %   & (0.754) & (0.946) \\
+  %   Low-SES & -0.724 & -1.681 \\
+  %   & (0.717) & (0.993) \\
+  %   Quota × Low-SES & -0.552 & 2.711** \\
+  %   & (0.927) & (1.289) \\
+  %   Cognitive Skill & 0.805*** & -0.068 \\
+  %   & (0.282) & (0.354) \\
+  %   GPA & 0.334 & 0.798* \\
+  %   & (0.398) & (0.448) \\
+  %   Constant & 4.359*** & 4.766*** \\
+  %   & (0.472) & (0.663) \\
+  %   \midrule
+  %   Observations & 1,328 & 1,310 \\
+  %   \bottomrule
+  %   \end{tabular*}
+  %   \begin{tablenotes}[flushleft]
+  %   \footnotesize
+  %   \item[] \textit{Note:} Standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. 
+  %   The dependent variable is the percentage share of cognitive skill referrals received, split by referrer's SES status. 
+  %   Quota is a dummy for the referrals received from classmates in the Quota treatment. 
+  %   Low-SES is a dummy for participant's socioeconomic status. 
+  %   Remaining independent variables are the standardized test scores for cognitive skill and GPA.
+  %   \end{tablenotes}
+  %   \end{threeparttable}
+  %   \end{table}
+
+% To test this hypothesis, we estimate We estimate:
+%   \begin{equation}\label{treat-ses-int-max}
+% y_{i}^{s} = \beta_{0}^{s} + \beta_1^{s}{Quota}_{i} + \beta_2^{s}{SES}_{i} + \beta_3^{s}({Quota}_{i} \times {SES}_{i}) + \beta_{4}^{s}{Skill}_{i}^{s} + \beta_5^{s}{GPA}_{i} + \epsilon_{i}^{s}
+% \end{equation}
+
+    % \begin{table}[H]
+    %   \centering
+    %   \begin{threeparttable}
+    %   \caption{Effects of Quota on Cognitive Skill Referrals by Referrer's SES with Skill Interactions}
+    %   \label{tab:twice_treat_interactions}
+    %   \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c@{}}
+    %   \toprule
+    %   & (1) & (2) \\
+    %   & Low-SES & High-SES \\
+    %   \midrule
+    %   Quota & 0.572 & -0.672 \\
+    %   & (0.775) & (0.991) \\
+    %   Low SES & -0.711 & -1.516 \\
+    %   & (0.723) & (1.016) \\
+    %   Quota × Low-SES & -0.580 & 2.390* \\
+    %   & (0.948) & (1.282) \\
+    %   Cognitive Skill & 0.838* & 0.528 \\
+    %   & (0.424) & (0.381) \\
+    %   Quota × Cognitive Skill & -0.065 & -1.187 \\
+    %   & (0.412) & (0.784) \\
+    %   GPA & 0.486 & 0.638 \\
+    %   & (0.439) & (0.445) \\
+    %   Quota × GPA & -0.303 & 0.316 \\
+    %   & (0.561) & (0.655) \\
+    %   Constant & 4.344*** & 4.662*** \\
+    %   & (0.471) & (0.684) \\
+    %   \midrule
+    %   Observations & 1,328 & 1,310 \\
+    %   \bottomrule
+    %   \end{tabular*}
+    %   \begin{tablenotes}[flushleft]
+    %   \footnotesize
+    %   \item[] \textit{Note:} Standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. 
+    %   The dependent variable is the percentage share of cognitive skill referrals received, split by referrer's SES status. 
+    %   Quota is a dummy for the referrals received from classmates in the Quota treatment. 
+    %   Low-SES is a dummy for participant's socioeconomic status. 
+    %   Independent variables include standardized test scores for cognitive skill and GPA, 
+    %   as well as their interactions with the treatment dummy.
+    %   \end{tablenotes}
+    %   \end{threeparttable}
+    %   \end{table}
+
+  % Table \ref{tab:hses-treatment} presents our analysis of referrals from high-SES classmates across treatments. In columns (1) and (2) for the Baseline treatment, we find that GPA strongly predicts referrals from high-SES peers. A one standard deviation increase in GPA raises the percentage share of referrals by approximately 3.2 percentage points, representing a 27\% increase from the baseline mean. This effect remains stable when including classroom fixed effects in column (2). The coefficient on Low-SES dummy is statistically insignificant and small in magnitude, suggesting no substantial bias in referral from high-SES peers in the Baseline treatment. In columns (3) and (4) for the Quota treatment, we observe three notable changes: First, the GPA point estimates become  substantially smaller, to around 1.8 percentage points, and are only marginally significant. Second, the Low-SES dummy becomes larger in magnitude, -3.8 percentage points, and statistically significant. This is a substantial 25\% decrease, of the same magnitude as the effect of GPA with pure-performance incentives in the Baseline. Third, variance explained by the model drops and standard errors increase, indicating the increased noise for the referral decisions. These suggest that the Quota treatment, had the opposite effect for high-SES referrers and decreased the referrals made for their low-SES classmates. This finding is contrary to the Quota treatment's intended effect of increasing low-SES referrerals, and is robust to performance and classroom SES composition.
+
+%   \begin{table}[H]
+%     \centering
+%     \begin{threeparttable}
+%     \caption{Percentage share of referrals from high-SES, decomposed by treatment}\label{tab:hses-treatment}
+%     \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+%     \toprule
+%     & (1) & (2) & (3) & (4) \\
+%     Dep. Var & \multicolumn{2}{c}{High-SES in Baseline} & \multicolumn{2}{c}{High-SES in Quota} \\
+%     \midrule
+%     GPA & 3.230\tnote{***} & 3.265\tnote{***} & 1.742\tnote{*} & 1.916\tnote{*} \\
+%     & (0.730) & (0.772) & (0.776) & (0.849) \\
+%     Low-SES & -1.142 & 0.054 & -3.836\tnote{**} & -3.440\tnote{*} \\
+%     & (1.282) & (1.291) & (1.477) & (1.592) \\
+%     Constant & 12.085\tnote{***} & 11.798\tnote{***} & 15.390\tnote{***} & 15.427\tnote{***} \\
+%     & (1.076) & (1.085) & (1.342) & (1.518) \\
+%     \midrule
+%     Individual controls & Yes & Yes & Yes & Yes \\
+%     Classroom FE & No & Yes & No & Yes \\
+%     Observations & 665 & 665 & 665 & 665 \\
+%     R-squared & 0.052 & 0.125 & 0.035 & 0.081 \\
+%     \bottomrule
+%     \end{tabular*}
+%     \begin{tablenotes}[flushleft]
+%     \footnotesize
+%     \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variable is the percentage of referrals from high-SES classmates. Columns (1) and (2) show results for the Baseline treatment, columns (3) and (4) for the Quota treatment. Individual controls include age, gender, semester, and share of same study program. Sample restricted to participants with complete administrative and experimental data.
+%     \end{tablenotes}
+%     \end{threeparttable}
+% \end{table}
+
+% Table \ref{tab:lses-treatment} presents our analysis of referrals from low-SES classmates across treatments. In columns (1) and (2) for the Baseline treatment, we find that GPA strongly predicts referrals from low-SES peers. A one standard deviation increase in GPA raises the percentage share of referrals by approximately 3.9 percentage points, representing a 31\% increase. This effect remains stable when including classroom fixed effects in column (2). The coefficient on Low-SES dummy is statistically insignificant and small in magnitude (0.06-0.37 percentage points), suggesting no homophily in low-SES referrals in the Baseline treatment. In columns (3) and (4) for the Quota treatment, we observe once again that GPA point estimates become smaller, to around 2.8 percentage points, though they remain highly significant. The Low-SES dummy also becomes larger in magnitude (0.82-0.91 percentage points), indicating that referrals did increase for other low-SES, but point estimates remain statistically insignificant. The variance explained by the model drops again, indicating the noise in the referral decisions. Comparing these to referrals from high-SES participants in Table \ref{tab:hses-treatment}, we find that while both groups strongly refer based on GPA in the Baseline treatment, low-SES show no significant in-group bias, unlike high-SES that exhibit significant in-group bias in the Quota treatment. As documented by the larger GPA point estimates, low-SES sensitivity to performance is always higher. The Quota treatment decreases sensitivity for performance both low and high-SES, but by different rates: Increase in referral share by a one standard deviation increase in GPA for low-SES across treatments goes down from $\frac{4.26}{12.56}\approx34\%$ to $\frac{2.82}{11.64}\approx24\%$, a decline of 29 percent. This is in contrast to a sharper decline of 57 percent by $\frac{3.27}{11.80}\approx28\%$ to $\frac{1.92}{15.43}\approx12\%$ from column (2) to (4) in Table \ref{tab:hses-treatment} for high-SES referrers. This asymmetry can be indicative of high-SES struggling to screen high performing low-SES peers, or just having trouble screening low-SES. We substantiate this claim by looking at how well high-SES can screen low-SES, in Appendix Figure \ref{fig:referral_ses_dist}.    
+
+% \begin{table}[H]
+%     \centering
+%     \begin{threeparttable}
+%     \caption{Percentage share of referrals from low-SES, decomposed by treatment}\label{tab:lses-treatment}
+%     \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+%     \toprule
+%     & (1) & (2) & (3) & (4) \\
+%     Dep. Var & \multicolumn{2}{c}{Low-SES in Baseline} & \multicolumn{2}{c}{Low-SES in Quota} \\
+%     \midrule
+%     GPA & 3.949\tnote{***} & 4.258\tnote{***} & 2.766\tnote{***} & 2.821\tnote{***} \\
+%     & (0.616) & (0.665) & (0.693) & (0.737) \\
+%     Low-SES & 0.064 & 0.371 & 0.817 & 0.910 \\
+%     & (1.182) & (1.211) & (1.294) & (1.293) \\
+%     Constant & 12.450\tnote{***} & 12.560\tnote{***} & 11.492\tnote{***} & 11.644\tnote{***} \\
+%     & (1.092) & (1.089) & (1.176) & (1.179) \\
+%     \midrule
+%     Individual controls & Yes & Yes & Yes & Yes \\
+%     Classroom FE & No & Yes & No & Yes \\
+%     Observations & 665 & 665 & 665 & 665 \\
+%     R-squared & 0.078 & 0.158 & 0.039 & 0.119 \\
+%     \bottomrule
+%     \end{tabular*}
+%     \begin{tablenotes}[flushleft]
+%     \footnotesize
+%     \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variable is the percentage of referrals from low-SES classmates. Columns (1) and (2) show results for the Baseline treatment, columns (3) and (4) for the Quota treatment. Individual controls include age, gender, semester, and share of same study program. Sample restricted to participants with complete administrative and experimental data.
+%     \end{tablenotes}
+%     \end{threeparttable}
+% \end{table}
+
+  % \subsubsection*{Robustness}
+  % In this section we proceed with various specifications of our model in Equation \ref{eq2}, focusing on the SES of the referrer. Table \ref{tab:highses-rob1} illustrates our findings for high-SES referrers. In column (1) we show the raw homophily effect: Referrals from high-SES referrers decrease by 1.9 percentage points if recipient is low-SES. This is a 14-percent decrease on a base rate of 13.5 percent. In column (2), we add individual controls, and our homophily estimate increases by 0.2 percentage points. In column (3), we add GPA and find that the homophily is entirely offset by higher performing low-SES referrals. Referrals from high-SES referrers increase by 1.4 percentage points for a one standard deviation increase in GPA of a low-SES participant.\footnote{This relationship does not hold for entry exam scores and we do not report them for conciseness.} In column (4), we add the share of low-SES classmates to control for low-SES availability in the choice sets of referrers. Referrals from high-SES referrers decrease by 0.8 percentage points for low-SES participants when availability and performance are controlled for. This effect has the same size (but opposite sign) as a one standard deviation increase in entry exam scores. At the same time, referrals increase by 1 percentage point for a one standard deviation increase in GPA of a low-SES participant. These results suggest that while social class homophily exists, it primarily affects low-performing, low-SES students. High-performing low-SES students not only overcome this disadvantage but actually receive more referrals from high-SES peers than their high-SES counterparts with similar performance. Finally, a one percent increase in low-SES availability in a classroom with no low-SES students (when availability is at 0) mechanically decreases high-SES referrals by 1.5 percentage points.
+  
+
+
+  % \begin{table}[H]
+  %   \centering
+  %   \begin{threeparttable}
+  %   \caption{Percentage of referrals from high-SES classmates}\label{tab:highses-rob1}
+  %   \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+  %   \toprule
+  %   & (1) & (2) & (3) & (4) \\
+  %   Dep. Var. & High-SES & High-SES & High-SES & High-SES \\
+  %   \midrule
+  %   Low-SES & -1.873\tnote{*} & -2.073\tnote{**} & -1.979\tnote{**} & -1.895\tnote{*} \\
+  %   & (0.965) & (1.007) & (0.996) & (0.996) \\
+  %   GPA &  &  & 2.521\tnote{***} & 2.493\tnote{***} \\
+  %   &  &  & (0.552) & (0.555) \\
+  %   \% Low-SES &  &  &  & -0.034 \\
+  %   &  &  &  & (0.041) \\
+  %   Constant & 13.454\tnote{***} & 12.500\tnote{***} & 13.915\tnote{***} & 15.797\tnote{***} \\
+  %   & (0.751) & (2.950) & (2.966) & (3.672) \\
+  %   \midrule
+  %   Controls & No & Yes & Yes & Yes \\
+  %   Observations & 713 & 666 & 665 & 665 \\
+  %   R-squared & 0.005 & 0.019 & 0.055 & 0.056 \\
+  %   \bottomrule
+  %   \end{tabular*}
+  %   \begin{tablenotes}[flushleft]
+  %   \footnotesize
+  %   \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variable is the percentage of referrals received from high-SES classmates relative to potential referrals. Controls include gender, age and semester. Sample is restricted to participants with complete administrative and experimental data.
+  %   \end{tablenotes}
+  %   \end{threeparttable}
+  % \end{table}
+
+  % We now compare these results to low-SES referrals in Table \ref{tab:lowses-rob1}. In column (1), we observe that raw homophily estimate is indistinguishable from zero: The effect does not exist for low-SES referrers. Adding performance in column (2), we still find a homophily estimate close to zero, even though the estimates for GPA and entry exam score are comparable for low-SES referrals. With the interaction effect in column (3), we observe that the performance effect is uniform, with one standard deviation increase in GPA resulting in between 2.2 to 1.7 percentage points more referrals on a base rate of 6.7 percent. When controlling for the share of low-SES classmates in column (4), the results paint a clear picture: Low-SES referrers show no homophily in their choices and respond twice as strongly to GPA compared to high-SES referrers, while maintaining similar sensitivity to entry exam scores. The classroom composition effect mirrors that of high-SES referrers, with a one percent increase in low-SES availability in a classroom with only high-SES students mechanically increasing low-SES referrals by 1.3 percentage points.
+
+  % \begin{table}[H]
+  %   \centering
+  %   \begin{threeparttable}
+  %   \caption{Percentage of referrals from low-SES students}\label{tab:lowses-rob1}
+  %   \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+  %   \toprule
+  %   & (1) & (2) & (3) & (4) \\
+  %   Dep. Var. & Low-SES & Low-SES & Low-SES & Low-SES \\
+  %   \midrule
+  %   Low-SES & -0.024 & 0.286 & 0.293 & 0.245 \\
+  %   & (0.949) & (0.943) & (0.942) & (0.937) \\
+  %   GPA &  & 3.479\tnote{***} & 3.477\tnote{***} & 3.470\tnote{***} \\
+  %   &  & (0.483) & (0.479) & (0.506) \\
+  %   \% Low-SES &  &  & -0.003 & -0.032 \\
+  %   &  &  & (0.043) & (0.046) \\
+  %   Constant & 12.979\tnote{***} & 12.647\tnote{***} & 12.793\tnote{***} & 17.580\tnote{***} \\
+  %   & (0.734) & (0.726) & (2.688) & (3.853) \\
+  %   \midrule
+  %   Controls & No & No & No & Yes \\
+  %   Observations & 713 & 668 & 668 & 665 \\
+  %   R-squared & 0.000 & 0.078 & 0.078 & 0.091 \\
+  %   \bottomrule
+  %   \end{tabular*}
+  %   \begin{tablenotes}[flushleft]
+  %   \footnotesize
+  %   \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variable is the percentage of referrals received from low-SES classmates relative to potential referrals. Controls include gender, age and semester. Sample is restricted to participants with complete administrative and experimental data.
+  %   \end{tablenotes}
+  %   \end{threeparttable}
+  % \end{table}
+
+
+
+% \subsection{Robustness}
+% \subsection*{Social Distance}
+% Our second goal is understanding which individuals get referred more often, conditional on performance and social distance. As a measure of social distance between classmates, we consider the standardized fraction of classmates from the same faculty.\footnote{There is a large overlap between the 6 faculties and 23 programs, and for having larger groups of comparable sizes we prefer the former.} To address concerns about selection into courses by faculty we include classroom fixed effects.\footnote{Students choose when to take the two sampled mandatory courses depending on how it fits into their program-specific schedules. Since different programs have different course schedules, students select into classes that best accommodate their timetables. Without classroom fixed effects, our estimates for social distance and referral decisions suffers from omitted variable bias.} Our dependent variable is the fraction of referrals received by total number of referrals that could have been received averaged across skills. Remaining individual correlates are included in $\mathbf{X}_{i}$. We estimate referral fraction $y_{i}$: 
+% \begin{equation}
+%     y_{i} = \beta_0 + \beta_1{GPA}_{i} + \beta_2{E.Exam}_{i} + \beta_3{Faculty}_{i} + \mathbf{X}_{i}\boldsymbol{\gamma} + \epsilon_{i}    
+% \end{equation}
+
+% Column (4) in Table \ref{tab:regression-results1} illustrates our findings. One standard deviation increase in the fraction of classmates from the same academic program increases the fraction of referrals by about 2.8 percentage points on a base rate of 9\% for our dependent variable. This is a 31-percent increase, and comparable to the academic performance measures. Performance estimates change slightly without harming previous conclusions. The decrease in the base rate is consistent with the effect size of our new independent variable, $Faculty$. Higher explained variance suggests our referral model performs better than the previous one.
+
+
+
+
+% Specifically, we create a matched dataset between referrers and referrals for skills. We estimate social class $y_{ij}$ for referral $i$ from referrer $j$: 
+% \begin{multline}
+%     y_{ij} = \alpha + \beta_1{GPA}_{j} + \beta_2{E.Exam}_{j} + \beta_3{ReferrerSES}_{i} + \beta_4{ShareSES}_{i} + \beta_5{Program}_{i} \\ +\mathbf{X}_{i}\boldsymbol{\gamma} +  \epsilon_{i}    
+% \end{multline}
+% Our binary dependent variable takes value 1 if a referral was to a low-SES classmate and 0 otherwise. From our first specification, we include as independent variables referral GPA and entry exam scores for performance measures. Referrer SES is a dummy variable taking value 1 if the referrer is low-SES and 0 otherwise. As a measure of the SES heterogeneity in referrer choice sets, we include the fraction of low-SES classmates 
+
+
+
+% \section{hypotheses-to be removed}
+
+% \noindent\textbf{Hypothesis 1 - Social class bias}\\
+% \noindent\textbf{H1a.} Does the probability of being referred depend on the social class of the potential nominees after controlling for their performance and the social class composition at the session level? In other words, is there social class bias in referrals?\\
+% \noindent\textbf{H1b.} Which social group makes more referrals to their own social class, controlling for performance and the social class composition at the session level? Do the lower or higher social class individuals drive the bias?
+
+% \subsection{Main Analysis: Social class and referral choices across conditions}
+% We then examine whether the quota condition causes changes in referral compositions regarding social classes. We are also interested in understanding the equity-efficiency tradeoff of quotas, if there is one. Specifically:\\
+
+% \noindent\textbf{Hypothesis 2 - Social class quota}\\
+% \noindent\textbf{H2a.} Does the quota cause an increase in the number of lower social class referrals, controlling for the social class composition at the session level?  \\
+% \noindent\textbf{H2b.} Does the quota cause a decrease in referral quality, controlling for the social class composition at the session level? \\
+% \noindent\textbf{H2c.} Does the impact of the quota on referral quality and the number of lower social class referrals depend on whether the referrals are for cognitive or social skills?
+
+% \subsection{Main Analysis: Mechanisms driving bias}
+% We will start by looking at referral performance. Experimental evidence has shown that referrals from high-performing individuals perform better in tasks than others \citep{beaman_who_2012, beaman_job_2018,pallais_why_2016}. More precisely:\\
+
+% \noindent\textbf{Hypothesis 3 - Referrer Performance}\\
+% \noindent\textbf{H3a.} Do referrers with higher cognitive and/or social skills make higher quality referrals?  \\
+% \noindent\textbf{H3b.} Do referrers with higher cognitive and/or social skills have a smaller social class bias when making referrals?
+
+% \subsection{Exploratory Analysis}
+% We examine the remaining variables to complement the findings for our primary research questions. What other types of homophily do we observe in our sample? How does the referrer-referral performance correlation depend on other characteristics?     \\
+
+% \noindent\textbf{Hypothesis 4 - Additional Variables}\\
+% \noindent\textbf{H4a.} Does the probability of being referred depend on other characteristics of the potential nominees (e.g., age, GPA, national university entry exam score, parental education, gender, co-enrollment history, ...), controlling for performance and these characteristics at the session level? \\
+% \noindent\textbf{Hba.} Does the quality of referrals depend on other characteristics of the referrer (e.g., age, parental education, GPA, time spent at the university,...)? \\
+
+% \textcolor{red}{Evidence suggests social skills are harder to observe for companies \citep{bassi2022screening}. If referrers are good at discerning social skills, this could make resorting hiring via referrals a tempting choice for companies.  Referrals from high-performing individuals perform better in the same task when provided with feedback \citep{beaman_who_2012, beaman_job_2018,pallais_why_2016}. We did not provide such performance feedback to participants. Nevertheless, we had priors about how well contact would make students predict the performance of their classmates for each skill. We assumed that Cognitive skills would be easier to detect than Social skills.  With this in mind, we }
+
+
+% \section{Variables}
+
+% \subsection{General Description}
+% The study begins with a demographic survey. The rest of the study is divided into three parts. Participants perform various experimental tasks designed to obtain behavioral measures in each part. Participants’ choices in these tasks are incentivized and determine their bonus earnings. In addition to the demographic survey and behavioral measures, UNAB provides complementary administrative data.
+
+% \subsection{Demographic Survey Questions}
+% \textbf{Gender.} We ask participants: ``What is your gender?" Answer options: Man, Woman.\medskip \\
+% \textbf{Stratum.} We ask participants: ``What is the socio-economic stratum to which your family belongs?" Answer options range from 1 to 6. This is a government-assigned number assigned to every household in Colombia based on neighborhood-level wealth. It's a widely recognized classification system that directly affects utility costs and is visible on all utility bills. It categorizes neighborhoods into six strata, from 1 (lowest socioeconomic status) to 6 (highest socioeconomic status). Residents in higher strata pay more for utilities, while those in lower strata receive subsidies.\medskip \\
+% \textbf{Parental Education.} We ask participants: ``What is the highest level of education acquired by your father (mother)?" Answer options are: Primary school, High school, Technical school, Undergraduate, Graduate, Postgraduate, Not applicable.
+
+% \subsection{Administrative Data}
+% \textbf{Co-enrollment History.} UNAB provides the co-enrollment history of participants in this study. This is a detailed list of all the classes participants have taken since their enrollment at the university, the semester during which they have taken these classes, and the classroom in which they have taken them.  \medskip \\
+% \textbf{GPA.} UNAB provides the transcripts of the classes participants have taken since their enrollment at the university. \medskip\\
+% \textbf{National University Entry Exam.} UNAB provides participants' scores in the national-level university entry exam that every student passes before beginning their studies in a Colombian higher education institution. \medskip\\
+% \textbf{Study Program.} UNAB provides the study track of participants. \medskip\\
+% \textbf{Age.} UNAB provides the age of participants.
+
+% \subsubsection{Unincentivized Belief Elicitation}
+% Participants are asked to predict their performance in the two assessment tests used to measure cognitive and social skills. After passing each test, they make a single unincentivized prediction about the relative frequency of participants who perform worse than them.\medskip\\
+% \textbf{Cognitive Skills.} We ask: ``If we randomly choose 10 participants from this classroom, how many people do you think solved fewer correct problems than you?''. Answer options range from 0 to 10; participants use a slider to respond.\medskip\\
+% \textbf{Social Skills.} We ask: ``If we randomly selected 10 participants from this classroom, how many people do you think solved fewer correct pictures than you?''. Answer options range from 0 to 10; participants use a slider to respond.
+
+% \subsubsection{Skills Report}
+% \textbf{Feedback Decision.} This question comes at the end of the study. We ask participants: ``Do you want to know your scores on the general intelligence test and the social skills test? We can analyze the data and give you a report that explains your strengths in these two areas. Also, what these strengths mean and how you can leverage them for personal and professional development." We also inform participants that they will be contacted for further studies if they consent. Answer options are: ``I can be contacted for new studies and to send me my report.'', ``I can be contacted to send my report, but not for new studies." ``No, I do not want to be contacted again." We collect the student email addresses of participants who agree to be contacted in the future.
+
+
+
+% \begin{table}[]
+% \centering
+% \begin{tabular}{lll}
+%                                        & \textbf{Baseline}     & \textbf{Quota}        \\ \cline{2-3} 
+% \multicolumn{1}{l|}{\textbf{Referral}} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} \\ \cline{2-3} 
+% \multicolumn{1}{l|}{\textbf{Guessing}} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} \\ \cline{2-3} 
+% \end{tabular}
+% \caption{2x2 factorial design}
+% \label{tab1}
+% \end{table}
+
+
+% \section{Analyses}
+
+% \subsection{Main Analysis: Social class and referral choices at baseline}
+% We will start our analysis by examining whether belonging to the same social class predicts referral choices. In a world without bias, we should expect participants to refer based only on performance, regardless of their own and their referral's social class. In contrast, past evidence suggests we should expect homophily \citep{beaman_job_2018,bolte_role_2021, montgomery_social_1991}. Do different social classes refer to the extent of what their referrals' performance suggests?\\
+
+% \noindent\textbf{Hypothesis 1 - Social class bias}\\
+% \noindent\textbf{H1a.} Does the probability of being referred depend on the social class of the potential nominees after controlling for their performance and the social class composition at the session level? In other words, is there social class bias in referrals?\\
+% \noindent\textbf{H1b.} Which social group makes more referrals to their own social class, controlling for performance and the social class composition at the session level? Do the lower or higher social class individuals drive the bias?
+
+% \subsection{Main Analysis: Social class and referral choices across conditions}
+% We then examine whether the quota condition causes changes in referral compositions regarding social classes. We are also interested in understanding the equity-efficiency tradeoff of quotas, if there is one. Specifically:\\
+
+% \noindent\textbf{Hypothesis 2 - Social class quota}\\
+% \noindent\textbf{H2a.} Does the quota cause an increase in the number of lower social class referrals, controlling for the social class composition at the session level?  \\
+% \noindent\textbf{H2b.} Does the quota cause a decrease in referral quality, controlling for the social class composition at the session level? \\
+% \noindent\textbf{H2c.} Does the impact of the quota on referral quality and the number of lower social class referrals depend on whether the referrals are for cognitive or social skills?
+
+% \subsection{Main Analysis: Mechanisms driving bias}
+% We will start by looking at referral performance. Experimental evidence has shown that referrals from high-performing individuals perform better in tasks than others \citep{beaman_who_2012, beaman_job_2018,pallais_why_2016}. More precisely:\\
+
+% \noindent\textbf{Hypothesis 3 - Referrer Performance}\\
+% \noindent\textbf{H3a.} Do referrers with higher cognitive and/or social skills make higher quality referrals?  \\
+% \noindent\textbf{H3b.} Do referrers with higher cognitive and/or social skills have a smaller social class bias when making referrals?
+
+% \subsection{Exploratory Analysis}
+% We examine the remaining variables to complement the findings for our primary research questions. What other types of homophily do we observe in our sample? How does the referrer-referral performance correlation depend on other characteristics?     \\
+
+% \noindent\textbf{Hypothesis 4 - Additional Variables}\\
+% \noindent\textbf{H4a.} Does the probability of being referred depend on other characteristics of the potential nominees (e.g., age, GPA, national university entry exam score, parental education, gender, co-enrollment history, ...), controlling for performance and these characteristics at the session level? \\
+% \noindent\textbf{Hba.} Does the quality of referrals depend on other characteristics of the referrer (e.g., age, parental education, GPA, time spent at the university,...)? \\
+
+\bibliographystyle{apacite}
+\bibliography{referrals}    
+
+\appendix
+\renewcommand{\thefigure}{A.\arabic{figure}}
+\setcounter{figure}{0}
+
+\section{Additional Figures and Tables}
+
+\subsection{Additional Figures}
+
+\begin{figure}[H]
+  \centering
+  \caption{Stratum distribution of the sample}\label{strato}
+  \includegraphics[width=0.6\linewidth]{figures/strato.png}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \caption{GPA by SES}\label{fig:gpa}
+  \includegraphics[width=0.6\linewidth]{figures/gpa_ses.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] {\textit{Note:}  Figure shows the distribution of GPA across SES. There are no significant differences in the mean standardized GPA scores between high-SES and low-SES participants ($t$ test $p = 0.695$).}
+  \end{tablenotes}
+\end{figure}
+
+% \begin{figure}[H]
+%   \centering
+%   \caption{Referrals by treatment}\label{fig:referral_fraction}
+%   \includegraphics[width=0.85\linewidth]{figures/referral_dist.png}
+%   \caption*{\footnotesize\textit{Note:} The figure shows the percentage share of referrals received for skills, disaggregated by Baseline and Quota treatments. This variable is calculated as the number of actual referrals received divided by the maximum possible referrals a student could have received. To illustrate: Consider a classroom with 25 students where 20 participated in the experiment, with 10 per treatment. A student could receive a maximum of 18 referrals from others in the same treatment (1 referral per skill minus 2 referrals made by student if they participated), and 20 referrals from the remaining treatment. We normalize the total referrals received in each treatment by this maximum possible number to obtain the percentage share shown in the figure. The distribution of referrals is right-skewed with extreme outliers. There is little difference between referrals between Baseline and Quota treatments: Both have means around 11.5\% with medians 8.8\% and 9.1\% respectively. A notable feature is the high concentration of students receiving no referrals, particularly in the Quota treatment where the 25th percentile is zero (compared to 3.3\% in Baseline). The majority of students (75th percentile) in both treatments receive fewer than 17\% of possible referrals, though the distributions have heavy right tails with some students receiving up to 80\% of possible referrals.}
+% \end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.6\linewidth}
+      \centering
+      \caption{Cognitive Skill by SES}
+      \includegraphics[width=\linewidth]{figures/rav_ses.png}
+      \label{fig:cognitive}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.6\linewidth}
+      \centering
+      \caption{Social Skill by SES}
+      \includegraphics[width=\linewidth]{figures/eye_ses.png}
+      \label{fig:social}
+  \end{subfigure}
+  \caption*{\footnotesize\textit{Note:} Figures show the respective distribution of cognitive and social skills across SES. High-SES outperform Low-SES in both skills ($t$ tests have $p$ values $< 0.001$). We can visually verify that larger share of high-SES in quantiles above median for both skills.}
+\end{figure}
+
+
+
+\begin{figure}[H]
+  \centering
+  \caption{Distribution of guessing ability across SES}\label{fig:guess}
+  \includegraphics[width=0.6\linewidth]{figures/guess_ratio.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] {\textit{Note:}  Figure shows the distribution of the guessing ability across SES. We calculate the guessing ability as the share of succesful low-SES guesses minus the expected probability of randomly drawing low-SES in class $c$. A score of 0 indicates an accuracy as good as random draws, below 0 drawing worse than chance, and above 0 better than chance. There are significant differences in the mean guessing ability between high-SES (M = 0.022, SD = 0.325, n = 271) and low-SES participants (M = 0.093, SD = 0.302, n = 369), $t$(638) = $-2.85$, $p$ = 0.005, $d$ = 0.226. Low-SES participants have higher guessing ability compared to their high-SES counterparts, with a mean difference of 7 percentage points. }
+  \end{tablenotes}
+\end{figure}
+% \begin{figure}[htbp]
+%     \centering
+%     \caption{Distribution of Study Programs Across Classrooms.}\label{fig:study}
+%     \includegraphics[width=\linewidth]{study.png}
+%     \begin{tabular}{@{}c@{}}
+%     \footnotesize
+%     \textit{Note:} Classrooms are ordered by increasing share of low-SES individuals.
+%     \end{tabular}
+% \end{figure}
+
+
+\subsection{Additional Tables}
+\renewcommand{\thetable}{A.\arabic{table}}
+\setcounter{table}{0}
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Comparison of Variables Between the Sample and Missing Students}\label{tab:missing}
+\begin{tabular*}{0.8\textwidth}{@{\extracolsep{\fill}}lcc c@{}}
+\toprule
+ & \multicolumn{1}{c}{\textbf{Sample}} & \multicolumn{1}{c}{\textbf{Missing}} & \multicolumn{1}{c}{\textit{\textbf{p}}} \\ \midrule
+Referral share (both skills)  & 0.127 & 0.043 & \multicolumn{1}{c}{0.000} \\
+GPA (standardized) & 0.044 & -0.273 & \multicolumn{1}{c}{0.001} \\
+Entry Exam (standardized) & 0.028 & -0.168 & \multicolumn{1}{c}{0.046} \\
+\# Semesters at UNAB & 3.171 & 3.188 & \multicolumn{1}{c}{0.884} \\
+Age & 19.182 & 20.287 & \multicolumn{1}{c}{0.001} \\
+Female & 49.8\% & 48.5\% & \multicolumn{1}{c}{0.788} \\
+Ethnic Minority & 2.1\% & 4.4\% & \multicolumn{1}{c}{0.114} \\
+Rural Community & 28.8\% & 31.6\% & \multicolumn{1}{c}{0.501} \\
+Has Scholarship & 0.8\% & 0.7\% & \multicolumn{1}{c}{0.899} \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item[] \textit{Note:} Values for female, ethnic minority, rural community, and scholarship represent percentages. All other variables represent means. \textit{p}-values for gender, ethnic, rural, and scholarship are from two-sample tests of proportions. For all other variables, \textit{p}-values are from two-sample t-tests with equal variances. All tests compare the sample and missing students. All reported \textit{p}-values are two-tailed.
+\end{tablenotes}
+\label{tab:test-results}
+\end{threeparttable}
+\end{table}
+
+% \begin{table}[H]
+%   \centering
+%   \begin{threeparttable}
+%   \caption{Percentage of referrals across specifications conditional on performance}\label{tab:regression-results-1-appendix1}
+%   \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+%   \toprule
+%   & (1) & (2) & (3) & (4) \\
+%   Dep. Var. & All & Baseline & Quota & All \\
+%   \midrule
+%   GPA & 3.031\tnote{***} & 3.765\tnote{***} & 2.402\tnote{***} & 3.306\tnote{***} \\
+%   & (0.418) & (0.515) & (0.513) & (0.529) \\
+%   Cognitive & 0.243 & 0.278 & 0.277 & 0.327 \\
+%   & (0.437) & (0.491) & (0.545) & (0.455) \\
+%   Social & 0.412 & 0.114 & 0.577 & 0.159 \\
+%   & (0.370) & (0.426) & (0.511) & (0.302) \\
+%   Constant & 14.873\tnote{***} & 15.598\tnote{***} & 14.042\tnote{***} & 14.421\tnote{***} \\
+%   & (2.358) & (3.091) & (2.952) & (2.324) \\
+%   \midrule
+%   Classroom FE & No & No & No & Yes \\
+%   Individual Controls & Yes & Yes & Yes & Yes \\
+%   Observations & 665 & 665 & 665 & 665 \\
+%   R-squared & 0.112 & 0.118 & 0.047 & 0.115 \\
+%   \bottomrule
+%   \end{tabular*}
+%   \begin{tablenotes}[flushleft]
+%   \footnotesize
+%   \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. The dependent variable is the percentage of referrals received relative to potential referrals. Column (1) shows results for all referrals, column (2) for baseline condition only, column (3) for quota treatment only, and column (4) includes classroom fixed effects. Controls include gender, age and semester. Sample is restricted to participants with complete administrative and experimental data. All continuous variables are standardized.
+%   \end{tablenotes}
+%   \end{threeparttable}
+% \end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Correlation between GPA and skills}\label{tab:correlation}
+  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+  \toprule
+  & GPA & Cognitive & Social \\
+  \midrule
+  GPA & 1.000 & & \\
+  Cognitive & 0.085 & 1.000 & \\
+  Social & 0.093\tnote{*} & 0.267\tnote{*} & 1.000 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} Pairwise correlation between GPA and skills. * indicates significance at the 5\% level with Bonferroni correction. Sample is restricted to 655 participants with complete administrative and experimental data.
+  \end{tablenotes}
+  \end{threeparttable}
+  \end{table}
+
+
+  \begin{table}[H]
+    \centering
+    \begin{threeparttable}
+    \caption{Between-Classroom Variation in Academic Programs}\label{tab:program_sorting}
+    \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c}
+    \toprule
+    Statistic & Most common program share \\
+    \midrule
+    Mean & 0.424 \\
+    Standard Deviation & 0.216 \\
+    \midrule
+    10th percentile & 0.174 \\
+    25th percentile & 0.292 \\
+    Median & 0.345 \\
+    75th percentile & 0.533 \\
+    90th percentile & 0.696 \\
+    \midrule
+    \# classrooms with share 1 & 3 \\
+    Most diverse classroom & 0.154 \\
+    \# classrooms & 35 \\
+    \bottomrule
+    \end{tabular*}
+    \begin{tablenotes}[flushleft]
+    \footnotesize
+    \item[] \textit{Note:} Table shows the distribution of academic programs across classrooms, measured by the share of students from the most common program in each classroom. Three classrooms are completely homogeneous (share = 1). In the median classroom, the most common program accounts for 34.5\% of students. The most diverse classroom has only 15.4\% of students in the same program. Data based on 849 students across 35 classrooms.
+    \end{tablenotes}
+    \end{threeparttable}
+  \end{table}
+
+  \begin{table}[H]
+    \centering
+    \begin{threeparttable}
+    \caption{Characteristics of self-referrers}\label{tab:self_ref}
+    \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+    \toprule
+    & No self-referral & Any self-referral & $\Delta$ & $p$ \\
+    \midrule
+    GPA & 0.132 & -0.120 & 0.252 & 0.002\\
+    & (1.003) & (0.966) & & \\  
+    Cognitive Skills & 0.087 & -0.118 & 0.205 & 0.013\\
+    & (0.988) & (1.023) & & \\
+    Social Skills & 0.034 & -0.038 & 0.072 & 0.374\\
+    & (1.003) & (0.959) & & \\
+    Low-SES & 0.605 & 0.511 & 0.094 & 0.021\\
+    & (0.490) & (0.501) & & \\
+    \midrule
+    N & 440 & 225 & 665 & \\
+    Share (\%) & 66.2 & 33.8 & 100& \\
+    \bottomrule
+    \end{tabular*}
+    \begin{tablenotes}[flushleft]
+    \footnotesize
+    \item[] \textit{Note:} Table compares standardized scores between participants who self-referred at least once (N = 225) and those who did not (N = 440). Positive differences indicate higher scores for those who never self-referrered. $p$-values from two-sided t-tests (GPA, Cognitive Skill, Social Skill) and proportion test (Low-SES). The results suggest self-referrers have significantly lower cognitive skills and GPA, and are more likely to be low-SES. Standard deviations in parentheses, samples restricted to participants with complete administrative and experimental data.
+    \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Characteristics of participants who make overlapping referrals}\label{tab:overlap_ref}
+  \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+  \toprule
+  & Unique referrals & Overlapping referrals & $\Delta$ & $p$ \\
+  \midrule
+  GPA & 0.057 & 0.045 & 0.012 & 0.903 \\
+  & (0.983) & (1.009) & & \\
+  Cognitive Skill & 0.110 & 0.024 & 0.086 & 0.371 \\
+  & (1.005) & (0.979) & & \\
+  Social Skill & -0.014 & 0.033 & -0.047 & 0.621 \\
+  & (0.938) & (0.981) & & \\
+  Low-SES & 0.530 & 0.597 & -0.067 & 0.164 \\
+  & (0.501) & (0.491) & & \\
+  \midrule
+  N & 132 & 512 & 644 & \\
+  Share (\%) & 20.5 & 79.5 & 100 & \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} Table compares characteristics between participants who made at least one overlapping referral (N = 512) to those who did not (N = 132, 20.5\%). Overlapping referrals indicate cases where a participant referred the same classmate once for cognitive or social skills. Positive differences indicate higher scores for those who made no overlapping referrals. The results suggest minimal differences across all variables. $p$-values from two-sided t-tests (GPA, Cognitive Skill, Social Skill) and proportion test (Low-SES). Standard deviations in parentheses, sample restricted to participants with complete administrative and experimental data.
+  \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Characteristics of Top Performers and Referrals}\label{tab:top_perf}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l c c c c c@{}}
+  \toprule
+  & \multicolumn{2}{c}{Cognitive} & \multicolumn{2}{c}{Social} & Both \\
+  \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-6}
+  & Top 3 & Referrals & Top 3 & Referrals & Top 3 \\
+  \midrule
+  Cognitive Skill & 1.223 & 0.112 & 0.383 & 0.058 & 1.201 \\
+  & (0.419) & (1.009) & (0.922) & (1.015) & (0.458) \\
+  Social Skill & 0.357 & 0.086 & 1.340 & 0.042 & 1.391 \\
+  & (0.923) & (0.996) & (0.395) & (1.009) & (0.453) \\
+  GPA & 0.277 & 0.251 & 0.264 & 0.212 & 0.551 \\
+  & (0.990) & (1.021) & (1.046) & (1.004) & (0.897) \\
+  Low-SES & 0.457 & 0.532 & 0.456 & 0.555 & 0.500 \\
+  & (0.500) & (0.499) & (0.500) & (0.497) & (0.507) \\
+  \midrule
+  N & 129 & 1,759 & 114 & 1,775 & 36 \\
+  Share (\%) & 20.0 & 100 & 17.7 & 100 & 5.6 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} Table shows characteristics of students ranked in the top 3 of their classroom and average characteristics of referred students, by skill. Standard deviations in parentheses. Sample restricted to participants with complete administrative and experimental data. All continous variables are standardized.
+  \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+% \begin{table}
+% \centering
+% \begin{threeparttable}
+% \caption{Fraction of cognitive skill referrals conditional on performance and social distance with incremental addition of academic performance measures}\label{tab:regression-results-1-appendix1-cognitive}
+% \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+% \toprule
+% & (1) & (2) & (3) \\
+% Dep. Var. & Cognitive & Cognitive & Cognitive \\
+% \midrule
+% GPA & & 0.03593\tnote{***} & 0.03184\tnote{***} \\
+% & & (0.00515) & (0.00493) \\
+% Entry Exam & & & 0.02866\tnote{***} \\
+% & & & (0.00588) \\
+% Cognitive & 0.00854\tnote{*} & 0.00454 & -0.00394 \\
+% & (0.00489) & (0.00479) & (0.00496) \\
+% Social & 0.00466 & 0.00237 & -0.00129 \\
+% & (0.00439) & (0.00431) & (0.00431) \\
+% Program & 0.03235\tnote{***} & 0.03039\tnote{***} & 0.02859\tnote{***} \\
+% & (0.00788) & (0.00755) & (0.00757) \\
+% Constant & 0.12977\tnote{***} & 0.12798\tnote{***} & 0.12586\tnote{***} \\
+% & (0.00422) & (0.00396) & (0.00386) \\
+% \midrule
+% Classroom FE & Yes & Yes & Yes \\
+% Individual FE & Yes & Yes & Yes \\
+% Observations & 657 & 656 & 629 \\
+% R-squared & 0.2001 & 0.2743 & 0.3189 \\
+% \bottomrule
+% \end{tabular*}
+% \begin{tablenotes}[flushleft]
+% \footnotesize
+% \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Dependent variable is the fraction of referrals received out of all potential referrals for Cognitive skill. Sample is restricted to participants with complete administrative and experimental data.
+% \end{tablenotes}
+% \end{threeparttable}
+% \end{table}
+
+% \begin{table}
+% \centering
+% \begin{threeparttable}
+% \caption{Fraction of social skill referrals conditional on performance and social distance with incremental addition of academic performance measures}\label{tab:regression-results-1-appendix1-social}
+% \begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+% \toprule
+% & (1) & (2) & (3) \\
+% Dep. Var. & Social & Social & Social \\
+% \midrule
+% GPA & & 0.03085\tnote{***} & 0.02801\tnote{***} \\
+% & & (0.00510) & (0.00547) \\
+% Entry Exam & & & 0.01361\tnote{**} \\
+% & & & (0.00582) \\
+% Cognitive & 0.00310 & -0.00025 & -0.00459 \\
+% & (0.00445) & (0.00440) & (0.00478) \\
+% Social & 0.00198 & -0.00001 & -0.00075 \\
+% & (0.00436) & (0.00428) & (0.00446) \\
+% Program & 0.02753\tnote{***} & 0.02574\tnote{***} & 0.02622\tnote{***} \\
+% & (0.00797) & (0.00784) & (0.00814) \\
+% Constant & 0.12993\tnote{***} & 0.12836\tnote{***} & 0.12765\tnote{***} \\
+% & (0.00409) & (0.00388) & (0.00397) \\
+% \midrule
+% Classroom FE & Yes & Yes & Yes \\
+% Individual FE & Yes & Yes & Yes \\
+% Observations & 657 & 656 & 629 \\
+% R-squared & 0.1979 & 0.2550 & 0.2622 \\
+% \bottomrule
+% \end{tabular*}
+% \begin{tablenotes}[flushleft]
+% \footnotesize
+% \item[] \textit{Note:} Robust standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Dependent variable is the fraction of referrals received out of all potential referrals for Social skill. Sample is restricted to participants with complete administrative and experimental data.
+% \end{tablenotes}
+% \end{threeparttable}
+% \end{table}
+
+\section{Experiment}\label{instructions}
+\textit{We include the English version of the instructions used in Qualtrics. Participants saw the Spanish version. Horizontal lines indicate page breaks, and clarifying comments are inside brackets.}
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent Please enter the password:
+
+\noindent [classroom-specific password sent to each participant the day before data collection]
+
+\noindent\rule{\textwidth}{0.4pt} \\
+
+\noindent\textbf{Welcome}\\
+
+\noindent Welcome to this study organized by the Social Bee Lab. You have been invited to participate in a survey where you can make a series of decisions. The study takes approximately 20 minutes to complete. During the study, you should not communicate with any other students. If you have any questions at any time, please raise your hand. One of the assistants will help you privately. \\
+
+\noindent In this study, you can win bonus money depending on your choices. In total, we will draw [classroom-specific number equal to 40\% of class size] bonuses of 100.000 pesos among the participants of this classroom. It is also possible for the same person to win more than one voucher. The following screens will detail how the bonus draw will be conducted. The UNAB finance office will make the payment of the vouchers through Nequi.\\
+
+\noindent All your decisions in this survey will be anonymized. Therefore, the answers you provide will not affect your grades in this class or your records at the university. We will use your personal information to determine the bonus allocation, but after that, we will remove any data that identifies you. \\
+
+\noindent This survey has several parts. Each of these parts has specific instructions. Please read the instructions for each part carefully because they describe how you can earn bonuses. This study has been approved by the [omitted for anonymous review] on the condition that all the information we provide is true and all the bonuses we offer are real.\\
+% Ethics Committee of New York University Abu Dhabi (NYU Abu Dhabi)
+\noindent On the next screen, we present you with an informed consent form that you must accept to participate in this study.
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent \textbf{Informed Consent} \\ 
+
+\noindent You have been invited to participate in a study to learn more about how people make decisions in common scenarios. \\
+
+\noindent  This study is conducted by [omitted for anonymous review] and the Social Bee Lab at UNAB. The purpose of this study is to broaden our understanding of how people make decisions. \\
+
+% Professor Ernesto Reuben of New York University in Abu Dhabi 
+
+\noindent  Participation in this study is voluntary. You may opt-out at any time. No known risks are associated with your participation in this project beyond those of everyday life. Apart from the monetary bonuses that will be drawn, participation has no direct benefits.\\
+
+\noindent  The Social Bee Lab is in charge of data collection. Your answers in this study are anonymous and will not be shared with anyone. In addition to your answers, UNAB will provide the Social Bee Lab with administrative records of your courses and your university entrance exam score. Your records, decisions, and your identity will be kept strictly confidential. Data about you collected within the scope of the study are used for scientific purposes only and are treated as strictly confidential. The Social Bee Lab will anonymize your data, and the researcher will analyze it without knowing your identity. All data generated will be stored on the researcher's computer. You have the right to access your personal data and request its deletion. You can exercise this right by contacting the researcher.\\
+
+\noindent  If something is unclear or you have any questions, you can contact [omitted for anonymous review].\\
+
+% Dr. Manuel Muñoz Herrera at manuel.munoz@liser.lu
+
+\noindent  If you have questions about your rights as a participant, you can contact [omitted for anonymous review].\\
+
+% the NYUAD IRB office at IRBnyuad@nyu.edu
+
+\noindent  By continuing to the next screen, you agree to participate in this study.\\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent Before you start, please answer these four questions. \\
+
+\noindent What is your gender? \\ 
+
+\noindent [Male, Female] \\
+
+\noindent What is the socio-economic stratum to which your family belongs? \\
+
+\noindent [Stratum 1 to Stratum 6] \\
+
+\noindent What is your father's highest acquired level of education?\\
+
+\noindent [Primary school, High school, Technical school, Undergraduate, Graduate, Postgraduate, Not applicable.] \\
+
+\noindent What is your mother's highest acquired level of education?\\
+
+\noindent [Primary school, High school, Technical school, Undergraduate, Graduate, Postgraduate, Not applicable.] \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent \textbf{Part 1} \\
+
+\noindent You will now participate in two quizzes, each lasting five minutes. Please try to answer them to the best of your ability. \\
+
+\noindent We will allocate up to [classroom-specific number equal to 20\% of class size] bonuses of 100.000 pesos in this first part. The steps to allocate the bonuses for Part 1 are explained below.\\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent [classroom-specific illustrations explaining the incentive structure] \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent [random assignment to either cognitive or social skills test] \\
+
+\noindent \textbf{Test - Cognitive Skill}\\
+
+\noindent In this test, you will see a series of images. Below is an example of the images you will solve. At the top of each image, there is a pattern with a piece that has been removed. Your task is to choose which of the six pieces completes the pattern correctly. For each image, there is only one correct piece. Look at the following example: \\
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.2]{figures/Ravens Survey.jpg}
+\end{figure}
+
+\noindent First, notice a square in the upper left, the upper right, and the lower left. Also, notice that the circle is eliminated when one moves from the upper left to the upper right. Finally, the rhombus is eliminated when moving from the upper left to the lower left. Therefore, the correct piece should eliminate the circle and the rhombus, leaving only a square. So, the correct answer is piece 5. \\
+
+\noindent To give your answer to each image, you must choose the correct option and then continue to the next screen. After giving your answer you cannot go back. \\
+
+\noindent You will have 5 minutes to complete the test, which consists of 18 images to solve. The percentage of correct answers will determine your chances of winning one of the 100.000 pesos bonuses if you are chosen for the drawing. \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent Are you ready? \\
+ 
+\noindent Your 5 minutes will start as soon as you move to the next screen. \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent \textbf{Problem 1}\\
+
+\noindent [screenshot of Raven's matrix] \\
+
+\noindent [After participants submit an answer, a new matrix appears on the screen. The sequence of matrices is the same for all participants. Participants cannot return to a previous screen. Participants do not have to provide answers for all 18 matrices.] \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent You have finished the test. You can proceed to the next screen. \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent \textbf{How did you do on the test?} \\
+
+\noindent If we randomly choose 10 participants from this classroom, how many people do you think solved fewer correct problems than you?\\
+
+\noindent [Slider from 0 to 10]\\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent \textbf{Test - Emotions} \\
+ 
+\noindent In this test, you will see a series of photographs. Below is an example of the pictures you will see. In each picture, you will see the eyes of a person. Below the picture, you will see four possible emotions that this person is feeling. Your task is to choose which of the four emotions correctly describes what the person is feeling. For each picture, there is only one emotion. Look at the following example: \\
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.2]{figures/3Aghast-J.jpg}
+\end{figure}
+
+\noindent [Happy, Disappointed, Shocked, Worried] \\
+
+\noindent In this case, the correct answer is: Shocked. \\
+
+\noindent To give your answer to each picture, you must choose the correct option and then continue to the next screen. After giving your answer you will not be able to go back. \\
+
+\noindent You will have 5 minutes to complete the test, which consists of 36 photographs to solve. The percentage of correct answers you get will determine your chances of winning one of the 100.000 pesos bonuses if you are chosen for the drawing. \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent Are you ready? \\
+ 
+\noindent Your 5 minutes will start as soon as you move to the next screen. \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent \textbf{Photograph 1: Choose the word that best describes the photograph} \\
+
+\noindent [photo from Multiracial Reading the Mind in the Eyes Test] \\
+
+\noindent [After participants submit an answer, a new photo appears on the screen. The sequence of photos is the same for all participants. Participants cannot return to a previous screen. Participants do not have to provide answers for all 36 photos.] \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent You have finished the test. You can proceed to the next screen. \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent \textbf{How did you do on the test?} \\
+
+\noindent If we randomly choose 10 participants from this classroom, how many people do you think solved fewer correct photographs than you?\\
+
+\noindent [Slider from 0 to 10]\\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent \textbf{Part 2} \\
+ 
+\noindent At the beginning of this study, all participants took two tests, one on cognitive ability and one on emotions. In this part, we will ask you to recommend the people who in your opinion will score the best on each test. \\
+
+\noindent You may recommend 3 people per test, but you may not recommend yourself. \\
+
+\noindent We will allocate up to [classroom-specific number equal to 40\% of class size] bonuses of 100.000 pesos for Part 2. The steps for allocating bonuses are explained below. \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent [random assignment to either quota or baseline condition] \\
+
+\noindent [classroom-specific illustrations explaining the incentive structure depending on assignment to either baseline or quota conditions] \\
+
+
+\begin{figure}[!htbp]
+  \centering
+  \caption{Illustrations for the two conditions}
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/baseline.png}
+    \caption{Baseline}
+    \label{baseline_illust}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/quota.png}
+    \caption{Quota}
+    \label{quota_illust}
+  \end{subfigure}
+  \label{fig:combined_illust}
+\end{figure}
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent [random assignment to either cognitive or social skills referral task] \\
+
+\noindent \textbf{Recommendation - Cognitive Skill}\\
+
+\noindent All participants took a test to identify the missing pattern in each image, as in the example below. This test is used to measure general intelligence.\\
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.2]{figures/Ravens Survey.jpg}
+\end{figure}
+
+\noindent Next, we will present you with a list of the names of all the students in this room. We will ask you to recommend the three people you think will score the highest on the general intelligence test. \\
+
+\noindent If you are chosen by the computer, each of your recommendations in the top 3 increases your chances of winning one of the 100.000 pesos bonuses. \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent Select the students in this classroom who you consider to have the highest scores on the general intelligence test. (Select 3 students) \\
+
+\noindent [Classroom-specific list of all classmate names visible on one screen. Participants have to pick 3 classmates to continue. Picking their own name invalidates their choices.]\\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent \textbf{Recommendation - Emotions} \\
+
+\noindent All participants took a test where they had to identify the emotion that best described the expression of each image as in the example below. This test is used to measure social skills. \\
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.2]{figures/3Aghast-J.jpg}
+\end{figure}
+
+\noindent Next, we will present you with a list of the names of all the students in this room. We will ask you to recommend 3 people you think will score the highest on the social skills test. \\
+
+\noindent If you are chosen by the computer, each of your recommendations in the top 3 increases your chances of winning one of the 100.000 pesos bonuses. \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent Select the students in this classroom who you consider to have the highest scores on the social skills test. (Select 3 students) \\
+
+\noindent [Classroom-specific list of all the names visible on one screen. Participants have to pick 3 classmates to continue. Picking their own name invalidates their choices.]\\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent\textbf{Part 3: Recommendation - Random draw}
+
+\noindent In this part, the computer will randomly choose three students who belong to strata 1, 2, or 3. We will ask you to nominate three people you think the computer will choose. \\
+
+\noindent We will allocate up to [classroom-specific number equal to 20\% of class size] bonuses of 100.000 pesos for Part 3. The steps for allocating the bonuses are explained below. \\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent [classroom-specific illustrations explaining the incentive structure] \\
+
+\begin{figure}[htbp]
+  \centering
+  \caption{Illustration for the Guessing Task}\label{fig:guessing}
+  \includegraphics[scale=0.4]{figures/guessing.png}
+\end{figure}
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent Select the students in this classroom who belong to strata 1, 2, or 3, who you think will be randomly selected by the computer (Select 3 students). \\
+
+\noindent [Classroom-specific list of all the names visible on one screen. Participants have to pick 3 classmates to continue. Picking their own name invalidates their choices.]\\
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent \textbf{Part 4}
+
+\noindent Do you want to know your scores on the general intelligence test and the social skills test? We can analyze the data and give you a report that explains your strengths in these two areas. Also, what do these strengths mean, and how can you leverage them for your personal and professional development? \\
+
+\noindent If you want to receive your skills report, we need to contact you again. We also want to be able to invite you to new studies where you can participate for more bonus money. Please indicate if you agree to be contacted again. \\
+
+\noindent [I can be contacted for new studies and to send me my report. I can be contacted to send my report, but not for new studies.  No, I do not want to be contacted again.]
+
+\noindent\rule{\textwidth}{0.4pt}\\
+
+\noindent [if participant gives consent to be contacted again] \\
+
+\noindent Please enter your contact email: \\
+
+\noindent [student email]\\
+
+
+
+
+\end{document}
