@@ -228,32 +228,6 @@ Bolte%
 }{%
 Bolte%
 \ \protect \BOthers {.}}{%
-{\protect \APACyear {2020}}%
-}]{%
-bolte2020role}
-\APACinsertmetastar {%
-bolte2020role}%
-\begin{APACrefauthors}%
-Bolte, L.%
-, Immorlica, N.%
-\BCBL {}\ \BBA {} Jackson, M\BPBI O.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2020}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {The role of referrals in immobility, inequality, and inefficiency in labor markets} {The role of referrals in immobility, inequality, and inefficiency in labor markets}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{arXiv preprint arXiv:2012.15753}{}{}{}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Bolte%
-, Immorlica%
-\BCBL {}\ \BBA {} Jackson%
-}{%
-Bolte%
-\ \protect \BOthers {.}}{%
 {\protect \APACyear {2021}}%
 }]{%
 bolte_role_2021}
@@ -503,34 +477,6 @@ Dustmann, C.%
 {\BBOQ}\APACrefatitle {Referral-based job search networks} {Referral-based job search networks}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{The Review of Economic Studies}{83}{2}{514--546}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Edin%
-, Fredriksson%
-, Nybom%
-\BCBL {}\ \BBA {} {\"O}ckert%
-}{%
-Edin%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2022}}%
-}]{%
-edin2022rising}
-\APACinsertmetastar {%
-edin2022rising}%
-\begin{APACrefauthors}%
-Edin, P\BHBI A.%
-, Fredriksson, P.%
-, Nybom, M.%
-\BCBL {}\ \BBA {} {\"O}ckert, B.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2022}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {The rising return to noncognitive skill} {The rising return to noncognitive skill}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{American Economic Journal: Applied Economics}{14}{2}{78--100}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -823,31 +769,6 @@ Kim, H.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Kuhn%
-\ \BBA {} Weinberger%
-}{%
-Kuhn%
-\ \BBA {} Weinberger%
-}{%
-{\protect \APACyear {2005}}%
-}]{%
-kuhn2005leadership}
-\APACinsertmetastar {%
-kuhn2005leadership}%
-\begin{APACrefauthors}%
-Kuhn, P.%
-\BCBT {}\ \BBA {} Weinberger, C.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2005}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Leadership skills and wages} {Leadership skills and wages}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Journal of Labor Economics}{23}{3}{395--436}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Lindqvist%
 \ \BBA {} Vestman%
 }{%
@@ -892,6 +813,58 @@ Lowe, M.%
 {\BBOQ}\APACrefatitle {Types of contact: A field experiment on collaborative and adversarial caste integration} {Types of contact: A field experiment on collaborative and adversarial caste integration}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{American Economic Review}{111}{6}{1807--1844}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+McPherson%
+, Smith-Lovin%
+\BCBL {}\ \BBA {} Brashears%
+}{%
+McPherson%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2006}}%
+}]{%
+mcpherson2006social}
+\APACinsertmetastar {%
+mcpherson2006social}%
+\begin{APACrefauthors}%
+McPherson, M.%
+, Smith-Lovin, L.%
+\BCBL {}\ \BBA {} Brashears, M\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Social isolation in America: Changes in core discussion networks over two decades} {Social isolation in america: Changes in core discussion networks over two decades}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American sociological review}{71}{3}{353--375}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+McPherson%
+, Smith-Lovin%
+\BCBL {}\ \BBA {} Cook%
+}{%
+McPherson%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2001}}%
+}]{%
+mcpherson2001birds}
+\APACinsertmetastar {%
+mcpherson2001birds}%
+\begin{APACrefauthors}%
+McPherson, M.%
+, Smith-Lovin, L.%
+\BCBL {}\ \BBA {} Cook, J\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Birds of a feather: Homophily in social networks} {Birds of a feather: Homophily in social networks}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Annual review of sociology}{27}{1}{415--444}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

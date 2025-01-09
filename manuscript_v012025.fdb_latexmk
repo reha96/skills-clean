@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex manuscript_v012025"] 1736263932.46624 "manuscript_v012025.aux" "manuscript_v012025.bbl" "manuscript_v012025" 1736264277.47982 0
+["bibtex manuscript_v012025"] 1736437061.55815 "manuscript_v012025.aux" "manuscript_v012025.bbl" "manuscript_v012025" 1736437066.48785 0
   "./referrals.bib" 1735039687.51212 27820 cfeaab40e32fcd0c0861755d65d4dfe6 ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "manuscript_v012025.aux" 1736264277.09744 17324 aa705835d7e8b4c3e84b56accd1ac7f6 "pdflatex"
+  "manuscript_v012025.aux" 1736437066.09882 18605 5cf14ee6df2b3fef2f87458230a5411a "pdflatex"
   (generated)
   "manuscript_v012025.bbl"
   "manuscript_v012025.blg"
   (rewritten before read)
-["pdflatex"] 1736264273.60925 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/manuscript_v012025.tex" "manuscript_v012025.pdf" "manuscript_v012025" 1736264277.47999 0
-  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/manuscript_v012025.tex" 1736264273.47291 150796 d0fc9509460b78e8d5fd8faf0b3f327e ""
+["pdflatex"] 1736437061.70869 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/manuscript_v012025.tex" "manuscript_v012025.pdf" "manuscript_v012025" 1736437066.48802 0
+  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/manuscript_v012025.tex" 1736437061.79663 152464 03efc8ef1ab0ec7b990d37981e923941 ""
   "/Users/reha.tuncer/Library/texlive/2024/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk" 1733319228.17819 7808 3d1a4b76be04600619568b2b623d04a0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -197,6 +197,9 @@
   "figures/3Aghast-J.jpg" 1730058608.94141 24580 92357bedc173da70fc22f93697e6ecff ""
   "figures/Ravens Survey.jpg" 1730058608.94294 129791 78a7445379cb86a3ed032fd0ded7849c ""
   "figures/baseline.png" 1730058608.94926 1576207 2431a10fc4766cdc96f2c0f4f893e3bc ""
+  "figures/cdf1.png" 1736426541.36638 207765 fd5a4a6647f82cb1817dde8ba150f0fb ""
+  "figures/cdf2.png" 1736429939.28172 196247 25a4ae76fff9d26ef1f1e7b8a9f1840f ""
+  "figures/cdf3.png" 1736435267.46471 213167 dceef37e8d0f3e40f281e8796bdeb1b8 ""
   "figures/eye_ses.png" 1733905180.20412 113689 b996b602544dc638581233ae0d18d85c ""
   "figures/figure-1.jpg" 1730058609.03831 125747 3cbb04806ce3fca1fcb8b3c1641de7d6 ""
   "figures/gpa_ses.png" 1733905200.25542 113031 86242daf75eaa3e65b78975de3287f8d ""
@@ -204,13 +207,14 @@
   "figures/guessing.png" 1730058609.04495 1450422 c5810da791ee926cf6e9a9f73704e9d5 ""
   "figures/quota.png" 1730058609.05163 1110355 9f2bc1c07c2540ca56f00b99f20169ed ""
   "figures/rav_ses.png" 1734970221.77383 115819 3f7e6012bec5d4a84caee3a3150b1d63 ""
-  "figures/ref_skill_baseline.png" 1733904337.9341 124944 eef0376f53106f23cdb0eab4ce7ae7c2 ""
-  "figures/ses_dist3.png" 1733904431.32537 119175 ad3042a025f2934d582b1f9417c386cb ""
+  "figures/ref_skill_baseline.png" 1736435489.3343 143314 7e34a61ede12480bda26c50a98964c11 ""
+  "figures/ref_skill_baseline_all3.png" 1736435801.53246 143331 713c89de0416b10878167d3b02b3aa75 ""
+  "figures/ses_dist3.png" 1736429250.28251 140557 d692812325e2bd5ccfd5c759ff37f633 ""
   "figures/strato.png" 1733904257.9511 125810 1ad2619e933968708e0298f1f17fe4fb ""
-  "manuscript_v012025.aux" 1736264277.09744 17324 aa705835d7e8b4c3e84b56accd1ac7f6 "pdflatex"
-  "manuscript_v012025.bbl" 1736263932.59376 36307 64ca343502fa790a4285474c89658898 "bibtex manuscript_v012025"
-  "manuscript_v012025.out" 1736264277.10505 1787 47edfdaf099f4063d6f441b481051489 "pdflatex"
-  "manuscript_v012025.tex" 1736264273.47291 150796 d0fc9509460b78e8d5fd8faf0b3f327e ""
+  "manuscript_v012025.aux" 1736437066.09882 18605 5cf14ee6df2b3fef2f87458230a5411a "pdflatex"
+  "manuscript_v012025.bbl" 1736437061.68916 35785 0e079141f4f8a3262f9b7487a89f4574 "bibtex manuscript_v012025"
+  "manuscript_v012025.out" 1736437066.10708 1787 47edfdaf099f4063d6f441b481051489 "pdflatex"
+  "manuscript_v012025.tex" 1736437061.79663 152464 03efc8ef1ab0ec7b990d37981e923941 ""
   (generated)
   "manuscript_v012025.aux"
   "manuscript_v012025.log"
