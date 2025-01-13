@@ -816,6 +816,34 @@ Lowe, M.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+MacLeod%
+, Riehl%
+, Saavedra%
+\BCBL {}\ \BBA {} Urquiola%
+}{%
+MacLeod%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+macleod2017big}
+\APACinsertmetastar {%
+macleod2017big}%
+\begin{APACrefauthors}%
+MacLeod, W\BPBI B.%
+, Riehl, E.%
+, Saavedra, J\BPBI E.%
+\BCBL {}\ \BBA {} Urquiola, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The big sort: College reputation and labor market outcomes} {The big sort: College reputation and labor market outcomes}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Economic Journal: Applied Economics}{9}{3}{223--261}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 McPherson%
 , Smith-Lovin%
 \BCBL {}\ \BBA {} Brashears%

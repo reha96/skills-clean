@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex manuscript_v012025"] 1736437061.55815 "manuscript_v012025.aux" "manuscript_v012025.bbl" "manuscript_v012025" 1736437066.48785 0
-  "./referrals.bib" 1735039687.51212 27820 cfeaab40e32fcd0c0861755d65d4dfe6 ""
+["bibtex manuscript_v012025"] 1736778540.34991 "manuscript_v012025.aux" "manuscript_v012025.bbl" "manuscript_v012025" 1736778569.64449 0
+  "./referrals.bib" 1736519305.76711 28223 abf04a666997fbb1eb682ee38c64da91 ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "manuscript_v012025.aux" 1736437066.09882 18605 5cf14ee6df2b3fef2f87458230a5411a "pdflatex"
+  "manuscript_v012025.aux" 1736778569.25323 18817 d36c34de114a451bef27707de06038e2 "pdflatex"
   (generated)
   "manuscript_v012025.bbl"
   "manuscript_v012025.blg"
   (rewritten before read)
-["pdflatex"] 1736437061.70869 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/manuscript_v012025.tex" "manuscript_v012025.pdf" "manuscript_v012025" 1736437066.48802 0
-  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/manuscript_v012025.tex" 1736437061.79663 152464 03efc8ef1ab0ec7b990d37981e923941 ""
+["pdflatex"] 1736778564.78481 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/manuscript_v012025.tex" "manuscript_v012025.pdf" "manuscript_v012025" 1736778569.64465 0
+  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/manuscript_v012025.tex" 1736778566.54781 155036 4ba3912c56c84ba5b3b32e5133e63e47 ""
   "/Users/reha.tuncer/Library/texlive/2024/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk" 1733319228.17819 7808 3d1a4b76be04600619568b2b623d04a0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -211,10 +211,10 @@
   "figures/ref_skill_baseline_all3.png" 1736435801.53246 143331 713c89de0416b10878167d3b02b3aa75 ""
   "figures/ses_dist3.png" 1736429250.28251 140557 d692812325e2bd5ccfd5c759ff37f633 ""
   "figures/strato.png" 1733904257.9511 125810 1ad2619e933968708e0298f1f17fe4fb ""
-  "manuscript_v012025.aux" 1736437066.09882 18605 5cf14ee6df2b3fef2f87458230a5411a "pdflatex"
-  "manuscript_v012025.bbl" 1736437061.68916 35785 0e079141f4f8a3262f9b7487a89f4574 "bibtex manuscript_v012025"
-  "manuscript_v012025.out" 1736437066.10708 1787 47edfdaf099f4063d6f441b481051489 "pdflatex"
-  "manuscript_v012025.tex" 1736437061.79663 152464 03efc8ef1ab0ec7b990d37981e923941 ""
+  "manuscript_v012025.aux" 1736778569.25323 18817 d36c34de114a451bef27707de06038e2 "pdflatex"
+  "manuscript_v012025.bbl" 1736778540.46093 36484 edb89793dba343cda069d5557c036108 "bibtex manuscript_v012025"
+  "manuscript_v012025.out" 1736778569.26328 1787 47edfdaf099f4063d6f441b481051489 "pdflatex"
+  "manuscript_v012025.tex" 1736778566.54781 155036 4ba3912c56c84ba5b3b32e5133e63e47 ""
   (generated)
   "manuscript_v012025.aux"
   "manuscript_v012025.log"
