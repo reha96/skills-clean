@@ -1,0 +1,969 @@
+/*******************************************************************************
+    Project: SIR - regression analysis
+    Author: Reha Tuncer
+    Date: 25.07.2024
+    Description: Rerforms a regression analysis from referrer POV
+*******************************************************************************/
+
+
+// Set up environment
+version 18
+clear all
+macro drop _all
+set more off
+set scheme s2color, permanently
+set maxvar 32767
+set more off
+set linesize 100
+global graph_opts ///
+    graphregion(fcolor(white) lcolor(white)) ///
+    bgcolor(white) ///
+    plotregion(lcolor(white))
+
+// load dataset
+capture noisily use "cleaning/referrals_wide.dta"
+if _rc != 0 {
+    use "referrals_wide.dta"
+}
+sum pcent_count_total, det
+drop if z_rav == . // students didnt join
+drop if z_gpa == . // students with gpa missing --> 2 classes premed school
+drop if net_class == 22000 // 1 student
+drop if net_class == 7000 // 3 students
+sum pcent_count_total, det
+
+tabstat guess_ratio guess_ratio12 guess_ratio3 guess_ratio4 guess_ratio56, by(ses) stat(mean )
+sum pcent_count_total, det
+
+// xtile top10 = pcent_total, nq(10)
+// xtile top10rt1 = pcent_rav_t1, nq(10) 
+// xtile top10r = pcent_rav, nq(10) 
+// xtile top10et1 = pcent_eye_t1, nq(10) 
+///// FINAL DATASET - 665 individuals
+
+/////////////
+
+//# correlation matrix
+pwcorr z_gpa z_rav z_eye z_test pcent_count_total, sig star(.05) bonferroni
+pwcorr rural ethnic first_gen ses, sig star(.05) bonferroni
+
+
+//# is gpa different by social class
+ttest z_gpa, by(ses)	
+
+//# test GPA 
+foreach var in gpa test {
+    display _newline "----------------------------------------"
+	display _newline "Analysis for z_`var'"
+    display _newline "----------------------------------------"
+    
+    quietly sum pcent_count_total, det 
+	local t_ = r(p50)
+	quietly sum z_`var' if pcent_count_total <= `t_'
+    local t_m1 = r(mean)
+    local t_sd1 = r(sd)
+    local t_n1 = r(N)
+    
+    quietly sum z_`var' if pcent_count_total > `t_'
+    local t_m2 = r(mean)
+    local t_sd2 = r(sd)
+    local t_n2 = r(N)
+    
+    display _newline "T-test results: z_`var' if r_count_total <= p50 and > p50 "
+	ttesti `t_n1' `t_m1' `t_sd1' `t_n2' `t_m2' `t_sd2'
+}
+
+
+/*===========================================================================*/
+//# regression
+/*===========================================================================*/
+
+// top3
+gen rank_rav_dummy = rank_rav_class <= 3 
+gen rank_eye_dummy = rank_eye_class <= 3 
+
+// ihs transform
+generate ihs_pcent_count_rav_t1 = ln(pcent_count_rav_t1 + sqrt(pcent_count_rav_t1^2 + 1))
+
+//# table 1 : can peers identify skills
+reg pcent_count_rav_t1 c.z_rav, vce(cluster net_class)
+estimates store ravt1_1 
+reg pcent_count_eye_t1 c.z_eye, vce(robust)
+estimates store eyet1_1 
+esttab  ravt1_1 eyet1_1 ,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+coefplot ///
+    (ravt1_1, offset(0.15) mcolor("51 34 136") ciopts(color("51 34 136") lwidth(thick))) ///
+    (eyet1_1, offset(-0.15) mcolor("136 34 85") ciopts(color("136 34 85") lwidth(thick))), ///
+    coeflabels(z_rav = `""{bf:Cognitive}" "{bf:z-score}""' ///
+              z_eye = `""{bf:Social}" "{bf:z-score}""' ///
+              _cons = "{bf:Constant}", labsize(large)) ///
+    msymbol(D) msize(vlarge) ///
+    grid(none) ///
+    xlabel(-5(5)15, labsize(large) format(%2.0f)) /// ///
+    xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
+    xsize(1.75) ysize(1)  ///
+    legend(ring(0) pos(2) order(2 4) ///
+           label(2 "Cognitive share (%)") ///
+           label(4 "Social share (%)") ///
+           rows(2) size(medium) ///
+           region(lcolor(none) fcolor(none))) ///
+    $graph_opts name(reg1, replace) 
+graph export "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/reg1.png", ///
+    as(png) replace	
+	
+
+
+// table 1bis : can GOOD peers identify skills
+qui reg pcent_rav_t1_top c.z_rav, vce(cluster net_class)
+estimates store ravt1_top 
+qui reg pcent_eye_t1_top c.z_eye, vce(cluster net_class)
+estimates store eyet1_top 
+qui reg pcent_rav_t1_low c.z_rav, vce(cluster net_class)
+estimates store ravt1_low 
+qui reg pcent_eye_t1_low c.z_eye, vce(cluster net_class)
+estimates store eyet1_low 
+esttab  ravt1_low ravt1_top eyet1_low eyet1_top,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+// table 1bis2 : do higher beliefs about own abilitiy affect skill identification
+qui reg pcent_rav_t1_hb c.z_rav, vce(cluster net_class)
+estimates store ravt1_hb 
+qui reg pcent_eye_t1_hb c.z_eye, vce(cluster net_class)
+estimates store eyet1_hb 
+qui reg pcent_rav_t1_lb c.z_rav, vce(cluster net_class)
+estimates store ravt1_lb 
+qui reg pcent_eye_t1_lb c.z_eye, vce(cluster net_class)
+estimates store eyet1_lb 
+esttab  ravt1_lb ravt1_hb eyet1_lb eyet1_hb,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+
+//# figure common referrals
+
+//# table 2: it could be that people proxy skills with GPA
+qui reg pcent_count_rav_t1 c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store ravt1_2 
+qui reg pcent_count_eye_t1 c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store eyet1_2 
+esttab  ravt1_2 eyet1_2 ,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+// table 2bis : can GOOD peers identify skills
+qui reg pcent_rav_t1_top c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store ravt1_top 
+qui reg pcent_eye_t1_top c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store eyet1_top 
+qui reg pcent_rav_t1_low c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store ravt1_low 
+qui reg pcent_eye_t1_low c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store eyet1_low 
+esttab  ravt1_low ravt1_top eyet1_low eyet1_top,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+// table 2bis2 : do higher beliefs about own abilitiy affect skill identification
+qui reg pcent_rav_t1_hb c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store ravt1_hb 
+qui reg pcent_eye_t1_hb c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store eyet1_hb 
+qui reg pcent_rav_t1_lb c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store ravt1_lb 
+qui reg pcent_eye_t1_lb c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store eyet1_lb 
+esttab  ravt1_lb ravt1_hb eyet1_lb eyet1_hb,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+
+//# table 3: Twice referring peers cannot identify skills, only cognitive skill can be id'd by single referrals
+qui reg pcent_twice_t1 c.z_gpa c.z_rav c.z_eye , vce(cluster net_class)
+estimates store twice
+qui reg pcent_single_rav_t1 c.z_gpa c.z_rav , vce(cluster net_class)
+estimates store single_rav
+qui reg pcent_single_eye_t1 c.z_gpa c.z_eye , vce(cluster net_class)
+estimates store single_eye
+esttab twice single*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+coefplot (twice, offset(0.05)) (single_rav, offset(-0.05)) (single_eye, offset(-0.15)),  xline(0) $graph_opts
+
+coefplot ///
+    (twice, offset(0.15) mcolor("34 136 51") ciopts(color("34 136 51") lwidth(thick)) mlabcolor("34 136 51")) ///
+    (single_rav, offset(0.00) mcolor("51 34 136") ciopts(color("51 34 136") lwidth(thick)) mlabcolor("51 34 136")) ///
+    (single_eye, offset(-0.15) mcolor("136 34 85") ciopts(color("136 34 85") lwidth(thick)) mlabcolor("136 34 85")), ///
+    coeflabels(z_rav = `""{bf:Cognitive}" "{bf:z-score}""' ///
+               z_gpa = `""{bf:GPA}" "{bf:z-score}""' ///
+               z_eye = `""{bf:Social}" "{bf:z-score}""' ///
+               _cons = "{bf:Constant}", labsize(large)) ///
+    msymbol(D) msize(vlarge) ///
+    grid(none) ///
+    xlabel(0(5)15, labsize(large) format(%2.0f)) /// ///
+    xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
+    mlabsize(medium) ///
+    xsize(1.75) ysize(1) ///
+    legend(ring(0) pos(2) order(2 4 6) ///
+           label(2 "Common share (%)") ///
+           label(4 "Unique cognitive share (%)") ///
+           label(6 "Unique social share (%)") ///
+           rows(3) size(medium) ///
+           region(lcolor(none) fcolor(none))) ///
+    $graph_opts name(reg2, replace)
+
+graph export "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/reg2.png", ///
+    as(png) replace
+
+
+
+
+//# table 3 appendix: Twice referring peers cannot identify skills, only cognitive skill can be id'd by single referrals
+preserve
+expand 2
+bysort net_id: gen ref_dummy = _n
+label define reflabel 1 "Twice" 2 "Single"
+label values ref_dummy reflabel
+// rav
+gen pcent_ravens = pcent_twice_t1 if ref_dummy == 1
+replace pcent_ravens = pcent_single_rav_t1 if ref_dummy == 2
+// eye
+gen pcent_rmet = pcent_twice_t1 if ref_dummy == 1
+replace pcent_rmet = pcent_single_eye_t1 if ref_dummy == 2
+//
+qui reg pcent_ravens i.ref_dummy##c.z_rav i.ref_dummy##c.z_gpa, vce(cluster net_class)
+estimates store ravt_ref
+qui reg pcent_rmet i.ref_dummy##c.z_eye i.ref_dummy##c.z_gpa, vce(cluster net_class)
+estimates store eyet_ref 
+esttab ravt_ref eyet_ref,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+restore
+
+//# table 4: effect of treatment on ses, controlling for skills (extensive margin)
+preserve
+expand 2
+bysort net_id: gen treat_dummy = _n
+label define tlabel 1 "Baseline" 2 "Quota"
+label values treat_dummy tlabel
+// rav
+gen pcent_ravens = pcent_count_rav_t1 if treat_dummy == 1
+replace pcent_ravens = pcent_count_rav_t2 if treat_dummy == 2
+// eye
+gen pcent_rmet = pcent_count_eye_t1 if treat_dummy == 1
+replace pcent_rmet = pcent_count_eye_t2 if treat_dummy == 2
+//
+qui reg pcent_ravens i.treat_dummy##i.ses , vce(cluster net_class)
+estimates store ravt_n 
+qui reg pcent_rmet i.treat_dummy##i.ses , vce(cluster net_class)
+estimates store eyet_n
+qui reg pcent_ravens i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store ravt_c 
+qui reg pcent_rmet i.treat_dummy##i.ses c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store eyet_c 
+qui reg pcent_ravens i.treat_dummy##i.ses i.treat_dummy##c.z_rav i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store ravt_effi
+qui reg pcent_rmet i.treat_dummy##i.ses i.treat_dummy##c.z_eye i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store eyet_effi
+esttab ravt_c* eyet_c*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+esttab ravt_eff* eyet_eff*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+restore
+
+coefplot ///
+    (ravt_c, offset(0.15) mcolor("51 34 136") ciopts(color("51 34 136") lwidth(thick))) ///
+    (eyet_c, offset(-0.15) mcolor("136 34 85") ciopts(color("136 34 85") lwidth(thick))), ///
+    drop( z_rav z_gpa z_eye) ///
+    coeflabels(2.treat_dummy = `""{bf:Quota}" "{bf:treatment}""' ///
+              1.ses = `""{bf:Low-SES}" "{bf:peer}""' ///
+			  _cons = "{bf:Constant}" ///
+              2.treat_dummy#1.ses = `"{bf:Quota} × {bf:Low-SES}"', ///
+              labsize(large)) ///
+    msymbol(D) msize(vlarge) ///
+    grid(none) ///
+    xlabel(-5(5)15, labsize(large) format(%2.0f)) ///
+    xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
+    mlabsize(medium) ///
+    xsize(1.75) ysize(1) ///
+    legend(ring(0) pos(2) order(2 4) ///
+           label(2 "Cognitive share (%)") ///
+           label(4 "Social share (%)") ///
+           rows(2) size(medium) ///
+           region(lcolor(none) fcolor(none))) ///
+			$graph_opts ///
+    name(reg3, replace)
+    
+graph export "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/reg3.png", ///
+    as(png) replace	
+
+//# table 4bis?: effect of treatment on ses, controlling for skills (extensive margin)
+preserve
+expand 2
+bysort net_id: gen treat_dummy = _n
+label define tlabel 1 "Baseline" 2 "Quota"
+label values treat_dummy tlabel
+// twice
+gen pcent_twice = pcent_twice_t1 if treat_dummy == 1
+replace pcent_twice = pcent_twice_t2 if treat_dummy == 2
+// rav
+gen pcent_ravens = pcent_single_rav_t1 if treat_dummy == 1
+replace pcent_ravens = pcent_single_rav_t2 if treat_dummy == 2
+// rav + lses
+gen pcent_ravens_lses = pcent_single_rav_t1_lses if treat_dummy == 1
+replace pcent_ravens_lses = pcent_single_rav_t2_lses if treat_dummy == 2
+// rav + hses
+gen pcent_ravens_hses = pcent_single_rav_t1_hses if treat_dummy == 1
+replace pcent_ravens_hses = pcent_single_rav_t2_hses if treat_dummy == 2
+
+// eye
+gen pcent_rmet = pcent_single_eye_t1 if treat_dummy == 1
+replace pcent_rmet = pcent_single_eye_t2 if treat_dummy == 2
+//
+qui reg pcent_twice i.treat_dummy##i.ses c.z_rav c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store twice
+qui reg pcent_ravens i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store ravt_c 
+qui reg pcent_ravens_lses i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store ravt_lses 
+qui reg pcent_ravens_lses i.treat_dummy##i.ses i.treat_dummy##c.z_rav i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store ravt_lses2 
+reg pcent_ravens_hses i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store ravt_hses 
+qui reg pcent_ravens_hses i.treat_dummy##i.ses i.treat_dummy##c.z_rav i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store ravt_hses2 
+qui reg pcent_rmet i.treat_dummy##i.ses c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store eyet_c 
+esttab twice ravt_c* eyet_c*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+esttab ravt_lses ravt_hses,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+esttab ravt_lses2 ravt_hses2,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+restore
+
+coefplot ///
+    (twice, offset(0.15) mcolor("34 136 51") ciopts(color("34 136 51") lwidth(thick))) /// Green for "Common share" (first)
+    (ravt_c, offset(0.0) mcolor("51 34 136") ciopts(color("51 34 136") lwidth(thick))) /// Blue for "Cognitive share" (second)
+    (eyet_c, offset(-0.15) mcolor("136 34 51") ciopts(color("136 34 51") lwidth(thick))), /// Red for "Social share" (third)
+    drop(z_rav z_gpa z_eye) ///
+    coeflabels(2.treat_dummy = `""{bf:Quota}" "{bf:treatment}""' ///
+              1.ses = `""{bf:Low-SES}" "{bf:peer}""' ///
+              2.treat_dummy#1.ses = `"{bf:Quota} × {bf:Low-SES}"' ///
+              _cons = "{bf:Constant}", ///
+              labsize(large)) ///
+    msymbol(D) msize(vlarge) ///
+    grid(none) ///
+    xlabel(-5(5)15, labsize(large) format(%2.0f)) ///
+    xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
+    mlabsize(medium) ///
+    xsize(1.75) ysize(1) ///
+    legend(ring(0) pos(2) order(2 4 6) /// Changed to sequential order
+           label(2 "Common share (%)") ///  // First plot (green)
+           label(4 "Unique cognitive share (%)") /// // Second plot (blue)
+           label(6 "Unique social share (%)") ///   // Third plot (red)
+           rows(3) size(medium) ///
+           region(lcolor(none) fcolor(none))) ///
+    name(reg4, replace) $graph_opts 
+    
+graph export "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/reg4.png", ///
+    as(png) replace	
+
+
+//# table 4bis2: effect of treatment on ses, controlling for skills (extensive margin)
+preserve
+expand 2
+bysort net_id: gen treat_dummy = _n
+label define tlabel 1 "Baseline" 2 "Quota"
+label values treat_dummy tlabel
+// twice
+gen pcent_twice = pcent_twice_t1 if treat_dummy == 1
+replace pcent_twice = pcent_twice_t2 if treat_dummy == 2
+// rav + lses
+gen pcent_twice_lses = pcent_twice_t1_lses if treat_dummy == 1
+replace pcent_twice_lses = pcent_twice_t2_lses if treat_dummy == 2
+// rav + hses
+gen pcent_twice_hses = pcent_twice_t1_hses if treat_dummy == 1
+replace pcent_twice_hses = pcent_twice_t2_hses if treat_dummy == 2
+
+//
+qui reg pcent_twice i.treat_dummy##i.ses c.z_rav c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store twice
+qui reg pcent_twice_lses i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store twice_lses 
+qui reg pcent_twice_hses i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store twice_hses 
+esttab twice*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+restore
+
+//# table 5bis: effect of treatment on skill identification
+preserve
+expand 2
+bysort net_id: gen treat_dummy = _n
+label define tlabel 1 "Baseline" 2 "Quota"
+label values treat_dummy tlabel
+// twice
+gen pcent_twice = pcent_twice_t1 if treat_dummy == 1
+replace pcent_twice = pcent_twice_t2 if treat_dummy == 2
+// rav
+gen pcent_ravens = pcent_single_rav_t1 if treat_dummy == 1
+replace pcent_ravens = pcent_single_rav_t2 if treat_dummy == 2
+// eye
+gen pcent_rmet = pcent_single_eye_t1 if treat_dummy == 1
+replace pcent_rmet = pcent_single_eye_t2 if treat_dummy == 2
+//
+qui reg pcent_twice i.treat_dummy##i.ses i.treat_dummy##c.z_gpa i.treat_dummy##c.z_rav i.treat_dummy##c.z_eye, vce(cluster net_class)
+estimates store twice
+qui reg pcent_ravens i.treat_dummy##i.ses i.treat_dummy##c.z_rav i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store ravt2 
+qui reg pcent_rmet i.treat_dummy##i.ses i.treat_dummy##c.z_eye i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store eyet2 
+esttab twice ravt2 eyet2,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+restore
+
+
+//# table guessing ability & figure
+sum guess_ratio , det
+
+//# table 5: effect of treatment on skill identification
+preserve
+expand 2
+bysort net_id: gen treat_dummy = _n
+label define tlabel 1 "Baseline" 2 "Quota"
+label values treat_dummy tlabel
+// rav
+gen pcent_ravens = pcent_count_rav_t1 if treat_dummy == 1
+replace pcent_ravens = pcent_count_rav_t2 if treat_dummy == 2
+// eye
+gen pcent_rmet = pcent_count_eye_t1 if treat_dummy == 1
+replace pcent_rmet = pcent_count_eye_t2 if treat_dummy == 2
+//
+qui reg pcent_ravens i.treat_dummy##c.z_rav i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store ravt2 
+qui reg pcent_rmet i.treat_dummy##c.z_eye i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store eyet2 
+esttab ravt2 eyet2,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+restore
+
+//# table 6: heteregenous effect of treatment on skills, by origin ses
+preserve
+expand 2
+bysort net_id: gen treat_dummy = _n
+label define tlabel 1 "Baseline" 2 "Quota"
+label values treat_dummy tlabel
+// rav
+gen rav_rich = pcent_count_rav_t1hses if treat_dummy == 1
+replace rav_rich = pcent_count_rav_t2hses if treat_dummy == 2
+
+gen rav_poor = pcent_count_rav_t1lses if treat_dummy == 1
+replace rav_poor = pcent_count_rav_t2lses if treat_dummy == 2
+// eye
+gen eye_rich = pcent_count_eye_t1hses if treat_dummy == 1
+replace eye_rich = pcent_count_eye_t2hses if treat_dummy == 2
+
+gen eye_poor = pcent_count_eye_t1lses if treat_dummy == 1
+replace eye_poor = pcent_count_eye_t2lses if treat_dummy == 2
+//
+qui reg rav_rich i.treat_dummy##c.z_rav treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store rav_rich 
+qui reg rav_poor i.treat_dummy##c.z_rav treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store rav_poor  
+esttab rav_rich rav_poor,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+qui reg eye_rich i.treat_dummy##c.z_eye treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store eye_rich 
+qui reg eye_poor i.treat_dummy##c.z_eye treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store eye_poor  
+esttab eye_rich eye_poor,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+restore
+
+
+//# table 7: heteregenous effect of treatment on ses, by guessing ability
+preserve
+expand 2
+bysort net_id: gen treat_dummy = _n
+label define tlabel 1 "Baseline" 2 "Quota"
+label values treat_dummy tlabel
+// rav
+gen rav_high_guess = pcent_rav_t1_hg if treat_dummy == 1
+replace rav_high_guess = pcent_rav_t2_hg if treat_dummy == 2
+
+gen rav_low_guess = pcent_rav_t1_lg if treat_dummy == 1
+replace rav_low_guess = pcent_rav_t2_lg if treat_dummy == 2
+// eye
+gen eye_high_guess = pcent_eye_t1_hg if treat_dummy == 1
+replace eye_high_guess = pcent_eye_t2_hg if treat_dummy == 2
+
+gen eye_low_guess = pcent_eye_t1_lg if treat_dummy == 1
+replace eye_low_guess = pcent_eye_t2_lg if treat_dummy == 2
+//
+qui reg rav_high_guess i.treat_dummy##c.z_rav i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store rav_high_guess 
+qui reg rav_low_guess i.treat_dummy##c.z_rav i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store rav_low_guess  
+esttab rav_high_guess rav_low_guess,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+qui reg eye_high_guess i.treat_dummy##c.z_eye i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store eye_high_guess 
+qui reg eye_low_guess i.treat_dummy##c.z_eye i.treat_dummy##c.z_gpa, vce(cluster net_class)
+estimates store eye_low_guess  
+esttab eye_high_guess eye_low_guess,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+restore
+
+/////
+// appendix
+/////
+
+//# table 6bis: heteregenous effect of treatment on ses, by origin ses
+preserve
+expand 2
+bysort net_id: gen treat_dummy = _n
+label define tlabel 1 "Baseline" 2 "Quota"
+label values treat_dummy tlabel
+// rav
+gen rav_rich = pcent_count_rav_t1hses if treat_dummy == 1
+replace rav_rich = pcent_count_rav_t2hses if treat_dummy == 2
+
+gen rav_poor = pcent_count_rav_t1lses if treat_dummy == 1
+replace rav_poor = pcent_count_rav_t2lses if treat_dummy == 2
+// eye
+gen eye_rich = pcent_count_eye_t1hses if treat_dummy == 1
+replace eye_rich = pcent_count_eye_t2hses if treat_dummy == 2
+
+gen eye_poor = pcent_count_eye_t1lses if treat_dummy == 1
+replace eye_poor = pcent_count_eye_t2lses if treat_dummy == 2
+//
+qui reg rav_rich i.treat_dummy##i.ses c.z_rav  c.z_gpa, vce(cluster net_class)
+estimates store rav_rich 
+qui reg rav_poor i.treat_dummy##i.ses c.z_rav  c.z_gpa, vce(cluster net_class)
+estimates store rav_poor  
+esttab rav_rich rav_poor,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+qui reg eye_rich i.treat_dummy##i.ses c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store eye_rich 
+qui reg eye_poor i.treat_dummy##i.ses  c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store eye_poor  
+esttab eye_rich eye_poor,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+restore
+
+//# table 7bis: heteregenous effect of treatment on ses, by guessing ability
+preserve
+expand 2
+bysort net_id: gen treat_dummy = _n
+label define tlabel 1 "Baseline" 2 "Quota"
+label values treat_dummy tlabel
+// rav
+gen rav_high_guess = pcent_rav_t1_hg if treat_dummy == 1
+replace rav_high_guess = pcent_rav_t2_hg if treat_dummy == 2
+
+gen rav_low_guess = pcent_rav_t1_lg if treat_dummy == 1
+replace rav_low_guess = pcent_rav_t2_lg if treat_dummy == 2
+// eye
+gen eye_high_guess = pcent_eye_t1_hg if treat_dummy == 1
+replace eye_high_guess = pcent_eye_t2_hg if treat_dummy == 2
+
+gen eye_low_guess = pcent_eye_t1_lg if treat_dummy == 1
+replace eye_low_guess = pcent_eye_t2_lg if treat_dummy == 2
+//
+qui reg rav_high_guess i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store rav_high_guess 
+qui reg rav_low_guess i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store rav_low_guess  
+esttab rav_high_guess rav_low_guess,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+qui reg eye_high_guess i.treat_dummy##i.ses c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store eye_high_guess 
+qui reg eye_low_guess i.treat_dummy##i.ses c.z_eye c.z_gpa, vce(cluster net_class)
+estimates store eye_low_guess  
+esttab eye_high_guess eye_low_guess,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+restore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// delete for later
+
+
+
+qui reg pcent_t1_high c.z_gpa i.ses, vce(cluster net_class)
+est store t1_high
+qui reg pcent_t1_low c.z_gpa i.ses, vce(cluster net_class)
+est store t1_low
+qui reg pcent_t2_high c.z_gpa i.ses, vce(cluster net_class)
+est store t2_high
+qui reg pcent_t2_low c.z_gpa i.ses, vce(cluster net_class)
+est store t2_low
+esttab t1* t2*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+
+//# part1 - COGNITIVE
+mixed pcent_rav_t1 || net_class: 
+mixed pcent_rav_t2 || net_class: 
+
+reg pcent_rav_t1 c.z_rav, vce(cluster net_class)
+estimates store ravt1_1 
+
+reg pcent_rav_t1 c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store ravt1_2 
+
+reghdfe pcent_rav_t1 c.z_rav c.z_gpa, absorb(net_class) vce(cluster net_class)
+estimates store ravt1_fe
+
+reg pcent_rav_t2 c.z_rav, vce(cluster net_class)
+estimates store ravt2_1
+
+reg pcent_rav_t2 c.z_rav c.z_gpa, vce(cluster net_class)
+estimates store ravt2_2
+
+reghdfe pcent_rav_t2 c.z_rav c.z_gpa, absorb(net_class) vce(cluster net_class)
+estimates store ravt2_fe
+ 
+esttab ravt1*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+//# part1 - SOCIAL
+mixed pcent_eye_t1 || net_class: 
+mixed pcent_eye_t2 || net_class: 
+
+reg pcent_eye_t1 c.z_eye, vce(robust)
+estimates store eyet1_1 
+
+reg pcent_eye_t1 c.z_eye c.z_gpa, vce(robust)
+estimates store eyet1_2 
+
+reghdfe pcent_eye_t1 c.z_eye c.z_gpa, absorb(net_class) vce(robust)
+estimates store eyet1_fe
+
+reg pcent_eye_t2 c.z_eye, vce(robust)
+estimates store eyet2_1
+
+reg pcent_eye_t2 c.z_eye c.z_gpa, vce(robust)
+estimates store eyet2_2
+
+reghdfe pcent_eye_t2 c.z_eye c.z_gpa, absorb(net_class) vce(robust)
+estimates store eyet2_fe
+ 
+esttab  eyet1*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+
+
+//# part1 - SKILLS
+reg pcent_rav c.z_gpa c.z_rav c.z_eye i.gender c.z_age c.z_semester c.z_fraction_study, vce(robust)
+estimates store m1rav1 
+
+reg pcent_eye c.z_gpa c.z_rav c.z_eye i.gender c.z_age c.z_semester c.z_fraction_study , vce(robust)
+estimates store m1e1 
+
+reg pcent_total c.z_gpa c.z_rav c.z_eye i.gender c.z_age c.z_semester c.z_fraction_study , vce(robust)
+estimates store m1tall2
+ 
+esttab m1*,  b(%12.3f) se(%12.3f) r2 nobaselevels
+
+
+
+//# part2 - TREATMENT EFFECT
+reg pcent_total_t1 c.z_gpa i.ses i.gender c.z_age c.z_semester c.z_fraction_study, vce(robust)
+estimates store treat1
+
+reghdfe pcent_total_t1 c.z_gpa i.ses i.gender c.z_age c.z_semester c.z_fraction_study, absorb(net_class) vce(robust)
+estimates store treat1fe
+
+reg pcent_total_t2 c.z_gpa i.ses i.gender c.z_age c.z_semester c.z_fraction_study, vce(robust)
+estimates store treat2
+
+reghdfe pcent_total_t2 c.z_gpa i.ses i.gender c.z_age c.z_semester c.z_fraction_study, absorb(net_class) vce(robust)
+estimates store treat2fe
+
+reghdfe pcent_total c.z_gpa i.ses i.gender c.z_age c.z_semester c.z_fraction_study, absorb(net_class) vce(robust)
+estimates store treatallfe
+
+esttab treat*,  b(%12.3f) se(%12.3f) r2 nobaselevels
+
+/***
+//# part2 - treatment effect robustness check
+reg pcent_total_t1 i.ses, vce(robust)
+estimates store baseline_ses
+
+reg pcent_total_t1 i.ses c.z_gpa, vce(robust)
+estimates store baseline_per
+
+reg pcent_total_t1 i.ses  c.z_gpa c.pcent_lses, vce(robust)
+estimates store baseline_class
+
+reg pcent_total_t1 i.ses  c.z_gpa c.pcent_lses i.gender c.age c.semester, vce(robust)
+estimates store baseline_full
+estimates table baseline_* , star(.1 .05 .01) stats(r2 N)
+
+//# part2 - treatment effect robustness check
+reg pcent_total_t2 i.ses, vce(robust)
+estimates store quota_ses
+
+reg pcent_total_t2 i.ses c.z_gpa, vce(robust)
+estimates store quota_per
+
+reg pcent_total_t2 i.ses  c.z_gpa c.pcent_lses, vce(robust)
+estimates store quota_class
+
+reg pcent_total_t2 i.ses  c.z_gpa c.pcent_lses i.gender c.age c.semester, vce(robust)
+estimates store quota_full
+estimates table quota_* , star(.1 .05 .01) stats(r2 N)
+***/
+
+//# part3 - SOCIAL CLASS HOMOPHILY HSES robust linear main 
+reg pcent_total_t1hses c.z_gpa i.ses, vce(robust)
+estimates store m_t1high
+
+reg pcent_total_t2hses c.z_gpa i.ses i.gender c.z_age c.z_semester c.z_guess_ratio c.z_fraction_study, vce(robust)
+estimates store m_t2high
+
+estimates store m_t2highfe
+esttab m_*,  b(%12.3f) se(%12.3f) r2 nobaselevels
+
+//# part3 - SOCIAL CLASS HOMOPHILY LSES robust linear main 
+reg pcent_total_t1lses c.z_gpa i.ses i.gender c.z_age c.z_semester c.z_guess_ratio c.z_fraction_study, vce(robust)
+estimates store ml_t1l
+
+reg pcent_total_t2lses c.z_gpa i.ses i.gender c.z_age c.z_semester c.z_guess_ratio c.z_fraction_study, vce(robust)
+estimates store ml_t2l
+
+esttab ml_*,  b(%12.3f) se(%12.3f) r2 nobaselevels
+
+//# part3 - homophily robustness check
+reg pcent_total_hses i.ses, vce(robust)
+estimates store high_lses 
+
+reg pcent_total_hses i.ses c.z_gpa, vce(robust)
+estimates store high_gpa 
+
+reg pcent_total_hses i.ses c.z_gpa c.pcent_lses, vce(robust)
+estimates store high_class 
+
+reg pcent_total_hses i.ses c.z_gpa c.pcent_lses i.gender c.age c.semester, vce(robust)
+estimates store high_all 
+
+//reg pcent_total_lses i.ses c.z_gpa##c.z_guess_ratio i.gender c.z_age c.z_semester c.z_fraction_study, vce(robust) ???
+
+estimates table high* , star(.1 .05 .01) stats(r2 N) 
+
+//# part3 - homophily robustness check
+reg pcent_total_lses i.ses, vce(robust)
+estimates store low_lses 
+
+reg pcent_total_lses i.ses c.z_gpa, vce(robust)
+estimates store low_gpa 
+
+reg pcent_total_lses i.ses c.z_gpa c.pcent_lses, vce(robust)
+estimates store low_class 
+
+reg pcent_total_lses i.ses c.z_gpa c.pcent_lses i.gender c.age c.semester, vce(robust)
+estimates store low_all 
+
+estimate table low* , star(.1 .05 .01) stats(r2 N) 
+
+
+
+// quantile reg
+qreg r_count_total c.z_gpa c.z_test c.z_rav c.z_eye c.z_fraction_study i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, quantile(90) vce(robust)
+est store q90
+qreg r_count_total c.z_gpa c.z_test c.z_rav c.z_eye c.z_fraction_study i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, quantile(50) vce(robust)
+est store q50
+qreg r_count_total c.z_gpa c.z_test c.z_rav c.z_eye c.z_fraction_study i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, quantile(10) vce(robust)
+est store q10
+estimates table q* , star(.1 .05 .01) stats(r2 pr2 N) 
+
+
+
+
+
+
+
+
+
+
+/*===========================================================================*/
+//# APPENDIX
+/*===========================================================================*/
+
+
+//# part1 robust appendix1
+reg pcent_total c.z_gpa c.z_rav c.z_eye i.ses  i.gender c.age c.semester, vce(robust)
+estimates store app_all 
+
+reg pcent_total_t1 c.z_gpa c.z_rav c.z_eye i.ses  i.gender c.age c.semester, vce(robust)
+estimates store app_t1
+
+reg pcent_total_t2 c.z_gpa c.z_rav c.z_eye i.ses  i.gender c.age c.semester, vce(robust)
+estimates store app_t2
+
+xtset net_class
+xtreg pcent_total c.z_gpa c.z_rav c.z_eye i.ses  i.gender c.age c.semester,fe vce(robust)
+estimates store app_feclass
+
+estimates table app_* , star(.1 .05 .01) stats(r2 N) 
+
+
+
+
+
+//# fe simple appendix
+// gen sample_flag = !missing(z_test) // to adjust for missing values in reduced model vs full
+
+reghdfe r_count_rav c.z_gpa c.z_test c.z_rav c.z_eye c.z_fraction_faculty c.z_fraction_study, absorb(net_class) vce(robust)
+estimates store fe1r
+
+reghdfe r_count_eye c.z_gpa c.z_test c.z_rav c.z_eye c.z_fraction_faculty c.z_fraction_study, absorb(net_class) vce(robust)
+estimates store fe1e
+
+reghdfe r_count_total c.z_gpa c.z_test c.z_rav c.z_eye c.z_fraction_faculty c.z_fraction_study, absorb(net_class) vce(robust)
+estimates store fe1t
+estimates table fe1* , star(.1 .05 .01) stats(r2 N) 
+
+//# fe simple appendix
+// ravens
+reghdfe r_count_rav c.z_rav c.z_eye c.z_fraction_study, absorb(net_class i.first_gen i.ses  i.gender i.ethnic i.rural i.age i.semester) vce(robust)
+estimates store fe1r
+
+reghdfe r_count_rav c.z_rav c.z_eye c.z_fraction_study c.z_gpa, absorb(net_class i.first_gen i.ses  i.gender i.ethnic i.rural i.age i.semester) vce(robust)
+estimates store fe1r_gpa
+
+reghdfe r_count_rav c.z_rav c.z_eye c.z_fraction_study c.z_test, absorb(net_class i.first_gen i.ses  i.gender i.ethnic i.rural i.age i.semester) vce(robust)
+estimates store fe1r_test
+
+reghdfe r_count_rav c.z_rav c.z_eye c.z_fraction_study c.z_gpa c.z_test, absorb(net_class i.first_gen i.ses  i.gender i.ethnic i.rural i.age i.semester) vce(robust)
+estimates store fe1r_all
+estimates table fe1r* , star(.1 .05 .01) stats(r2 N) 
+
+// eye
+quietly reg r_count_rav c.z_rav c.z_eye c.z_fraction_study i.first_gen i.ses  i.gender i.ethnic i.rural age i.semester, vce(robust)
+estimates store fe1e
+
+quietly reg r_count_rav c.z_rav c.z_eye c.z_fraction_study c.z_gpa i.first_gen i.ses  i.gender i.ethnic i.rural age i.semester, vce(robust)
+estimates store fe1e_gpa
+
+quietly reg r_count_rav c.z_rav c.z_eye c.z_fraction_study c.z_test i.first_gen i.ses  i.gender i.ethnic i.rural age i.semester, vce(robust)
+estimates store fe1e_test
+
+reg r_count_rav c.z_rav c.z_eye c.z_fraction_study c.z_gpa c.z_test i.first_gen i.ses  i.gender i.ethnic i.rural age i.semester, vce(robust)
+estimates store fe1e_all
+estimates table fe1e* , star(.1 .05 .01) stats(r2 N) 
+
+
+
+//# robust linear appendix
+reg r_count_rav_t1 c.z_gpa c.z_test c.z_rav c.z_eye i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, vce(robust)
+estimates store m1t1r 
+
+reg r_count_eye_t1 c.z_gpa c.z_test c.z_rav c.z_eye i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, vce(robust)
+estimates store m1t1e 
+
+reg r_count_total_t1 c.z_gpa c.z_test c.z_rav c.z_eye i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, vce(robust)
+estimates store m1t1t 
+estimates table m1t1* , star(.1 .05 .01) stats(r2 N) 
+
+
+//# fe classroom
+reghdfe r_count_rav c.z_gpa c.z_test c.z_rav c.z_eye i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester , absorb(net_class ) vce(robust)
+estimates store m2r
+
+reghdfe r_count_eye c.z_gpa c.z_test c.z_rav c.z_eye i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, absorb(net_class ) vce(robust)
+estimates store m2e
+
+reghdfe r_count_total c.z_gpa c.z_test c.z_rav c.z_eye c.z_fraction_study i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, absorb(net_class )  vce(robust)
+estimates store m2t
+estimates table m2* , star(.1 .05 .01) stats(r2 N) 
+// xtreg r_count_total c.z_gpa c.z_test c.z_rav c.z_eye c.z_fraction_study i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, fe i(net_class)
+
+
+// OLD
+
+//# part2 fe appendix? 
+xtset net_class
+xtreg r_count_total c.z_gpa c.z_test c.z_fraction_faculty i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, fe vce(robust)
+estimates store m2fe_faculty 
+
+xtreg r_count_total c.z_gpa c.z_test c.z_fraction_study i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, fe vce(robust)
+estimates store m2fe_program
+
+xtreg r_count_total c.z_gpa c.z_test  c.z_fraction_faculty c.z_fraction_study i.first_gen i.ses  i.gender i.ethnic i.rural c.age c.semester, fe vce(robust)
+estimates store m2fe_both 
+estimates table m2fe* , star(.1 .05 .01) stats(r2 N) 
+
+//# part2 reg? main 
+reg r_count_total c.z_gpa c.z_test  c.z_fraction_faculty i.first_gen i.ses i.gender i.ethnic i.rural c.age c.semester, vce(robust)
+estimates store m2fe_test 
+estimates table m2fe* , star(.1 .05 .01) stats(r2 N) 
+
+//# part3 fe main 
+xtset net_class
+xtreg r_count_total_lses c.z_gpa c.z_test c.z_fraction_study c.z_guess_ratio i.ses i.first_gen i.ethnic i.rural i.gender  c.age c.semester, fe vce(robust)
+estimates store m1fe2_lses 
+
+xtreg r_count_total_hses c.z_gpa c.z_test c.z_fraction_study c.z_guess_ratio i.ses i.first_gen  i.ethnic i.rural i.gender c.age c.semester, fe vce(robust)
+estimates store m1fe2_hses
+
+xtreg r_count_total c.z_gpa c.z_test c.z_fraction_study c.z_guess_ratio i.ses i.first_gen i.ethnic i.rural i.gender c.age c.semester, fe vce(robust)
+estimates store m1fe2_both 
+estimates table m1fe2* , star(.1 .05 .01) stats(r2 N) 
+
+
+
+xtset net_class
+//# FGLS estimator for population-averaged model
+xtreg r_count_total  c.z_gpa c.z_test c.z_rav c.z_eye  c.z_fraction_faculty c.z_fraction_study i.first_gen i.ses  i.gender i.rural c.age c.semester, pa corr(exchangeable) vce(robust)
+est store pa
+//# re
+xtreg r_count_total c.z_gpa c.z_test c.z_rav c.z_eye   c.z_fraction_faculty c.z_fraction_study i.first_gen i.ses  i.gender i.rural c.age c.semester, re vce(robust)
+est store re
+//# fe
+xtreg r_count_total  c.z_gpa c.z_test c.z_rav c.z_eye   c.z_fraction_faculty c.z_fraction_study i.first_gen i.ses  i.gender i.rural c.age c.semester, fe vce(robust)
+est store fe
+//fe2
+reghdfe r_count_total  c.z_gpa c.z_test c.z_rav c.z_eye   c.z_fraction_faculty c.z_fraction_study i.first_gen i.ses  i.gender i.rural c.age c.semester, absorb(net_class)
+est store fe2
+//# reg
+reg r_count_total  c.z_gpa c.z_test c.z_rav c.z_eye   c.z_fraction_faculty c.z_fraction_study i.first_gen i.ses  i.gender i.rural c.age c.semester, vce(cluster net_class)
+est store clustered_linear
+reg r_count_total  c.z_gpa c.z_test c.z_rav c.z_eye   c.z_fraction_faculty c.z_fraction_study i.first_gen i.ses  i.gender i.rural c.age c.semester, vce(robust)
+est store robust_linear
+
+est tab pa re clustered_linear robust_linear fe fe2, star(.1 .05 .01) stats(r2 N)
+
+// reg by ses
+reg r_count_total_hses	 c.z_gpa c.z_test c.z_rav c.z_eye  c.z_guess_ratio c.z_fraction_faculty c.z_fraction_study i.first_gen i.ses  i.gender i.rural c.age c.semester, vce(robust)
+est store reg_high
+reg r_count_total_lses c.z_gpa c.z_test c.z_rav c.z_eye  c.z_guess_ratio c.z_fraction_faculty c.z_fraction_study i.first_gen i.ses  i.gender i.rural c.age c.semester,  vce(robust)
+est store reg_low
+reg r_count_total c.z_gpa c.z_test c.z_rav c.z_eye c.z_guess_ratio c.z_fraction_faculty c.z_fraction_study i.first_gen i.ses  i.gender i.rural c.age c.semester,  vce(robust)
+est store reg_all
+estimates table reg_* , star(.1 .05 .01) stats(r2 pr2 N) 
+
+
+//# part2 robust appendix2
+reg pcent_total_lses i.ses  i.gender c.age c.semester, vce(robust)
+estimates store m2lses_base 
+
+reg pcent_total_lses i.ses c.z_gpa  i.gender c.age c.semester, vce(robust)
+estimates store m2lses_perf 
+
+reg pcent_total_lses c.z_gpa##i.ses   i.gender c.age c.semester, vce(robust)
+estimates store m2lses_int
+
+reg pcent_total_lses c.z_gpa##i.ses   i.gender c.age c.semester, vce(robust)
+estimates store m2lses_int
+
+reg pcent_total_lses c.z_gpa##i.ses c.pcent_lses i.gender c.age c.semester, vce(robust)
+estimates store m2lses_class
+estimates table m2lses_* , star(.1 .05 .01) stats(r2 N) 
+
+
+
+
+
+
+
