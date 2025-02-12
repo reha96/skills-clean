@@ -1,6 +1,33 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
+Alan%
+\ \BBA {} Kubilay%
+}{%
+Alan%
+\ \BBA {} Kubilay%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+alan2025empowering}
+\APACinsertmetastar {%
+alan2025empowering}%
+\begin{APACrefauthors}%
+Alan, S.%
+\BCBT {}\ \BBA {} Kubilay, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Empowering Adolescents to Transform Schools: Lessons from a Behavioral Targeting} {Empowering adolescents to transform schools: Lessons from a behavioral targeting}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Economic Review}{115}{2}{forthcoming}.
+\newblock
+\begin{APACrefDOI} \doi{10.1257/aer.20240374} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Angulo%
 , Gaviria%
 , P{\'a}ez%
@@ -50,7 +77,7 @@ Balafoutas, L.%
 \newblock
 {\BBOQ}\APACrefatitle {Affirmative action policies promote women and do not harm efficiency in the laboratory} {Affirmative action policies promote women and do not harm efficiency in the laboratory}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{science}{335}{6068}{579--582}.
+\APACjournalVolNumPages{Science}{335}{6068}{579--582}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -222,31 +249,30 @@ Bertrand, M.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Bordalo%
-, Coffman%
-, Gennaioli%
-\BCBL {}\ \BBA {} Shleifer%
+Beugnot%
+\ \BBA {} Peterl\'{e}%
 }{%
-Bordalo%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2016}}%
+Beugnot%
+\ \BBA {} Peterl\'{e}%
+}{%
+{\protect \APACyear {2020}}%
 }]{%
-bordalo2016stereotypes}
+beugnot2020gender}
 \APACinsertmetastar {%
-bordalo2016stereotypes}%
+beugnot2020gender}%
 \begin{APACrefauthors}%
-Bordalo, P.%
-, Coffman, K.%
-, Gennaioli, N.%
-\BCBL {}\ \BBA {} Shleifer, A.%
+Beugnot, J.%
+\BCBT {}\ \BBA {} Peterl\'{e}, E.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2016}{}{}.
+\APACrefYearMonthDay{2020}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {Stereotypes} {Stereotypes}.{\BBCQ}
+{\BBOQ}\APACrefatitle {Gender Bias in Job Referrals: An Experimental Test} {Gender bias in job referrals: An experimental test}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{The Quarterly Journal of Economics}{131}{4}{1753--1794}.
+\APACjournalVolNumPages{Journal of Economic Psychology}{76}{}{102209}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.joep.2019.102209} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -531,6 +557,36 @@ Heckman, J\BPBI J.%
 {\BBOQ}\APACrefatitle {The effects of cognitive and noncognitive abilities on labor market outcomes and social behavior} {The effects of cognitive and noncognitive abilities on labor market outcomes and social behavior}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Journal of Labor economics}{24}{3}{411--482}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hederos%
+, Sandberg%
+, Kvissberg%
+\BCBL {}\ \BBA {} Polano%
+}{%
+Hederos%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+hederos2024gender}
+\APACinsertmetastar {%
+hederos2024gender}%
+\begin{APACrefauthors}%
+Hederos, K.%
+, Sandberg, A.%
+, Kvissberg, L.%
+\BCBL {}\ \BBA {} Polano, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Gender Homophily in Job Referrals: Evidence From a Field Study Among University Students} {Gender homophily in job referrals: Evidence from a field study among university students}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Labour Economics}{87}{}{102461}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.labeco.2024.102461} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1075,6 +1131,30 @@ barretoherrera2024regional}%
 \APACaddressInstitution{Washington, D.C.}{World Bank Group}.
 \newblock
 \begin{APACrefURL} \url{http://documents.worldbank.org/curated/en/099070124163525013/P17951815642cf06e1aec4155e4d8868269} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Z\'{a}rate%
+}{%
+Z\'{a}rate%
+}{%
+{\protect \APACyear {2023}}%
+}]{%
+zarate2023uncovering}
+\APACinsertmetastar {%
+zarate2023uncovering}%
+\begin{APACrefauthors}%
+Z\'{a}rate, R\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{July}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Uncovering Peer Effects in Social and Academic Skills} {Uncovering peer effects in social and academic skills}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Economic Journal: Applied Economics}{15}{3}{35--79}.
+\newblock
+\begin{APACrefDOI} \doi{10.1257/app.20210583} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}

@@ -44,7 +44,7 @@ sum pcent_count_total, det
 /////////////
 
 //# correlation matrix
-pwcorr z_gpa z_rav z_eye z_test pcent_count_total, sig star(.05) bonferroni
+pwcorr z_gpa z_rav z_eye z_test, sig star(.05) bonferroni
 pwcorr rural ethnic first_gen ses, sig star(.05) bonferroni
 
 
@@ -196,6 +196,7 @@ estimates store single_rav
 qui reg pcent_single_eye_t1 c.z_gpa c.z_eye , vce(cluster net_class)
 estimates store single_eye
 esttab twice single*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
 coefplot (twice, offset(0.05)) (single_rav, offset(-0.05)) (single_eye, offset(-0.15)),  xline(0) $graph_opts
 
 coefplot ///

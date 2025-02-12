@@ -397,7 +397,7 @@ twoway ///
         connect(none) ///
         sort(rank_pcent_single_rav_t1)) ///
     (scatter rank_pcent_single_eye_t1 pcent_single_eye_t1, ///
-        msymbol(circle) ///
+        msymbol(circle_hollow) ///
         msize(vsmall) ///
         mcolor(gs4) ///
         sort(rank_pcent_single_eye_t1) ///
