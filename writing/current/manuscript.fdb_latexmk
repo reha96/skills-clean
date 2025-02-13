@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex manuscript"] 1739376244.32038 "manuscript.aux" "manuscript.bbl" "manuscript" 1739376249.32069 0
+["bibtex manuscript"] 1739433998.50464 "manuscript.aux" "manuscript.bbl" "manuscript" 1739434005.05755 0
   "./referrals.bib" 1739368953.71185 29889 91f51e0f27f4792beb6fe135eb8138aa ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "manuscript.aux" 1739376248.9438 18631 59f035144709b47b244e1ce85aff14c5 "pdflatex"
+  "manuscript.aux" 1739434004.58239 18631 5c4fbb034105f20c10f495ffdfca4600 "pdflatex"
   (generated)
   "manuscript.bbl"
   "manuscript.blg"
   (rewritten before read)
-["pdflatex"] 1739376244.46142 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/writing/current/manuscript.tex" "manuscript.pdf" "manuscript" 1739376249.32086 0
+["pdflatex"] 1739433998.71438 "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/writing/current/manuscript.tex" "manuscript.pdf" "manuscript" 1739434005.05783 0
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg" 1730058608.94141 24580 92357bedc173da70fc22f93697e6ecff ""
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg" 1730058608.94294 129791 78a7445379cb86a3ed032fd0ded7849c ""
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png" 1730058608.94926 1576207 2431a10fc4766cdc96f2c0f4f893e3bc ""
@@ -25,7 +25,7 @@
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/ref_skill_baseline_all3.png" 1739359425.2714 152048 0321a5f7c9da3ff80b38a567751218af ""
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/ses_dist3.png" 1739357182.21619 149390 0dae52ee3ce6470f53d8b40dc4b4b712 ""
   "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/strato.png" 1733904257.9511 125810 1ad2619e933968708e0298f1f17fe4fb ""
-  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/writing/current/manuscript.tex" 1739376239.29977 165765 2a1160f5e621b7d3bef42cacd8bc3b04 ""
+  "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/writing/current/manuscript.tex" 1739433995.53592 165808 96c7e38120cba22a940bf467d30730bf ""
   "/Users/reha.tuncer/Library/texlive/2024/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk" 1733319228.17819 7808 3d1a4b76be04600619568b2b623d04a0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -217,10 +217,10 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1729863227.02717 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1729863127 8221430 5836b5d7628c44f5214ea245e1a11c59 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "manuscript.aux" 1739376248.9438 18631 59f035144709b47b244e1ce85aff14c5 "pdflatex"
-  "manuscript.bbl" 1739376244.44957 31555 a56933ca313e7474734629c2ae5fb3ab "bibtex manuscript"
-  "manuscript.out" 1739376248.95425 3571 881c5abc8410f4f698e9c66724f3cd42 "pdflatex"
-  "manuscript.tex" 1739376239.29977 165765 2a1160f5e621b7d3bef42cacd8bc3b04 ""
+  "manuscript.aux" 1739434004.58239 18631 5c4fbb034105f20c10f495ffdfca4600 "pdflatex"
+  "manuscript.bbl" 1739433998.6986 31555 a56933ca313e7474734629c2ae5fb3ab "bibtex manuscript"
+  "manuscript.out" 1739434004.58978 3571 881c5abc8410f4f698e9c66724f3cd42 "pdflatex"
+  "manuscript.tex" 1739433995.53592 165808 96c7e38120cba22a940bf467d30730bf ""
   (generated)
   "manuscript.aux"
   "manuscript.log"
