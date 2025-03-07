@@ -11,14 +11,14 @@ version 18
 clear all
 macro drop _all
 set more off
-set scheme s2color, permanently
+set scheme stsj , permanently
 set maxvar 32767
 set more off
 set linesize 100
 global graph_opts ///
     graphregion(fcolor(white) lcolor(white)) ///
     bgcolor(white) ///
-    plotregion(lcolor(white))
+    plotregion(lcolor(white)) 
 
 // load dataset
 capture noisily use "cleaning/referrals_wide.dta"
@@ -313,7 +313,7 @@ twoway (bar pct_self x, color(gs12) barwidth(0.8)) ///
        (bar pct_no_self x, fcolor(white%0) lcolor(gs4) lwidth(medthick) lpattern(dash) barwidth(0.8)), ///
        xlabel(0(1)3) ///
        xscale(range(-0.5 3.5)) ///
-       legend(ring(0) pos(11) order(1 2) label(1 "Self-referrals") label(2 "No self-referrals") rows(2) size(small) region(lcolor(none) fcolor(none))) ///
+       legend(ring(0) pos(11) order(1 2) label(2 "Self-referrals") label(1 "No self-referrals") rows(2) size(small) region(lcolor(none) fcolor(none))) ///
        xtitle("Number of Common Referrals") ///
        xsize(4) ///
        ytitle("Percent") ///
@@ -782,3 +782,146 @@ vioplot pcent_total_t1  pcent_total_t2, horizontal $graph_opts
 // 
 bysort net_class: egen max_study = max(fraction_study)
 sum max_study, det
+
+
+
+
+
+
+
+
+
+
+
+
+
+* First, create a unique classroom index
+preserve
+keep net_class
+duplicates drop
+gen class_index = _n
+sort net_class
+save temp_class_index, replace
+restore
+
+* Merge the index back to the main dataset
+merge m:1 net_class using temp_class_index, nogen
+
+* Now run the graph loop
+foreach var of varlist z_gpa z_rav z_eye {
+   
+    * Preserve the original dataset
+    preserve
+    
+    * Collapse the data to get mean by class_index and net_class
+    collapse (mean) `var', by(class_index net_class)
+    
+    * Sort by the index
+    sort class_index
+   
+    * Create variable name for title
+    local vartitle = upper(substr("`var'", 3, .))
+   
+    * Create the bar graph with sorted values
+    graph bar `var', over(class_index, gap(100) label(labsize(vsmall))) ///
+        title("Classroom Average `vartitle'") ///
+        ytitle("Standardized `vartitle' (z-score)") ///
+        blabel(bar, format(%9.2f)angle(45) size(vsmall)) ///
+        yscale(range(-1.25 1.25)) ylabel(-1.25(.5)1.25) ///
+        scheme(s1color)
+   
+    * Save the graph
+    graph export "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/`var'_by_class.png", replace
+   
+    * Restore the original dataset
+    restore
+   
+}
+
+* Clean up
+capture erase temp_class_index.dta
+
+
+
+
+
+twoway (lpolyci z_gpa pcent_count_rav_t1 if pcent_count_rav_t1<=60, degree(1) bwidth(20) lcolor(blue) lwidth(thick) ///
+        ciplot(rline) clpattern(dash) clcolor(blue%30)) ///
+       (lpolyci z_rav pcent_count_rav_t1 if pcent_count_rav_t1<=60, degree(1) bwidth(20) lcolor(red) lwidth(thick) ///
+        ciplot(rline) clpattern(dash) clcolor(red%30)), ///
+       ylabel(-2(1)2, grid) ///
+       ytitle("Standardized score") ///
+       xtitle("Share of referrals at Baseline (%)") ///
+       legend(ring(0) pos(11) rows(2) order(1 "GPA" 3 "Cognitive score")) ///
+       title("Cognitive") ///
+       name(cog, replace) nodraw $graph_opts
+
+twoway (lpolyci z_gpa pcent_count_eye_t1 if pcent_count_eye_t1<=60, degree(1) bwidth(20) lcolor(blue) lwidth(thick) ///
+        ciplot(rline) clpattern(dash) clcolor(blue%30)) ///
+       (lpolyci z_eye pcent_count_eye_t1 if pcent_count_eye_t1<=60, degree(1) bwidth(20) lcolor(green) lwidth(thick) ///
+        ciplot(rline) clpattern(dash) clcolor(green%30)), ///
+       ylabel(-2(1)2, grid) ///
+       ytitle("Standardized score") ///
+       xtitle("Share of referrals at Baseline (%)") ///
+       legend(ring(0) pos(11) rows(2) order(1 "GPA" 3 "Social score")) ///
+       title("Social") ///
+       name(soc, replace) nodraw $graph_opts
+
+graph combine cog soc, xcommon ycommon
+graph export "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/gpa_scores_desc.png", replace
+
+
+
+* Generate top 3 indicator variables
+gen top3cog = (rank_rav_class <= 3)*100
+gen top3soc = (rank_eye_class <= 3)*100
+
+
+preserve
+twoway (lpolyci top3cog pcent_count_rav_t1 if pcent_count_rav_t1 <= 60, degree(1) bwidth(20) ///
+        lcolor(blue) lwidth(thick) ciplot(rline) clpattern(dash) clcolor(blue%30)) ///
+       (lpolyci top3cog pcent_count_rav_t2 if pcent_count_rav_t2 <= 60, degree(1) bwidth(20) ///
+        lcolor(red) lwidth(thick) ciplot(rline) clpattern(dash) clcolor(red%30)), ///
+       ylabel(0(.2)1, grid) ///
+       ytitle("Probability of Top 3 Ranking") ///
+       xtitle("Share of referrals (%)") ///
+       legend(ring(0) pos(11) rows(2) order(1 "Baseline" 3 "Quota")) ///
+       title("Cognitive") ///
+       name(cog_top3, replace) nodraw $graph_opts
+restore
+
+
+preserve
+twoway (lpolyci top3soc pcent_count_eye_t1 if pcent_count_eye_t1 <= 60, degree(1) bwidth(20) ///
+        lcolor(blue) lwidth(thick) ciplot(rline) clpattern(dash) clcolor(blue%30)) ///
+       (lpolyci top3soc pcent_count_eye_t2 if pcent_count_eye_t2 <= 60, degree(1) bwidth(20) ///
+        lcolor(red) lwidth(thick) ciplot(rline) clpattern(dash) clcolor(red%30)), ///
+       ylabel(0(.2)1, grid) ///
+       ytitle("Probability of Top 3 Ranking") ///
+       xtitle("Share of referrals (%)") ///
+       legend(ring(0) pos(11) rows(2) order(1 "Baseline" 3 "Quota")) ///
+       title("Social") ///
+       name(soc_top3, replace) nodraw $graph_opts
+restore
+graph combine cog_top3 soc_top3 , xcommon ycommon
+graph export "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/top3_cogsoc.png", replace
+
+
+preserve
+expand 2
+bysort net_id: gen treat_dummy = _n
+label define tlabel 1 "Baseline" 2 "Quota"
+label values treat_dummy tlabel
+// rav
+gen pcent_ravens = pcent_count_rav_t1 if treat_dummy == 1
+replace pcent_ravens = pcent_count_rav_t2 if treat_dummy == 2
+// eye
+gen pcent_rmet = pcent_count_eye_t1 if treat_dummy == 1
+replace pcent_rmet = pcent_count_eye_t2 if treat_dummy == 2
+//
+ksmirnov pcent_ravens, by(treat_dummy)
+ksmirnov pcent_rmet, by(treat_dummy)
+restore
+
+
+

@@ -21,7 +21,7 @@ global graph_opts ///
     plotregion(lcolor(white))
 
 // load dataset
-capture noisily use "cleaning/referrals_wide.dta"
+capture noisily use "/Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/stata/cleaning/referrals_wide.dta"
 if _rc != 0 {
     use "referrals_wide.dta"
 }
@@ -86,21 +86,27 @@ gen rank_eye_dummy = rank_eye_class <= 3
 generate ihs_pcent_count_rav_t1 = ln(pcent_count_rav_t1 + sqrt(pcent_count_rav_t1^2 + 1))
 
 //# table 1 : can peers identify skills
-reg pcent_count_rav_t1 c.z_rav, vce(cluster net_class)
+qui reg pcent_count_rav_t1 c.z_rav, vce(cluster net_class)
 estimates store ravt1_1 
-reg pcent_count_eye_t1 c.z_eye, vce(robust)
+qui reg pcent_count_eye_t1 c.z_eye, vce(cluster net_class)
 estimates store eyet1_1 
-esttab  ravt1_1 eyet1_1 ,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+qui reghdfe pcent_count_rav_t1 c.z_rav, absorb(net_class) vce(cluster net_class)
+estimates store fe1r
+qui reghdfe pcent_count_eye_t1 c.z_eye, absorb(net_class) vce(cluster net_class)
+estimates store fe1e
+**# Bookmark #4
+esttab  ravt1_1 fe1r eyet1_1 fe1e,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
 
 coefplot ///
-    (ravt1_1, offset(0.15) mcolor("51 34 136") ciopts(color("51 34 136") lwidth(thick))) ///
-    (eyet1_1, offset(-0.15) mcolor("136 34 85") ciopts(color("136 34 85") lwidth(thick))), ///
-    coeflabels(z_rav = `""{bf:Cognitive}" "{bf:z-score}""' ///
-              z_eye = `""{bf:Social}" "{bf:z-score}""' ///
-              _cons = "{bf:Constant}", labsize(large)) ///
+    (ravt1_1, offset(0.15) mcolor(red) ciopts(color(red) lwidth(thick))) ///
+    (eyet1_1, offset(-0.15) mcolor(green) ciopts(color(green) lwidth(thick))), ///
+    coeflabels(z_rav = "Cognitive score" ///
+              z_eye = "Social score" ///
+              _cons = "Dep. Var. mean") ///
     msymbol(D) msize(vlarge) ///
     grid(none) ///
-    xlabel(-5(5)15, labsize(large) format(%2.0f)) /// ///
+    xlabel(-5(2.5)15, format(%2.0f)) /// ///
     xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
     xsize(1.75) ysize(1)  ///
     legend(ring(0) pos(2) order(2 4) ///
@@ -161,7 +167,13 @@ qui reg pcent_count_rav_t1 c.z_rav c.z_gpa, vce(cluster net_class)
 estimates store ravt1_2 
 qui reg pcent_count_eye_t1 c.z_eye c.z_gpa, vce(cluster net_class)
 estimates store eyet1_2 
-esttab  ravt1_2 eyet1_2 ,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+qui reghdfe pcent_count_rav_t1 c.z_rav c.z_gpa, absorb(net_class) vce(cluster net_class)
+estimates store fe2r
+qui reghdfe pcent_count_eye_t1 c.z_eye c.z_gpa, absorb(net_class) vce(cluster net_class)
+estimates store fe2e
+esttab  ravt1_2 fe2r eyet1_2 fe2e,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
 
 // table 2bis : can GOOD peers identify skills
 qui reg pcent_rav_t1_top c.z_rav c.z_gpa, vce(cluster net_class)
@@ -190,12 +202,22 @@ esttab  ravt1_lb ravt1_hb eyet1_lb eyet1_hb,  b(%12.3f) se(%12.3f) r2 nobaseleve
 
 //# table 3: Twice referring peers cannot identify skills, only cognitive skill can be id'd by single referrals
 qui reg pcent_twice_t1 c.z_gpa c.z_rav c.z_eye , vce(cluster net_class)
-estimates store twice
+estimates store twice_1
 qui reg pcent_single_rav_t1 c.z_gpa c.z_rav , vce(cluster net_class)
 estimates store single_rav
 qui reg pcent_single_eye_t1 c.z_gpa c.z_eye , vce(cluster net_class)
 estimates store single_eye
-esttab twice single*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+esttab twice_1 single*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+qui reghdfe pcent_twice_t1  c.z_gpa c.z_rav c.z_eye, absorb(net_class) vce(cluster net_class)
+estimates store fe3c
+qui reghdfe pcent_single_rav_t1  c.z_gpa c.z_rav, absorb(net_class) vce(cluster net_class)
+estimates store fe3r
+qui reghdfe pcent_single_eye_t1 c.z_gpa c.z_eye , absorb(net_class) vce(cluster net_class)
+estimates store fe3e
+**# Bookmark #2
+esttab  twice_1 fe3c single_rav fe3r single_eye fe3e,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
 
 coefplot (twice, offset(0.05)) (single_rav, offset(-0.05)) (single_eye, offset(-0.15)),  xline(0) $graph_opts
 
@@ -263,16 +285,25 @@ qui reg pcent_ravens i.treat_dummy##i.ses , vce(cluster net_class)
 estimates store ravt_n 
 qui reg pcent_rmet i.treat_dummy##i.ses , vce(cluster net_class)
 estimates store eyet_n
-qui reg pcent_ravens i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class)
+
+qui reg pcent_ravens i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class net_id)
 estimates store ravt_c 
-qui reg pcent_rmet i.treat_dummy##i.ses c.z_eye c.z_gpa, vce(cluster net_class)
+qui reg pcent_rmet i.treat_dummy##i.ses c.z_eye c.z_gpa, vce(cluster net_class net_id)
 estimates store eyet_c 
+
+qui reghdfe pcent_ravens i.treat_dummy##i.ses c.z_rav c.z_gpa, absorb(net_class) vce(cluster net_class net_id)
+estimates store ravt_fe 
+qui reg pcent_rmet i.treat_dummy##i.ses c.z_eye c.z_gpa, absorb(net_class) vce(cluster net_class net_id)
+estimates store eyet_fe 
+
+
 qui reg pcent_ravens i.treat_dummy##i.ses i.treat_dummy##c.z_rav i.treat_dummy##c.z_gpa, vce(cluster net_class)
 estimates store ravt_effi
 qui reg pcent_rmet i.treat_dummy##i.ses i.treat_dummy##c.z_eye i.treat_dummy##c.z_gpa, vce(cluster net_class)
 estimates store eyet_effi
-esttab ravt_c* eyet_c*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
-esttab ravt_eff* eyet_eff*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+**# Bookmark #6
+esttab ravt_c* ravt_fe eyet_c* eyet_fe ,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+// esttab ravt_eff* eyet_eff*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
 restore
 
 coefplot ///
@@ -324,10 +355,24 @@ replace pcent_ravens_hses = pcent_single_rav_t2_hses if treat_dummy == 2
 gen pcent_rmet = pcent_single_eye_t1 if treat_dummy == 1
 replace pcent_rmet = pcent_single_eye_t2 if treat_dummy == 2
 //
-qui reg pcent_twice i.treat_dummy##i.ses c.z_rav c.z_eye c.z_gpa, vce(cluster net_class)
+qui reg pcent_twice i.treat_dummy##i.ses c.z_rav c.z_eye c.z_gpa, vce(cluster net_class net_id)
 estimates store twice
-qui reg pcent_ravens i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class)
+qui reghdfe pcent_twice i.treat_dummy##i.ses c.z_rav c.z_eye c.z_gpa, absorb(net_class) vce(cluster net_class net_id)
+estimates store twice_fe
+
+
+qui reg pcent_ravens i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class net_id)
 estimates store ravt_c 
+qui reghdfe pcent_ravens i.treat_dummy##i.ses c.z_rav c.z_gpa, absorb(net_class) vce(cluster net_class net_id)
+estimates store ravt_fe
+
+
+qui reg pcent_rmet i.treat_dummy##i.ses c.z_eye c.z_gpa, vce(cluster net_class net_id)
+estimates store eyet_c 
+qui reghdfe pcent_rmet i.treat_dummy##i.ses c.z_eye c.z_gpa, absorb(net_class) vce(cluster net_class net_id)
+estimates store eyet_fe
+
+
 qui reg pcent_ravens_lses i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_class)
 estimates store ravt_lses 
 qui reg pcent_ravens_lses i.treat_dummy##i.ses i.treat_dummy##c.z_rav i.treat_dummy##c.z_gpa, vce(cluster net_class)
@@ -336,11 +381,11 @@ reg pcent_ravens_hses i.treat_dummy##i.ses c.z_rav c.z_gpa, vce(cluster net_clas
 estimates store ravt_hses 
 qui reg pcent_ravens_hses i.treat_dummy##i.ses i.treat_dummy##c.z_rav i.treat_dummy##c.z_gpa, vce(cluster net_class)
 estimates store ravt_hses2 
-qui reg pcent_rmet i.treat_dummy##i.ses c.z_eye c.z_gpa, vce(cluster net_class)
-estimates store eyet_c 
-esttab twice ravt_c* eyet_c*,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
-esttab ravt_lses ravt_hses,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
-esttab ravt_lses2 ravt_hses2,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+
+**# Bookmark #7
+esttab twice twice_fe ravt_c* ravt_fe eyet_c* eyet_fe,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+// esttab ravt_lses ravt_hses,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
+// esttab ravt_lses2 ravt_hses2,  b(%12.3f) se(%12.3f) r2 nobaselevels label mtitles star(* 0.10 ** 0.05 *** 0.01)
 restore
 
 coefplot ///
@@ -979,10 +1024,4 @@ estimates store m2lses_int
 reg pcent_total_lses c.z_gpa##i.ses c.pcent_lses i.gender c.age c.semester, vce(robust)
 estimates store m2lses_class
 estimates table m2lses_* , star(.1 .05 .01) stats(r2 N) 
-
-
-
-
-
-
 

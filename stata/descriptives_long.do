@@ -1,0 +1,56 @@
+/*******************************************************************************
+    Project: SIR - descriptive figures
+    Author: Reha Tuncer
+    Date: 25.07.2024
+    Description: Figures/tables for referral types from long data
+*******************************************************************************/
+
+
+// Set up environment
+version 18
+clear all
+macro drop _all
+set more off
+set scheme s2color, permanently
+set maxvar 32767
+set more off
+set linesize 100
+global graph_opts ///
+    graphregion(fcolor(white) lcolor(white)) ///
+    bgcolor(white) ///
+    plotregion(lcolor(white))
+
+// load dataset
+capture noisily use "cleaning/cleaned_long_task.dta"
+if _rc != 0 {
+    use "cleaned_long_task.dta"
+}
+drop if z_gpa == . // students with gpa missing --> 2 classes premed school
+drop if net_class == 22000 // 1 student
+drop if net_class == 7000 // 3 students
+
+
+* Sort the data to make it easier to identify patterns
+sort net_id net_id_other task
+
+* Keep only essential variables
+keep net_id net_id_other task
+
+* Generate a unique identifier for each referrer-referee pair
+egen pair_id = group(net_id net_id_other)
+
+* Count how many times each pair appears (should be 1 or 2)
+by pair_id, sort: gen pair_count = _N
+
+* Generate referral type variable
+gen referral_type = ""
+replace referral_type = "Common" if pair_count == 2
+replace referral_type = "Unique Cognitive" if pair_count == 1 & task == 1
+replace referral_type = "Unique Social" if pair_count == 1 & task == 2
+
+* Mark one instance of each common pair for counting purposes
+bysort pair_id: gen is_first = (_n == 1)
+
+* Calculate distribution of referral types
+tab referral_type if is_first, missing
+

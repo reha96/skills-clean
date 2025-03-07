@@ -144,6 +144,11 @@ gen same_study = (study == study_other)
 //# Calculate ses guessing ability for referrers
 /*===========================================================================*/
 
+preserve
+keep if task != 3 & self_referral == 0
+save "cleaned_long_task.dta", replace
+restore
+
 // Keep only guessing task observations, excluding self-referrals
 keep if task == 3 & self_referral == 0
 
