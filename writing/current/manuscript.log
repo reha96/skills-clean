@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  7 MAR 2025 11:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  20 MAR 2025 11:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -732,7 +732,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [2] [3] [4] [5] [6] [7]
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/figure-1.jpg, id=258, 4383.37625pt x 918.43124pt>
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/figure-1.jpg, id=259, 4383.37625pt x 918.43124pt>
 File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/figure-1.jpg Graphic file (type jpg)
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/figure-1.jpg>
 Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/figure-1.jpg  used on input line 167.
@@ -781,13 +781,13 @@ File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figure
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/cdf3.png>
 Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/cdf3.png  used on input line 474.
 (pdftex.def)             Requested size: 204.9466pt x 204.94258pt.
- [22] [23 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/ref_skill_baseline_all3.png> </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/cdf3.png>] [24] [25] [26] [27] [28] [29] [30]
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/top3_cogsoc.png, id=514, 1477.52pt x 1075.01625pt>
+ [22] [23 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/ref_skill_baseline_all3.png> </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/cdf3.png>] [24] [25] [26] [27] [28] [29]
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/top3_cogsoc.png, id=509, 1477.52pt x 1075.01625pt>
 File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/top3_cogsoc.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/top3_cogsoc.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/top3_cogsoc.png  used on input line 627.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/top3_cogsoc.png  used on input line 625.
 (pdftex.def)             Requested size: 418.25368pt x 304.316pt.
- [31] [32 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/top3_cogsoc.png>] [33] [34] [35] [36] [37] (./manuscript.bbl [38] [39] [40]
+ [30] [31 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/top3_cogsoc.png>] [32] [33] [34] [35] [36] (./manuscript.bbl [37] [38] [39]
 Underfull \hbox (badness 1038) in paragraph at lines 977--989
 []\OT1/cmr/m/n/10.95 United Na-tions.  (2023).  \OT1/cmr/m/it/10.95 So-cial panorama of latin amer-ica and the caribbean
  []
@@ -812,52 +812,57 @@ Underfull \hbox (badness 1629) in paragraph at lines 1123--1135
 \OT1/cmr/m/n/10.95 (Poverty and Eq-uity Global Prac-tice Brief).  Wash-ing-ton, D.C.: World
  []
 
-[41]) [42]
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/strato.png, id=596, 1256.695pt x 914.41624pt>
+[40]) [41]
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/strato.png, id=591, 1256.695pt x 914.41624pt>
 File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/strato.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/strato.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/strato.png  used on input line 1210.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/strato.png  used on input line 1208.
 (pdftex.def)             Requested size: 250.95476pt x 182.60095pt.
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_rav_by_class.png, id=597, 1122.1925pt x 816.04875pt>
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_rav_by_class.png, id=592, 1122.1925pt x 816.04875pt>
 File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_rav_by_class.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_rav_by_class.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_rav_by_class.png  used on input line 1223.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_rav_by_class.png  used on input line 1221.
 (pdftex.def)             Requested size: 204.9466pt x 149.02415pt.
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_eye_by_class.png, id=598, 1122.1925pt x 816.04875pt>
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_eye_by_class.png, id=593, 1122.1925pt x 816.04875pt>
 File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_eye_by_class.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_eye_by_class.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_eye_by_class.png  used on input line 1229.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_eye_by_class.png  used on input line 1227.
 (pdftex.def)             Requested size: 204.9466pt x 149.02415pt.
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_gpa_by_class.png, id=599, 1122.1925pt x 816.04875pt>
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_gpa_by_class.png, id=594, 1122.1925pt x 816.04875pt>
 File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_gpa_by_class.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_gpa_by_class.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_gpa_by_class.png  used on input line 1235.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_gpa_by_class.png  used on input line 1233.
 (pdftex.def)             Requested size: 204.9466pt x 149.02415pt.
- [43 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/strato.png>]
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/gpa_ses.png, id=605, 1256.695pt x 914.41624pt>
+ [42 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/strato.png>]
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/gpa_ses.png, id=599, 1256.695pt x 914.41624pt>
 File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/gpa_ses.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/gpa_ses.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/gpa_ses.png  used on input line 1244.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/gpa_ses.png  used on input line 1242.
 (pdftex.def)             Requested size: 250.95476pt x 182.60095pt.
- [44 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_rav_by_class.png> </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_eye_by_class.png> </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_gpa_by_class.png>]
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/rav_ses.png, id=610, 1256.695pt x 914.41624pt>
+ [43 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_rav_by_class.png> </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_eye_by_class.png> </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/z_gpa_by_class.png>]
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/rav_ses.png, id=605, 1256.695pt x 914.41624pt>
 File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/rav_ses.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/rav_ses.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/rav_ses.png  used on input line 1263.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/rav_ses.png  used on input line 1261.
 (pdftex.def)             Requested size: 250.95476pt x 182.60095pt.
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/eye_ses.png, id=611, 1256.695pt x 914.41624pt>
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/eye_ses.png, id=606, 1256.695pt x 914.41624pt>
 File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/eye_ses.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/eye_ses.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/eye_ses.png  used on input line 1270.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/eye_ses.png  used on input line 1268.
 (pdftex.def)             Requested size: 250.95476pt x 182.60095pt.
- [45 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/gpa_ses.png>]
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guess_ratio.png, id=616, 1256.695pt x 914.41624pt>
+ [44 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/gpa_ses.png>]
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guess_ratio.png, id=611, 1256.695pt x 914.41624pt>
 File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guess_ratio.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guess_ratio.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guess_ratio.png  used on input line 1281.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guess_ratio.png  used on input line 1279.
 (pdftex.def)             Requested size: 250.95476pt x 182.60095pt.
- [46 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/rav_ses.png> </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/eye_ses.png>] [47 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guess_ratio.png>] [48] [49] [50] [51] [52]
-Underfull \hbox (badness 10000) in paragraph at lines 1574--1575
+ [45 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/rav_ses.png> </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/eye_ses.png>] [46 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guess_ratio.png>] [47] [48] [49] [50] [51]
+Underfull \hbox (badness 10000) in paragraph at lines 1572--1573
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1578--1579
 
  []
 
@@ -881,12 +886,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1586--1587
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1588--1589
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 1592--1593
 
  []
 
-[53]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1594--1595
 
  []
@@ -902,7 +907,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1598--1599
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1600--1601
+Underfull \hbox (badness 10000) in paragraph at lines 1602--1603
 
  []
 
@@ -911,18 +916,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 1604--1605
 
  []
 
-
+[53]
 Underfull \hbox (badness 10000) in paragraph at lines 1606--1607
 
  []
 
-[54]
-Underfull \hbox (badness 10000) in paragraph at lines 1608--1609
+
+Underfull \hbox (badness 10000) in paragraph at lines 1610--1611
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1612--1613
+Underfull \hbox (badness 10000) in paragraph at lines 1614--1615
 
  []
 
@@ -966,12 +971,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1630--1631
 
  []
 
-
+[54]
 Underfull \hbox (badness 10000) in paragraph at lines 1632--1633
 
  []
 
-[55]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1634--1635
 
  []
@@ -1026,17 +1031,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 1654--1655
 
  []
 
+[55]
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg, id=666, 873.2625pt x 873.2625pt>
+File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg Graphic file (type jpg)
+<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg  used on input line 1658.
+(pdftex.def)             Requested size: 174.6494pt x 174.6494pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1656--1657
+Underfull \hbox (badness 10000) in paragraph at lines 1661--1662
 
  []
 
-[56]
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg, id=671, 873.2625pt x 873.2625pt>
-File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg Graphic file (type jpg)
-<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg  used on input line 1660.
-(pdftex.def)             Requested size: 174.6494pt x 174.6494pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1663--1664
 
@@ -1057,12 +1062,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1669--1670
 
  []
 
-
+[56 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 1671--1672
 
  []
 
-[57 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1673--1674
 
  []
@@ -1122,21 +1127,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 1695--1696
 
  []
 
-
+[57]
 Underfull \hbox (badness 10000) in paragraph at lines 1697--1698
 
  []
 
-[58]
-Underfull \hbox (badness 10000) in paragraph at lines 1699--1700
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg, id=676, 1003.75pt x 301.125pt>
+File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg Graphic file (type jpg)
+<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg  used on input line 1701.
+(pdftex.def)             Requested size: 200.74644pt x 60.22392pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1704--1705
 
  []
 
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg, id=681, 1003.75pt x 301.125pt>
-File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg Graphic file (type jpg)
-<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg  used on input line 1703.
-(pdftex.def)             Requested size: 200.74644pt x 60.22392pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1706--1707
 
@@ -1172,12 +1177,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1718--1719
 
  []
 
-
+[58 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 1720--1721
 
  []
 
-[59 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1722--1723
 
  []
@@ -1232,12 +1237,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1742--1743
 
  []
 
-
+[59]
 Underfull \hbox (badness 10000) in paragraph at lines 1744--1745
 
  []
 
-[60]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1746--1747
 
  []
@@ -1257,21 +1262,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 1752--1753
 
  []
 
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png, id=686, 491.655pt x 296.088pt>
+File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png  used on input line 1760.
+(pdftex.def)             Requested size: 200.75996pt x 120.9044pt.
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/quota.png, id=688, 483.771pt x 287.985pt>
+File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/quota.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/quota.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/quota.png  used on input line 1767.
+(pdftex.def)             Requested size: 200.75996pt x 119.51154pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1754--1755
+Underfull \hbox (badness 10000) in paragraph at lines 1774--1775
 
  []
 
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png, id=691, 491.655pt x 296.088pt>
-File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png  used on input line 1762.
-(pdftex.def)             Requested size: 200.75996pt x 120.9044pt.
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/quota.png, id=693, 483.771pt x 287.985pt>
-File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/quota.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/quota.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/quota.png  used on input line 1769.
-(pdftex.def)             Requested size: 200.75996pt x 119.51154pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1776--1777
 
@@ -1287,16 +1292,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 1780--1781
 
  []
 
+[60 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png> </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/quota.png>]
+File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg Graphic file (type jpg)
+<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg  used on input line 1784.
+(pdftex.def)             Requested size: 174.6494pt x 174.6494pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1782--1783
+Underfull \hbox (badness 10000) in paragraph at lines 1787--1788
 
  []
 
-[61 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/baseline.png> </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/quota.png>]
-File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg Graphic file (type jpg)
-<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/Ravens Survey.jpg  used on input line 1786.
-(pdftex.def)             Requested size: 174.6494pt x 174.6494pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1789--1790
 
@@ -1322,25 +1327,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 1797--1798
 
  []
 
-
+[61]
 Underfull \hbox (badness 10000) in paragraph at lines 1799--1800
 
  []
 
-[62]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1801--1802
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1803--1804
 
  []
 
 File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg Graphic file (type jpg)
 <use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg  used on input line 1807.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/3Aghast-J.jpg  used on input line 1805.
 (pdftex.def)             Requested size: 200.74644pt x 60.22392pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1808--1809
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 1810--1811
 
@@ -1367,16 +1372,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 1818--1819
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1820--1821
+Underfull \hbox (badness 10000) in paragraph at lines 1822--1823
 
  []
 
-
+[62]
 Underfull \hbox (badness 10000) in paragraph at lines 1824--1825
 
  []
 
-[63]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1826--1827
 
  []
@@ -1386,16 +1391,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 1828--1829
 
  []
 
+</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guessing.png, id=706, 546.843pt x 307.038pt>
+File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guessing.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guessing.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guessing.png  used on input line 1833.
+(pdftex.def)             Requested size: 218.73332pt x 122.813pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1830--1831
+Underfull \hbox (badness 10000) in paragraph at lines 1836--1837
 
  []
 
-</Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guessing.png, id=711, 546.843pt x 307.038pt>
-File: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guessing.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guessing.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guessing.png  used on input line 1835.
-(pdftex.def)             Requested size: 218.73332pt x 122.813pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1838--1839
 
@@ -1411,18 +1416,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 1842--1843
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1844--1845
+[63 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guessing.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1846--1847
 
  []
 
-[64 </Users/reha.tuncer/Documents/GitHub/Inequality-Skills-and-Referrals/figures/guessing.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1848--1849
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1850--1851
+Underfull \hbox (badness 10000) in paragraph at lines 1852--1853
 
  []
 
@@ -1441,32 +1446,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 1858--1859
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1860--1861
-
- []
-
-[65] (./manuscript.aux)
+[64] (./manuscript.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: BD65A9C0F6EABE5E68F2A510666C3211;3816.
+(rerunfilecheck)             Checksum: 01AD72F78F3095C182F84EA3AE23BF30;3747.
  ) 
 Here is how much of TeX's memory you used:
- 20831 strings out of 474116
- 403313 string characters out of 5743681
+ 20830 strings out of 474116
+ 403306 string characters out of 5743681
  1944187 words of memory out of 5000000
  42669 multiletter control sequences out of 15000+600000
  580079 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  86i,11n,131p,2417b,1149s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/reha.tuncer/Library/texlive/2024/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on manuscript.pdf (65 pages, 6916472 bytes).
+Output written on manuscript.pdf (64 pages, 6914735 bytes).
 PDF statistics:
- 881 PDF objects out of 1000 (max. 8388607)
- 728 compressed objects within 8 object streams
- 209 named destinations out of 1000 (max. 500000)
+ 876 PDF objects out of 1000 (max. 8388607)
+ 724 compressed objects within 8 object streams
+ 208 named destinations out of 1000 (max. 500000)
  271 words of extra memory for PDF output out of 10000 (max. 10000000)
 
